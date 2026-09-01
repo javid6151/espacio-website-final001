@@ -155,11 +155,7 @@ const Navbar = () => {
             <Link 
               to="/contact" 
               onClick={() => resetScroll(true, '/contact')}
-              className={`font-sans text-[11px] uppercase tracking-widest font-bold px-6 py-2.5 rounded-pill transition-all duration-300 flex items-center gap-2 group shadow-sm active:scale-95 ${
-                scrolled 
-                  ? 'bg-ink text-bg hover:bg-gold hover:text-ink' 
-                  : 'bg-ink text-bg hover:bg-gold hover:text-ink'
-              }`}
+              className="font-sans text-[11px] uppercase tracking-widest font-bold px-6 py-2.5 rounded-pill transition-all duration-300 flex items-center gap-2 group shadow-sm active:scale-95 cursor-pointer bg-gold text-ink hover:bg-gold-hover hover:text-ink hover:shadow-md"
             >
               <span>Contact us</span>
               <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />

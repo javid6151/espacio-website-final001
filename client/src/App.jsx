@@ -10,6 +10,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Logo from './components/common/Logo';
 import IntroPreloader from './components/common/IntroPreloader';
+import CustomCursor from './components/common/CustomCursor';
 
 import Home from './pages/Home';
 
@@ -238,6 +239,7 @@ const MainLayout = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <CustomCursor />
       <IntroPreloader />
       <Navbar />
       <main className="flex-grow">
