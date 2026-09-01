@@ -48,77 +48,99 @@ export const COMPANY_PROJECTS = [
     ]
   },
   {
-    id: 'minimalist-beige-2bhk',
-    title: 'Minimalist Beige Sanctuary 2BHK',
-    category: 'Residential',
-    location: 'Financial District, Hyderabad',
-    scope: 'Full Turnkey Execution',
-    area: '1,650 sq.ft',
-    timeline: '60 Days',
-    heroImage: '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_3-20260810-124909.jpg',
-    description: 'Designed around soft earthen palettes, warm ambient profile lighting, and concealed handle-less joinery. A serene retreat high above the city.',
-    gallery: [
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_3-20260810-124909.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_27-20260810-124917.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_0-20260810-124909.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_13-20260810-124909.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_4-20260810-124909.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_8-20260810-124913.jpg'
-    ]
-  },
-  {
-    id: 'exquisite-duplex-fusion-4bhk',
-    title: 'Exquisite Duplex Fusion 4BHK',
+    id: 'kokapet-2bhk',
+    title: 'Kokapet 2BHK Residence',
     category: 'Residential',
     location: 'Kokapet, Hyderabad',
-    scope: 'Architecture & Turnkey Interior',
-    area: '4,200 sq.ft',
-    timeline: '120 Days',
-    heroImage: '/images/company/3bhk_lux/open_hall.png',
-    description: 'A bespoke double-height villa interior blending Italian marble flooring, custom fluted glass partitions, architectural suspended light installations, and an open show kitchen.',
+    scope: 'Turnkey Interior Execution',
+    area: '1,650 sq.ft',
+    timeline: '50 Days',
+    heroImage: '/images/projects/kokapet_nagesh_2bhk/kokapet_after.webp',
+    description: 'A bespoke 2BHK turnkey interior design and execution project for Nagesh at Kokapet, Hyderabad. High-precision modular kitchen cabinetry, integrated designer TV unit, custom crockery unit, and serene bedroom suites.',
     gallery: [
-      '/images/company/3bhk_lux/open_hall.png',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_5-20260813-110615.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Boys_Room_4-20260813-110616.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Boys_Room_14-20260813-110617.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_2-20260813-110615.jpg'
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_after.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_hall.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_tv_unit.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_kitchen.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_crockery.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_master_bedroom.webp',
+      '/images/projects/kokapet_nagesh_2bhk/kokapet_guest_bedroom.webp'
     ]
   },
   {
-    id: 'aparna-zicon-high-rise-2bhk',
-    title: 'Aparna Zicon High-Rise 2BHK',
+    id: 'gachibowli-minimalist-beige-2bhk',
+    title: 'Gachibowli Minimalist Beige 2BHK',
     category: 'Residential',
-    location: 'Nanakramguda, Hyderabad',
+    location: 'Gachibowli, Hyderabad',
+    scope: 'Full Turnkey Execution',
+    area: '1,480 sq.ft',
+    timeline: '60 Days',
+    heroImage: '/images/projects/gachibowli_koteswara_2bhk/koteswara_after.webp',
+    description: 'Designed for Koteswara Rao around soft earthen palettes, warm ambient profile lighting, and concealed handle-less joinery. A serene retreat in Gachibowli.',
+    gallery: [
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_after.webp',
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_gallery_1.webp',
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_gallery_7.webp',
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_gallery_13.webp',
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_gallery_18.webp',
+      '/images/projects/gachibowli_koteswara_2bhk/koteswara_gallery_28.webp'
+    ]
+  },
+  {
+    id: 'kachiguda-fusion-duplex-villa',
+    title: 'Kachiguda Fusion Duplex Villa',
+    category: 'Residential',
+    location: 'Kachiguda, Hyderabad',
+    scope: 'Architecture & Turnkey Interior',
+    area: '3,800 sq.ft',
+    timeline: '120 Days',
+    heroImage: '/images/projects/kachiguda_subbarao_duplex/subbarao_after.webp',
+    description: 'An exquisite fusion duplex residence for K Subbarao at Kachiguda, Hyderabad. Harmonizing contemporary architectural joinery, vibrant custom accents, dedicated parents suites, and boys study chambers.',
+    gallery: [
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_after.webp',
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_gallery_1.webp',
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_gallery_7.webp',
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_gallery_14.webp',
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_gallery_21.webp',
+      '/images/projects/kachiguda_subbarao_duplex/subbarao_gallery_26.webp'
+    ]
+  },
+  {
+    id: 'kokapet-urban-2bhk',
+    title: 'Kokapet Urban 2BHK Residence',
+    category: 'Residential',
+    location: 'Kokapet, Hyderabad',
     scope: 'Bespoke Turnkey Modular Fitout',
     area: '1,450 sq.ft',
     timeline: '45 Days',
-    heroImage: '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_1-20260810-122238.jpg',
-    description: 'Precision engineered for maximum spatial efficiency, featuring custom TV media units, acrylic modular kitchen, integrated master bedroom wardrobes, and bespoke foyer consoles.',
+    heroImage: '/images/projects/kokapet_rahul_2bhk/rahul_after.webp',
+    description: 'Precision engineered for maximum spatial efficiency for Rahul, featuring custom TV media units, acrylic modular kitchen, integrated master bedroom wardrobes, and bespoke foyer consoles.',
     gallery: [
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_1-20260810-122238.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Bedroom_24-20260810-122233.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Kitchen_17-20260810-122232.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_4-20260810-122232.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Bedroom_2-20260810-122236.jpg'
+      '/images/projects/kokapet_rahul_2bhk/rahul_after.webp',
+      '/images/projects/kokapet_rahul_2bhk/rahul_gallery_1.webp',
+      '/images/projects/kokapet_rahul_2bhk/rahul_gallery_2.webp',
+      '/images/projects/kokapet_rahul_2bhk/rahul_gallery_14.webp',
+      '/images/projects/kokapet_rahul_2bhk/rahul_gallery_20.webp',
+      '/images/projects/kokapet_rahul_2bhk/rahul_gallery_28.webp'
     ]
   },
   {
-    id: 'modern-retro-haven-2bhk',
-    title: 'Modern Retro Haven 2BHK',
+    id: 'gandipet-modern-retro-2bhk',
+    title: 'Gandipet Modern Retro 2BHK',
     category: 'Residential',
-    location: 'Madhapur, Hyderabad',
+    location: 'Gandipet, Hyderabad',
     scope: 'Interior Styling & Turnkey Carpentry',
-    area: '1,780 sq.ft',
+    area: '1,750 sq.ft',
     timeline: '55 Days',
-    heroImage: '/images/company/2bhk_mordern_retro/b1_2.jpg',
-    description: 'A cozy interplay of mid-century aesthetics, rich natural walnut veneers, custom fluted wall paneling, and warm cove ambient illumination.',
+    heroImage: '/images/projects/gandipet_kiran_2bhk/kiran_after.webp',
+    description: 'A cozy interplay of mid-century aesthetics for Kiran Raja, rich natural walnut veneers, custom fluted wall paneling, and warm cove ambient illumination.',
     gallery: [
-      '/images/company/2bhk_mordern_retro/b1_2.jpg',
-      '/images/company/2bhk_mordern_retro/b1_tv_unit.jpg',
-      '/images/company/2bhk_mordern_retro/dining_2.jpg',
-      '/images/company/2bhk_mordern_retro/hall_paneling.jpg',
-      '/images/company/2bhk_mordern_retro/office_3.jpg',
-      '/images/company/2bhk_mordern_retro/kithen.jpg'
+      '/images/projects/gandipet_kiran_2bhk/kiran_after.webp',
+      '/images/projects/gandipet_kiran_2bhk/kiran_gallery_1.webp',
+      '/images/projects/gandipet_kiran_2bhk/kiran_gallery_2.webp',
+      '/images/projects/gandipet_kiran_2bhk/kiran_gallery_10.webp',
+      '/images/projects/gandipet_kiran_2bhk/kiran_gallery_17.webp',
+      '/images/projects/gandipet_kiran_2bhk/kiran_gallery_20.webp'
     ]
   },
   {
@@ -141,21 +163,22 @@ export const COMPANY_PROJECTS = [
     ]
   },
   {
-    id: 'urban-contemporary-flat-2bhk',
-    title: 'Urban Contemporary Flat 2BHK',
+    id: 'kondapur-minimalist-2bhk',
+    title: 'Kondapur Minimalist Contemporary 2BHK',
     category: 'Residential',
-    location: 'Gachibowli, Hyderabad',
+    location: 'Kondapur, Hyderabad',
     scope: 'Full Interior Fitout',
     area: '1,520 sq.ft',
     timeline: '50 Days',
-    heroImage: '/images/company/2bhk_urban/Minimalist_Gray__A_Contemporary_Kitchen_Masterpiec-Unnamed_2-20260810-173514.jpg',
-    description: 'Contemporary charcoal and grey kitchen cabinetry with high-grade quartz countertops, paired with minimalist bedrooms and bespoke entertainment walls.',
+    heroImage: '/images/projects/kondapur_venkatesh_2bhk/venkatesh_after.webp',
+    description: 'Contemporary charcoal and grey kitchen cabinetry with high-grade quartz countertops for Venkatesh, paired with minimalist bedrooms and bespoke entertainment walls.',
     gallery: [
-      '/images/company/2bhk_urban/Minimalist_Gray__A_Contemporary_Kitchen_Masterpiec-Unnamed_2-20260810-173514.jpg',
-      '/images/company/2bhk_urban/Ideas_2_2-_11-20260810-173542.jpg',
-      '/images/company/2bhk_urban/Ideas_2_2-_0-20260810-173541.jpg',
-      '/images/company/2bhk_urban/Ideas_2_2-_3-20260810-173542.jpg',
-      '/images/company/2bhk_urban/Ideas_2_2-_12-20260810-173540.jpg'
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_after.webp',
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_gallery_1.webp',
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_gallery_2.webp',
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_gallery_6.webp',
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_gallery_9.webp',
+      '/images/projects/kondapur_venkatesh_2bhk/venkatesh_gallery_16.webp'
     ]
   },
   {

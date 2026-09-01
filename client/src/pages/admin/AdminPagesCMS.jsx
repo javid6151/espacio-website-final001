@@ -50,11 +50,11 @@ const AdminPagesCMS = () => {
 
     nav_items: [
       { label: 'Home', path: '/', visible: true },
-      { label: 'About', path: '/about', visible: true },
-      { label: 'What We Do', path: '/what-we-do', visible: true },
+      { label: 'Services', path: '/services', visible: true },
       { label: 'Projects', path: '/projects', visible: true },
-      { label: 'Materials Library', path: '/products', visible: true },
-      { label: 'FAQ', path: '/faq', visible: true },
+      { label: 'Spaces', path: '/spaces', visible: true },
+      { label: 'Materials', path: '/materials', visible: true },
+      { label: 'About', path: '/about', visible: true },
       { label: 'Contact', path: '/contact', visible: true },
     ],
 
@@ -69,10 +69,14 @@ const AdminPagesCMS = () => {
     projects_hero_title: 'Our Projects',
     projects_hero_subtitle: 'Every space reflects thoughtful layouts, structural precision, custom material procurement, and meticulous attention to detail.',
     projects_hero_images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=90',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=90',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=90',
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=90'
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_8-20260813-110617.jpg',
+      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_6-20260810-124909.jpg',
+      '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-Guest_restaurant_19-20260810-120432.jpg',
+      '/images/company/2bhk_mordern_retro/hall_5.jpg',
+      '/images/company/3bhk_lux/bedroom_1.png',
+      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_31-20260810-122245.jpg',
+      '/images/company/2bhk_lux/bed_room_2.png',
+      '/images/company/3bhk_lux/open_hall2.png'
     ],
 
     services_hero_badge: 'Services & Offerings',

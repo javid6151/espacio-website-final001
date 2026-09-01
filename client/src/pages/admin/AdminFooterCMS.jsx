@@ -24,8 +24,8 @@ const defaultFooterData = {
     { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Spaces', path: '/what-we-do' },
-    { label: 'Materials', path: '/products' },
+    { label: 'Spaces', path: '/spaces' },
+    { label: 'Materials', path: '/materials' },
     { label: 'About', path: '/about' },
   ],
 

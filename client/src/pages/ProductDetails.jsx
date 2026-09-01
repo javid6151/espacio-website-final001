@@ -807,7 +807,7 @@ const ProductDetails = () => {
 
   return (
     <div className="bg-cream min-h-screen pb-24">
-      <SEO title={`${p.title} — Material Details`} description={p.description ? p.description.substring(0, 150) : 'Material details...'} image={p.heroImage} url={`/products/${p.slug}`} />
+      <SEO title={`${p.title} — Material Details`} description={p.description ? p.description.substring(0, 150) : 'Material details...'} image={p.heroImage} url={`/materials/${p.slug}`} />
       {/* Hero */}
       <section className="relative h-[65vh] bg-black mb-0 pt-28">
         <img src={p.heroImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover opacity-65" />
@@ -816,7 +816,7 @@ const ProductDetails = () => {
         
         {/* Back */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-4">
-          <Link to="/products" className="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-widest text-cream hover:text-gold font-bold transition-colors drop-shadow-sm">
+          <Link to="/materials" className="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-widest text-cream hover:text-gold font-bold transition-colors drop-shadow-sm">
             <ArrowLeft size={14} />
             <span>Back to Material Library</span>
           </Link>

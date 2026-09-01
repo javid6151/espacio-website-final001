@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Outlet, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -62,20 +62,53 @@ const AdminLoaderFallback = () => (
     </div>
   </div>
 );
+// Manual scroll restoration to prevent browser from restoring scrolled positions on navigation
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 // ── Scroll to top on every route change ─────────────────────────────────────
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // 1. Immediately reset Lenis virtual scroll
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+
+    // 2. Immediate window and document scroll reset
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // 3. Staggered microtask resets to catch React suspense and lazy chunk renders
+    const t0 = requestAnimationFrame(() => {
+      if (window.lenis) window.lenis.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [pathname]);
+    });
+
+    const t1 = setTimeout(() => {
+      if (window.lenis) window.lenis.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 20);
+
+    const t2 = setTimeout(() => {
+      if (window.lenis) window.lenis.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 100);
+
+    return () => {
+      cancelAnimationFrame(t0);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [pathname, search]);
   return null;
 };
 
@@ -235,6 +268,8 @@ function App() {
       infinite: false,
     });
 
+    window.lenis = lenis;
+
     let rafId;
     function raf(time) {
       lenis.raf(time);
@@ -246,6 +281,7 @@ function App() {
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 
@@ -262,10 +298,15 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:slug" element={<ProjectDetails />} />
-              <Route path="/what-we-do" element={<WhatWeDo />} />
-              <Route path="/what-we-do/:slug" element={<WhatWeDo />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:slug" element={<ProductDetails />} />
+              <Route path="/spaces" element={<WhatWeDo />} />
+              <Route path="/spaces/:slug" element={<WhatWeDo />} />
+              {/* Backwards-compatibility redirects */}
+              <Route path="/what-we-do" element={<Navigate to="/spaces" replace />} />
+              <Route path="/what-we-do/:slug" element={<Navigate to="/spaces" replace />} />
+              <Route path="/materials" element={<Products />} />
+              <Route path="/materials/:slug" element={<ProductDetails />} />
+              <Route path="/products" element={<Navigate to="/materials" replace />} />
+              <Route path="/products/:slug" element={<Navigate to="/materials" replace />} />
               <Route path="/contact" element={<Contact />} />
               
               {/* 404 fallback */}

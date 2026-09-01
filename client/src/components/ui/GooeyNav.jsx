@@ -19,11 +19,24 @@ const GooeyNav = ({
   const location = useLocation();
   const navigate = useNavigate();
 
+  const normalizeRoute = (p) => {
+    if (!p) return '/';
+    if (p === '/what-we-do' || p.startsWith('/what-we-do/')) return p.replace('/what-we-do', '/spaces');
+    if (p === '/products' || p.startsWith('/products/')) return p.replace('/products', '/materials');
+    return p;
+  };
+
   // Determine active index dynamically from route pathname
   const activeIndex = useMemo(() => {
-    const idx = items.findIndex(item =>
-      item.path === '/' ? location.pathname === '/' : location.pathname.startsWith(item.path)
-    );
+    const currentNorm = normalizeRoute(location.pathname);
+    
+    const idx = items.findIndex(item => {
+      const itemNorm = normalizeRoute(item.path);
+      if (itemNorm === '/') {
+        return currentNorm === '/';
+      }
+      return currentNorm === itemNorm || currentNorm.startsWith(itemNorm + '/');
+    });
     return idx !== -1 ? idx : 0;
   }, [location.pathname, items]);
 
@@ -102,6 +115,7 @@ const GooeyNav = ({
   };
 
   const handleClick = (e, index, path) => {
+    const targetPath = normalizeRoute(path);
     const liEl = navRef.current?.querySelectorAll('li')[index];
     if (liEl) {
       updateEffectPosition(liEl);
@@ -124,8 +138,13 @@ const GooeyNav = ({
     }
 
     // Immediately trigger navigation and scroll to top cleanly
-    navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(targetPath);
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   };
 
   const handleKeyDown = (e, index, path) => {

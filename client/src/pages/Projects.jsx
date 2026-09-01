@@ -37,8 +37,8 @@ const heroImages = [
   '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_31-20260810-122245.jpg',
   // 7. 2BHK Luxury: Luxury Master Suite with Floating Joinery (Folder: 2bhk_lux)
   '/images/company/2bhk_lux/bed_room_2.png',
-  // 8. 2BHK Urban: 4K Contemporary Kitchen & Island Breakfast Bar (Folder: 2bhk_urban)
-  '/images/company/2bhk_urban/Ideas_2_2-_5-20260810-173541.jpg'
+  // 8. 3BHK Luxury: Grand Open Hall & Living Lounge (Folder: 3bhk_lux)
+  '/images/company/3bhk_lux/open_hall2.png'
 ];
 
 const Projects = () => {
@@ -189,7 +189,7 @@ const Projects = () => {
 
   const categoriesList = ['villa', 'apartment', 'office', 'commercial', 'renovation', 'luxury_home'];
   const neighborhoods = ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kondapur', 'HITEC City', 'Kokapet', 'Begumpet', 'Madhapur', 'Gandipet', 'Financial District'];
-  const styles = ['Japandi Minimal', 'Warm Editorial', 'Clean Contemporary', 'Luxury Architectural', 'Scandinavian Crafted', 'Modern Classic', 'Warm Contemporary', 'Industrial Editorial'];
+  const styles = ['Warm Minimalist', 'Warm Editorial', 'Clean Contemporary', 'Luxury Architectural', 'Scandinavian Crafted', 'Modern Classic', 'Warm Contemporary', 'Industrial Editorial'];
 
   const generatedMockProjects = [];
   categoriesList.forEach((cat) => {

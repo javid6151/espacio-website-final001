@@ -346,10 +346,14 @@ const About = () => {
                 src={aboutData.heroImage}
                 alt="ESPACIO Luxury Background"
                 className="w-full h-full object-cover object-center"
+                style={{ filter: 'blur(2px) brightness(0.85)', transform: 'scale(1.04)' }}
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/85 z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-black/20 z-10 pointer-events-none" />
+            {/* Dark overlays for depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/65 z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/10 z-10 pointer-events-none" />
+            {/* Mist / ambient glow behind text */}
+            <div className="absolute bottom-0 left-0 w-full h-[55%] z-[11] pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 100%, rgba(201,169,110,0.07) 0%, rgba(20,12,4,0.30) 55%, transparent 100%)' }} />
 
             {/* Hero Text Content with Dynamic Scroll Parallax — Anchored at Bottom */}
             <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
@@ -357,15 +361,17 @@ const About = () => {
                 style={{ y: textY, opacity: textOpacity }}
                 className="w-full px-6 sm:px-8 md:px-12 pb-10 sm:pb-12 md:pb-14 pointer-events-auto"
               >
+                {/* Mist highlight panel behind text */}
+                <div className="absolute inset-x-0 bottom-0 h-[70%] pointer-events-none z-[-1]" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.25) 50%, transparent 100%)' }} />
                 <div className="flex flex-col items-start gap-2.5 sm:gap-3 max-w-[850px]">
                   <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white text-[#101014] px-4 py-1.5 rounded-full text-[12px] sm:text-[13px] font-sans font-medium shadow-lg border border-black/5 select-none tracking-normal mb-1">
                     <Award size={14} className="text-[#101014] shrink-0" />
                     <span>{aboutData.heroBadge || 'About ESPACIO'}</span>
                   </div>
-                  <h1 className="font-display font-bold leading-[1.08] sm:leading-none tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]" style={{ fontSize: 'clamp(28px, 5.5vw, 76px)' }}>
+                  <h1 className="font-display font-semibold leading-[1.08] sm:leading-none tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]" style={{ fontSize: 'clamp(28px, 5.5vw, 76px)', textShadow: '0 2px 32px rgba(0,0,0,0.8), 0 1px 0 rgba(0,0,0,0.5)' }}>
                     {aboutData.heroTitle}
                   </h1>
-                  <p className="font-sans text-[13.5px] sm:text-[15px] md:text-[15.5px] text-white/90 max-w-[620px] leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+                  <p className="font-sans text-[13.5px] sm:text-[15px] md:text-[15.5px] text-white/95 max-w-[620px] leading-relaxed" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.9)' }}>
                     {aboutData.heroSubtitle}
                   </p>
                 </div>

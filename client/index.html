@@ -28,13 +28,13 @@
          FALLBACK: <noscript> for JS-disabled environments
     ═══════════════════════════════════════════════════════════════════════ -->
     <!-- Step 1: Preload font CSS (initiates download early, without blocking) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" />
     <!-- Step 2: Load font CSS with media="print" so it doesn't block render -->
     <!--         onload switches media to 'all' once the font CSS is ready -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" media="print" onload="this.media='all'" />
     <!-- Step 3: Noscript fallback — synchronous font load for JS-disabled browsers -->
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" />
     </noscript>
 
     <!-- ═══════════════════════════════════════════════════════════════════════

@@ -262,7 +262,6 @@ const QuoteModal = () => {
                     <div className="px-3.5 py-3.5 bg-ink-border/20 border-r border-ink-border flex items-center gap-1.5 shrink-0 text-xs font-sans font-semibold text-ink select-none">
                       <span>🇮🇳</span>
                       <span>+91</span>
-                      <span className="text-[10px] text-ink-muted">▼</span>
                     </div>
                     <input
                       type="tel"
@@ -280,7 +279,6 @@ const QuoteModal = () => {
                     <div className="px-3.5 py-3.5 bg-ink-border/20 border-r border-ink-border flex items-center gap-1.5 shrink-0 text-xs font-sans font-semibold text-ink select-none">
                       <span>🇮🇳</span>
                       <span>+91</span>
-                      <span className="text-[10px] text-ink-muted">▼</span>
                     </div>
                     <input
                       type="tel"

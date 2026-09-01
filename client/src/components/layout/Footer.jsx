@@ -69,8 +69,8 @@ const Footer = () => {
     const path = location.pathname;
     if (path.startsWith('/projects')) return 'projects';
     if (path.startsWith('/services')) return 'services';
-    if (path.startsWith('/what-we-do')) return 'spaces';
-    if (path.startsWith('/products')) return 'materials';
+    if (path.startsWith('/spaces') || path.startsWith('/what-we-do')) return 'spaces';
+    if (path.startsWith('/materials') || path.startsWith('/products')) return 'materials';
     if (path.startsWith('/faq')) return 'faqs';
     if (path.startsWith('/about')) return 'about';
     if (path.startsWith('/contact')) return 'contact';
@@ -167,8 +167,8 @@ const Footer = () => {
     { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Spaces', path: '/what-we-do' },
-    { label: 'Materials', path: '/products' },
+    { label: 'Spaces', path: '/spaces' },
+    { label: 'Materials', path: '/materials' },
     { label: 'About', path: '/about' },
   ];
 

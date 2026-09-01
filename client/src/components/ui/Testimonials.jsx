@@ -32,9 +32,72 @@ const topTestimonials = [
     title: "Best Interior Designer Decision",
     body: "I was researching the best interior designer near me, and while doing that, I came across ESPACIO. Eventually, we hired them, and it turned out to be a good decision. The interior designer was nice, the quality of the materials and finishing was great.",
     name: "Dharma Teja",
-    role: "Local Guide • 96 Reviews • 383 Photos",
+    role: "Homeowner, Rajapushpa Provincia • 3BHK",
     avatar: "",
     date: "2 months ago"
+  },
+  {
+    rating: 5,
+    title: "Exceptional 2BHK Handover & Top-Notch Finish",
+    body: "ESPACIO delivered beyond our expectations for our 2BHK flat at Kokapet. The quality of materials, the finish of the modular kitchen, and the TV unit craftsmanship are top-notch. The team was highly professional, transparent, and completed the handover right on time. Highly recommended!",
+    name: "Nagesh",
+    role: "Homeowner, Kokapet • 2BHK Flat",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Serene Japandi Finish & Flawless Execution",
+    body: "ESPACIO transformed our 3BHK flat at My Home Sayuk into a serene, five-star retreat. The craftsmanship on the wood paneling, raised deck lounge, and bedroom wardrobes is world-class. The team's transparency and adherence to timelines made the entire journey hassle-free.",
+    name: "Ganesh",
+    role: "Homeowner, My Home Sayuk • 3BHK",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Seamless 2BHK Turnkey & Impeccable Quality",
+    body: "ESPACIO did a phenomenal job on our 2BHK home in Kokapet. The entire turnkey execution was seamless—from 3D drawings to final handover. The modular kitchen and bedroom wardrobes turned out stunning with impeccable build quality. Truly grateful to the ESPACIO team!",
+    name: "Rahul",
+    role: "Homeowner, Kokapet • 2BHK Flat",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Tranquil Retro-Modern Haven & Precision Joinery",
+    body: "The craftsmanship delivered by ESPACIO for our 2BHK flat at Gandipet is unmatched. The natural wood timber finishes, acoustic wall paneling, and custom lighting transformed our home into a tranquil, five-star sanctuary. Great team, super transparent, and always on time!",
+    name: "Kiran Raja",
+    role: "Homeowner, Gandipet • 2BHK Residence",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Dream Home Realized with Seamless Precision",
+    body: "ESPACIO did an extraordinary job turning our 2BHK flat in Kondapur into our dream home. The contemporary gray modular kitchen and custom TV unit finish are flawless. Everything was handled professionally with complete transparency. Highly recommend ESPACIO!",
+    name: "Venkatesh",
+    role: "Homeowner, Kondapur • 2BHK Flat",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Breathtaking Minimalist Beige Sanctuary",
+    body: "ESPACIO transformed our Gachibowli 2BHK flat into a breathtaking, tranquil sanctuary. The soft minimalist beige tones, master bedroom wardrobes, and elegant living room finishes exceeded all our expectations. Seamless execution and timely handover!",
+    name: "Koteswara Rao",
+    role: "Homeowner, Gachibowli • 2BHK Flat",
+    avatar: "",
+    date: "Recently"
+  },
+  {
+    rating: 5,
+    title: "Magnificent Duplex Masterpiece & Precision Turnkey Fitout",
+    body: "ESPACIO created an absolute masterpiece with our Duplex home in Kachiguda. The modern fusion living area, boys bedrooms, and parents suite are designed with immaculate craftsmanship and attention to detail. Truly a five-star experience from start to finish!",
+    name: "K Subbarao",
+    role: "Homeowner, Kachiguda • Duplex Villa",
+    avatar: "",
+    date: "Recently"
   },
   {
     rating: 5,
@@ -48,52 +111,43 @@ const topTestimonials = [
   {
     rating: 5,
     title: "Largest Variety of Laminates & Veneers",
-    body: "As an interior designer, I have found the largest variety of laminates, vineers, and plywood with all ranges of economy, premium and super premium as required by different customer segments at the best competitive rates.",
+    body: "As an interior designer, I have found the largest variety of laminates, vineers, and plywood with all ranges of economy, premium and super premium as required by different customer segments at the best competitive rates. My suggestion for all to visit this place once before you buy.",
     name: "Khaleel Shaik",
-    role: "Interior Designer • 4 Photos",
+    role: "Google Reviewer • 1 Review • 4 Photos",
     avatar: "/reviews/khaleel_shaik.png",
     date: "5 months ago"
   },
   {
     rating: 5,
-    title: "Good Work & Good Communication 👍",
-    body: "Good work and good communication 👍 The team at Espacio delivered our project smoothly and transparently.",
-    name: "Paladugu Raju",
-    role: "Local Guide • Google Reviewer",
-    avatar: "/reviews/paladugu_raju.png",
+    title: "Excellent Materials for Home & Office",
+    body: "Excellent materials for interior at home or office so pls visit this Espacio interiors and modular. Thank you...! ❤️",
+    name: "Shaik Hussian",
+    role: "Google Reviewer • 1 Review",
+    avatar: "/reviews/shaik_hussain.png",
     date: "5 months ago"
   },
   {
     rating: 5,
-    title: "Wide Range & Patient Customer Service",
-    body: "Recently visited the store they have wide range of varieties and the customer service was very good they were very patient and understanding.",
-    name: "Shaik BOB",
-    role: "Google Reviewer • 3 Reviews • 3 Photos",
-    avatar: "/reviews/shaik_bob.png",
-    date: "11 months ago"
-  },
-  {
-    rating: 5,
     title: "My House Became Luxurious at Reasonable Prices",
-    body: "Good equipment and well staff my house is now completely become luxurious with reasonable prices and thanks to espacio.",
+    body: "Good equipment and well staff my house is now completely become luxurious with reasonable prices and thanks to espacio",
     name: "Lovely boy Laxman",
-    role: "Homeowner • 3 Photos",
+    role: "Google Reviewer • 1 Review • 3 Photos",
     avatar: "/reviews/lovely_boy_laxman.png",
     date: "5 months ago"
   },
   {
     rating: 5,
-    title: "Superb Design & Flawless Execution",
-    body: "Superb design variety and flawless material quality provided by Espacio Interiors & Modular.",
-    name: "imtiyaz shaik",
-    role: "Google Reviewer • 9 Photos",
-    avatar: "/reviews/imtiyaz_shaik.png",
+    title: "Good Quality & Good Management",
+    body: "good Quality and good work and we'll management",
+    name: "Bhanu Sadhu",
+    role: "Google Reviewer • 3 Reviews",
+    avatar: "",
     date: "5 months ago"
   },
   {
     rating: 5,
     title: "Good Service & Excellent Work 👍👏",
-    body: "Good service excellent work 👍👏 Very happy with Espacio Interiors & Modular service quality.",
+    body: "Good service excellent work 👍👏",
     name: "Jani Basha",
     role: "Google Reviewer • 4 Reviews",
     avatar: "/reviews/jani_basha.png",
@@ -101,17 +155,8 @@ const topTestimonials = [
   },
   {
     rating: 5,
-    title: "Good Experience & Good Working Skills",
-    body: "Good experience & good working skills. The team at Espacio Interiors & Modular is dedicated and skilled.",
-    name: "Kishor Kumar",
-    role: "Google Reviewer • 6 Reviews • 5 Photos",
-    avatar: "/reviews/kishor_kumar.png",
-    date: "5 months ago"
-  },
-  {
-    rating: 5,
     title: "Good Experience and Excellent Service",
-    body: "Good experience and excellent service provided by Espacio Interiors & Modular.",
+    body: "Good experience and excellent service",
     name: "Amresh kumar",
     role: "Google Reviewer • 1 Review",
     avatar: "/reviews/amresh_kumar.png",
@@ -120,7 +165,7 @@ const topTestimonials = [
   {
     rating: 5,
     title: "Good Quality Materials & Affordable Prices",
-    body: "Good quality of materials and affordable prices. Great experience working with ESPACIO Interiors & Modular.",
+    body: "Good quality of materials and affordable prices",
     name: "KoteswaraRao Alaparthi",
     role: "Local Guide • 4 Reviews • 62 Photos",
     avatar: "/reviews/koteswararao_alaparthi.png",
@@ -128,74 +173,35 @@ const topTestimonials = [
   },
   {
     rating: 5,
-    title: "Good Service & Quality Materials",
-    body: "Good service and excellent quality materials offered at competitive pricing by Espacio.",
-    name: "Ajayreddy Gowreddy123",
-    role: "Google Reviewer • 2 Reviews",
-    avatar: "/reviews/ajayreddy_gowreddy.png",
-    date: "5 months ago"
-  },
-  {
-    rating: 5,
-    title: "Good Work & Very Polite Team",
-    body: "Good work and very polite team at Espacio Interiors & Modular. Highly recommended!",
-    name: "G Rakesh",
-    role: "Google Reviewer • 3 Photos",
-    avatar: "/reviews/g_rakesh.png",
-    date: "7 months ago"
-  },
-  {
-    rating: 5,
-    title: "Excellent Materials for Home & Office",
-    body: "Excellent materials for interior at home or office so pls visit this Espacio interiors and modular. Thank you...! ❤️",
-    name: "Shaik Hussain",
-    role: "Google Reviewer • 1 Review",
-    avatar: "/reviews/shaik_hussain.png",
-    date: "5 months ago"
-  },
-  {
-    rating: 5,
-    title: "Very Good Service",
-    body: "Very good service and helpful staff at ESPACIO.",
-    name: "Akshay kumar Pullagura",
-    role: "Google Reviewer • 1 Review",
-    avatar: "",
-    date: "a week ago"
-  }
-];
-
-const bottomTestimonials = [
-  {
-    rating: 5,
-    title: "Chala Manchi TV Unit Work",
-    body: "Espacio vallu chala manchi ga TV unit chesyaru degara vundi mari cheyinchyaru chala bagundhi, please do visit espacio 👍🏻",
-    name: "Madhusudhan Vanam",
-    role: "Google Reviewer • 1 Review • 1 Photo",
-    avatar: "",
-    date: "4 months ago"
-  },
-  {
-    rating: 5,
-    title: "Good Quality & Good Management",
-    body: "good Quality and good work and we'll management at Espacio.",
-    name: "Bhanu Sadhu",
-    role: "Google Reviewer • 3 Reviews",
-    avatar: "",
-    date: "5 months ago"
-  },
-  {
-    rating: 5,
     title: "Good Experience & Good Working Skills",
-    body: "Good experience & good working skills. Dedicated team with great craftsmanship.",
+    body: "Good experience & good working skills",
     name: "KIRAN RAJA",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
-    date: "4 months ago"
+    date: "5 months ago"
+  },
+  {
+    rating: 5,
+    title: "Wide Range & Patient Customer Service",
+    body: "Recently visited the store they have wide range of varieties and the customer service was very good they were very patient and understanding",
+    name: "Shaik BOB",
+    role: "Google Reviewer • 3 Reviews • 3 Photos",
+    avatar: "/reviews/shaik_bob.png",
+    date: "11 months ago"
+  },
+  {
+    rating: 5,
+    title: "Good Work & Good Communication 👍",
+    body: "Good work and good communication 👍",
+    name: "RAJU PALADUGU",
+    role: "Google Reviewer • 1 Review",
+    avatar: "/reviews/paladugu_raju.png",
+    date: "5 months ago"
   },
   {
     rating: 5,
     title: "Good Work and Satisfied",
-    body: "Good work and satisfied with the interior service.",
+    body: "Good work and satisfied",
     name: "Shiak Ayub",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
@@ -204,7 +210,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Excellent Work Done",
-    body: "Excellent work done by the Espacio Interiors team.",
+    body: "Excellent work done",
     name: "Sharmash Hussain",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
@@ -212,8 +218,8 @@ const bottomTestimonials = [
   },
   {
     rating: 5,
-    title: "Good Work 💯",
-    body: "Good work. Highly professional team and smooth execution.",
+    title: "Good Work",
+    body: "Good work",
     name: "Yadidya",
     role: "Google Reviewer • 3 Reviews",
     avatar: "",
@@ -222,16 +228,19 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Good Service 💯",
-    body: "Good service 💯 Quality interior materials and great execution.",
+    body: "Good service 💯",
     name: "Luqman Ahmed",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
     date: "5 months ago"
-  },
+  }
+];
+
+const bottomTestimonials = [
   {
     rating: 5,
     title: "Good Experience",
-    body: "Good experience with Espacio Interiors & Modular.",
+    body: "Good experience",
     name: "Rajeena shaik",
     role: "Google Reviewer • 1 Review",
     avatar: "",
@@ -240,7 +249,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Good Work 💯",
-    body: "Good work 💯 Great quality and friendly service.",
+    body: "Good work 💯",
     name: "Kali",
     role: "Google Reviewer • 1 Review",
     avatar: "",
@@ -249,7 +258,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Super 👍😊",
-    body: "Super 👍😊 Highly satisfied with the overall experience.",
+    body: "Super 👍😊",
     name: "karagani pavankumar",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
@@ -258,7 +267,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Greate Experience",
-    body: "Greate experience working with Espacio Interiors & Modular. Very satisfied with their team and craftsmanship.",
+    body: "Greate experience",
     name: "Rajini Kumar",
     role: "Google Reviewer • 2 Reviews",
     avatar: "/reviews/rajini_kumar.png",
@@ -267,7 +276,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Good Service",
-    body: "Good service and reliable interior materials at ESPACIO.",
+    body: "Good service",
     name: "Ramesh Paladugu",
     role: "Google Reviewer • 3 Reviews",
     avatar: "/reviews/ramesh_paladugu.png",
@@ -276,7 +285,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Good Material",
-    body: "Good Metirial. Glad with the quality of materials and finishes.",
+    body: "Good Metirial",
     name: "Prem",
     role: "Google Reviewer • 1 Review • 3 Photos",
     avatar: "",
@@ -285,7 +294,7 @@ const bottomTestimonials = [
   {
     rating: 5,
     title: "Fabulous",
-    body: "Fabulous service and very positive experience with Espacio.",
+    body: "Fabulous",
     name: "Virat Vinod",
     role: "Google Reviewer • 2 Reviews",
     avatar: "",
@@ -293,12 +302,75 @@ const bottomTestimonials = [
   },
   {
     rating: 5,
+    title: "Good Service",
+    body: "Good service",
+    name: "naidu poola",
+    role: "Google Reviewer • 2 Reviews",
+    avatar: "",
+    date: "5 months ago"
+  },
+  {
+    rating: 5,
+    title: "Good Quality Materials",
+    body: "Good quality materials",
+    name: "Prafulla Sisa",
+    role: "Google Reviewer • 1 Review",
+    avatar: "",
+    date: "11 months ago"
+  },
+  {
+    rating: 5,
     title: "Great Experience ❣️",
-    body: "great experience ❣️ Looking forward to working with Espacio Interiors & Modular again.",
+    body: "great experience ❣️",
     name: "Venkatesh mudhiraj",
     role: "Google Reviewer • 1 Review",
     avatar: "/reviews/venkatesh_mudhiraj.png",
     date: "11 months ago"
+  },
+  {
+    rating: 5,
+    title: "Good",
+    body: "Good",
+    name: "Haneef Abdul",
+    role: "Google Reviewer • 4 Reviews • 4 Photos",
+    avatar: "",
+    date: "11 months ago"
+  },
+  {
+    rating: 5,
+    title: "Great Experience 🙂",
+    body: "Great experience 🙂",
+    name: "Pankaj Giri",
+    role: "Google Reviewer • 2 Reviews",
+    avatar: "",
+    date: "11 months ago"
+  },
+  {
+    rating: 5,
+    title: "Very Good Service",
+    body: "very good service",
+    name: "Akshay kumar Pullagura",
+    role: "Google Reviewer • 1 Review",
+    avatar: "",
+    date: "a week ago"
+  },
+  {
+    rating: 5,
+    title: "Chala Manchi TV Unit Work",
+    body: "The space is worth a lot of money, the TV unit is very clean, please do visit the space 👍🏻",
+    name: "Madhusudhan Vanam",
+    role: "Google Reviewer • 1 Review • 1 Photo",
+    avatar: "",
+    date: "4 months ago"
+  },
+  {
+    rating: 5,
+    title: "Super — All Experts!",
+    body: "Super... All' are experts... Tq SPACIO Interiors",
+    name: "K. SUBBARAO",
+    role: "Google Reviewer • 5 Reviews",
+    avatar: "",
+    date: "5 months ago"
   }
 ];
 

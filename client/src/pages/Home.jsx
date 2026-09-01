@@ -850,13 +850,13 @@ const Home = () => {
     {
       title: "Open Pantry & Kitchen Storage",
       category: "Modular Kitchen",
-      link: "/what-we-do/modular-kitchen",
+      link: "/spaces/modular-kitchen",
       thumbnail: "/images/company/2bhk_urban/Minimalist_Gray__A_Contemporary_Kitchen_Masterpiec-Unnamed_2-20260810-173514.jpg",
     },
     {
       title: "Beige Modular Kitchen Counter",
       category: "Modular Kitchen",
-      link: "/what-we-do/modular-kitchen",
+      link: "/spaces/modular-kitchen",
       thumbnail: "/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_3-20260810-124909.jpg",
     },
     {
@@ -880,31 +880,31 @@ const Home = () => {
     {
       title: "Marble TV Media Unit",
       category: "TV & Media Unit",
-      link: "/products",
+      link: "/materials",
       thumbnail: "/images/company/2bhk_lux/tv_unit_2_1.png",
     },
     {
       title: "Indo-Classical Master Bedroom",
       category: "Master Bedroom",
-      link: "/what-we-do/master-bedroom",
+      link: "/spaces/master-bedroom",
       thumbnail: "/images/company/indo_classical_elegance_3bhk/3BHK-Master_Bedroom_0-20260810-164320.jpg",
     },
     {
       title: "Illuminated Crockery & Bar",
       category: "Crockery & Bar",
-      link: "/products",
+      link: "/materials",
       thumbnail: "/images/company/2bhk_lux/crockery1_1.png",
     },
     {
       title: "Indo-Classical Luxury Suite",
       category: "Master Bedroom",
-      link: "/what-we-do/master-bedroom",
+      link: "/spaces/master-bedroom",
       thumbnail: "/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-Master_Bedroom_15-20260810-120432.jpg",
     },
     {
       title: "Natural Oak Modular Wardrobe",
       category: "Wardrobes",
-      link: "/what-we-do/wardrobes",
+      link: "/spaces/wardrobes",
       thumbnail: "/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_0-20260810-124909.jpg",
     },
     {
@@ -916,7 +916,7 @@ const Home = () => {
     {
       title: "High-Gloss Modular Kitchen",
       category: "Modular Kitchen",
-      link: "/what-we-do/modular-kitchen",
+      link: "/spaces/modular-kitchen",
       thumbnail: "/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Kitchen_17-20260810-122232.jpg",
     },
     {
@@ -928,7 +928,7 @@ const Home = () => {
     {
       title: "Foyer Wall Panelling & Console",
       category: "Foyer & Panelling",
-      link: "/products",
+      link: "/materials",
       thumbnail: "/images/company/2bhk_mordern_retro/dining_2.jpg",
     },
     {
@@ -940,7 +940,7 @@ const Home = () => {
     {
       title: "Parallel Modular Kitchen",
       category: "Modular Kitchen",
-      link: "/what-we-do/modular-kitchen",
+      link: "/spaces/modular-kitchen",
       thumbnail: "/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-kitchen_4-20260810-120431.jpg",
     },
     {
@@ -952,13 +952,13 @@ const Home = () => {
     {
       title: "Sliding Mirror Wardrobe",
       category: "Wardrobes",
-      link: "/what-we-do/wardrobes",
+      link: "/spaces/wardrobes",
       thumbnail: "/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_13-20260810-124909.jpg",
     },
     {
       title: "Fluted Accent Wall Panelling",
       category: "Wall Panelling",
-      link: "/products",
+      link: "/materials",
       thumbnail: "/images/company/2bhk_mordern_retro/hall_paneling.jpg",
     },
     {

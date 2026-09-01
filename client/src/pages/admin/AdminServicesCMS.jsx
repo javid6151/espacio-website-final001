@@ -61,7 +61,7 @@ const defaultServices = [
     tag: 'Upgrade Existing Spaces', 
     desc: 'Redesigning and upgrading existing spaces, residential or commercial, without starting from scratch — delivered turnkey, with design, materials, and execution handled entirely by us.', 
     includes: ['Kitchen & Bath Upgrades', 'Living Space Redesign', 'Structural Alterations', 'Flooring Replacement', 'Electrical & Plumbing Re-lay', 'Turnkey Execution'], 
-    img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80',
+    img: '/images/services/services_after.webp',
     ctaText: 'Enquire About This',
     ctaLink: '/contact',
     ctaVisible: true,
@@ -95,6 +95,8 @@ const AdminServicesCMS = () => {
 
   const fileInputHeroRef = useRef(null);
   const fileInputServiceRef = useRef(null);
+  const fileInputBeforeRef = useRef(null);
+  const fileInputAfterRef = useRef(null);
 
   // CMS State
   const [heroState, setHeroState] = useState({
@@ -103,6 +105,15 @@ const AdminServicesCMS = () => {
     services_hero_subtitle: 'Turnkey design and build with engineering tolerances. No templates. No hidden package tricks.',
     services_hero_images: defaultHeroImages,
     services_hero_visible: true
+  });
+
+  const [baState, setBaState] = useState({
+    services_ba_badge: 'Turnkey Transformation',
+    services_ba_title: 'Before & After Transformation',
+    services_ba_subtitle: 'Slide horizontally to witness the structural evolution from raw site condition to our bespoke luxury handover.',
+    services_before_image: '/images/services/services_before.webp',
+    services_after_image: '/images/services/services_after.webp',
+    services_ba_visible: true
   });
 
   const [servicesList, setServicesList] = useState(defaultServices);
@@ -121,6 +132,15 @@ const AdminServicesCMS = () => {
           services_hero_visible: storedSettings.services_hero_visible !== false
         });
 
+        setBaState({
+          services_ba_badge: getNonEmpty(storedSettings.services_ba_badge, 'Turnkey Transformation'),
+          services_ba_title: getNonEmpty(storedSettings.services_ba_title, 'Before & After Transformation'),
+          services_ba_subtitle: getNonEmpty(storedSettings.services_ba_subtitle, 'Slide horizontally to witness the structural evolution from raw site condition to our bespoke luxury handover.'),
+          services_before_image: getNonEmpty(storedSettings.services_before_image, '/images/services/services_before.webp'),
+          services_after_image: getNonEmpty(storedSettings.services_after_image, '/images/services/services_after.webp'),
+          services_ba_visible: storedSettings.services_ba_visible !== false
+        });
+
         if (Array.isArray(storedSettings.services_list) && storedSettings.services_list.length > 0) {
           setServicesList(storedSettings.services_list);
         }
@@ -135,6 +155,15 @@ const AdminServicesCMS = () => {
             services_hero_title: getNonEmpty(d.services_hero_title, prev.services_hero_title),
             services_hero_subtitle: getNonEmpty(d.services_hero_subtitle, prev.services_hero_subtitle),
             services_hero_images: (Array.isArray(d.services_hero_images) && d.services_hero_images.length > 0) ? d.services_hero_images : prev.services_hero_images
+          }));
+          setBaState((prev) => ({
+            ...prev,
+            services_ba_badge: getNonEmpty(d.services_ba_badge, prev.services_ba_badge),
+            services_ba_title: getNonEmpty(d.services_ba_title, prev.services_ba_title),
+            services_ba_subtitle: getNonEmpty(d.services_ba_subtitle, prev.services_ba_subtitle),
+            services_before_image: getNonEmpty(d.services_before_image, prev.services_before_image),
+            services_after_image: getNonEmpty(d.services_after_image, prev.services_after_image),
+            services_ba_visible: d.services_ba_visible !== false
           }));
           if (Array.isArray(d.services_list) && d.services_list.length > 0) {
             setServicesList(d.services_list);
@@ -161,6 +190,7 @@ const AdminServicesCMS = () => {
     const updatedSettings = {
       ...existing,
       ...heroState,
+      ...baState,
       services_list: servicesList
     };
 
@@ -177,6 +207,15 @@ const AdminServicesCMS = () => {
     setSaved(true);
     showNotification('Services page updated successfully.');
     setTimeout(() => setSaved(false), 2000);
+  };
+
+  const handleBaChange = (key, val) => {
+    setBaState((prev) => {
+      const updated = { ...prev, [key]: val };
+      const existing = getCMSData(STORAGE_KEYS.SETTINGS) || {};
+      setCMSData(STORAGE_KEYS.SETTINGS, { ...existing, ...heroState, ...updated, services_list: servicesList });
+      return updated;
+    });
   };
 
   const handleHeroChange = (key, val) => {
@@ -333,6 +372,17 @@ const AdminServicesCMS = () => {
           <span>Edit Services Hero Banner</span>
         </button>
         <button
+          onClick={() => setActiveTab('transformation')}
+          className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-sans text-xs uppercase tracking-wider font-bold transition-all shadow-md ${
+            activeTab === 'transformation'
+              ? 'bg-gold text-charcoal border border-gold shadow-[0_0_20px_rgba(201,169,110,0.3)]'
+              : 'bg-[#141518] text-white/70 hover:text-white hover:bg-white/5 border border-white/10'
+          }`}
+        >
+          <Sliders size={16} />
+          <span>Before & After Transformation</span>
+        </button>
+        <button
           onClick={() => setActiveTab('cta')}
           className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-sans text-xs uppercase tracking-wider font-bold transition-all shadow-md ${
             activeTab === 'cta'
@@ -349,6 +399,159 @@ const AdminServicesCMS = () => {
       {activeTab === 'cta' && (
         <div className="bg-[#141518] border border-white/5 rounded-2xl p-6 md:p-8 max-w-4xl">
           <CTASectionEditor pageKey="services" pageTitle="Services" />
+        </div>
+      )}
+
+      {/* TAB: BEFORE & AFTER TRANSFORMATION EDITOR */}
+      {activeTab === 'transformation' && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-7 bg-[#141518] border border-white/5 rounded-2xl p-6 md:p-8 space-y-6">
+            <div className="border-b border-white/5 pb-4">
+              <h2 className="font-editorial text-xl font-bold text-white flex items-center space-x-2">
+                <Sliders size={18} className="text-gold" />
+                <span>Before & After Transformation Section</span>
+              </h2>
+              <p className="font-sans text-xs text-white/40 mt-0.5">Manage the interactive Before & After transformation slider on the Services page.</p>
+            </div>
+
+            {/* Hidden File Inputs */}
+            <input
+              type="file"
+              ref={fileInputBeforeRef}
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => handleFileUpload(e, (dataUrl) => handleBaChange('services_before_image', dataUrl))}
+            />
+            <input
+              type="file"
+              ref={fileInputAfterRef}
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => handleFileUpload(e, (dataUrl) => handleBaChange('services_after_image', dataUrl))}
+            />
+
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Badge Tag</label>
+                  <input
+                    type="text"
+                    value={baState.services_ba_badge || ''}
+                    onChange={(e) => handleBaChange('services_ba_badge', e.target.value)}
+                    className={inpClass}
+                    placeholder="Turnkey Transformation"
+                  />
+                </div>
+                <div>
+                  <label className={labelClass}>Section Title</label>
+                  <input
+                    type="text"
+                    value={baState.services_ba_title || ''}
+                    onChange={(e) => handleBaChange('services_ba_title', e.target.value)}
+                    className={inpClass}
+                    placeholder="Before & After Transformation"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass}>Subtitle Description</label>
+                <textarea
+                  rows={2}
+                  value={baState.services_ba_subtitle || ''}
+                  onChange={(e) => handleBaChange('services_ba_subtitle', e.target.value)}
+                  className={`${inpClass} resize-none`}
+                  placeholder="Slide horizontally to witness the structural evolution..."
+                />
+              </div>
+
+              {/* Before & After Image URL Inputs */}
+              <div className="space-y-4 pt-2 border-t border-white/5">
+                <div>
+                  <label className={labelClass}>Before Image (Raw Site)</label>
+                  <div className="flex items-center space-x-3">
+                    {baState.services_before_image && (
+                      <img src={baState.services_before_image} alt="Before" className="w-20 h-14 object-cover rounded-lg border border-white/10 shrink-0" />
+                    )}
+                    <input
+                      type="text"
+                      value={baState.services_before_image || ''}
+                      onChange={(e) => handleBaChange('services_before_image', e.target.value)}
+                      className={inpClass}
+                      placeholder="/images/services/services_before.webp"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputBeforeRef.current?.click()}
+                      className="flex items-center space-x-1 bg-white/10 hover:bg-white/20 text-white px-3 py-3 rounded-lg font-sans text-[11px] font-bold uppercase shrink-0"
+                    >
+                      <Plus size={12} />
+                      <span>Upload</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className={labelClass}>After Image (Finished Handover)</label>
+                  <div className="flex items-center space-x-3">
+                    {baState.services_after_image && (
+                      <img src={baState.services_after_image} alt="After" className="w-20 h-14 object-cover rounded-lg border border-white/10 shrink-0" />
+                    )}
+                    <input
+                      type="text"
+                      value={baState.services_after_image || ''}
+                      onChange={(e) => handleBaChange('services_after_image', e.target.value)}
+                      className={inpClass}
+                      placeholder="/images/services/services_after.webp"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputAfterRef.current?.click()}
+                      className="flex items-center space-x-1 bg-white/10 hover:bg-white/20 text-white px-3 py-3 rounded-lg font-sans text-[11px] font-bold uppercase shrink-0"
+                    >
+                      <Plus size={12} />
+                      <span>Upload</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Section Visibility */}
+              <div className="pt-3 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <span className="text-white text-xs font-bold block">Show Transformation Section</span>
+                  <span className="text-white/40 text-[11px]">Display this interactive slider on the live Services page</span>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={baState.services_ba_visible !== false}
+                  onChange={(e) => handleBaChange('services_ba_visible', e.target.checked)}
+                  className="w-4 h-4 accent-gold cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Live Preview Column */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-[#141518] border border-white/5 rounded-2xl p-6 space-y-4">
+              <h3 className="font-editorial text-sm font-bold text-white uppercase tracking-wider">Before & After Live Preview</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-white/50 block">Before</span>
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-black">
+                    <img src={baState.services_before_image || '/images/services/services_before.webp'} alt="Before Preview" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-gold block">After</span>
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden border border-gold/30 bg-black">
+                    <img src={baState.services_after_image || '/images/services/services_after.webp'} alt="After Preview" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 

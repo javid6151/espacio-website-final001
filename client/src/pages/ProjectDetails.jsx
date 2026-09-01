@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { ArrowLeft, MapPin, Calendar, LayoutGrid, Layers } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, LayoutGrid, Layers, Maximize2 } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import ScrollDownIndicator from '../components/common/ScrollDownIndicator';
 
@@ -175,7 +175,7 @@ const ProjectDetails = () => {
 
     const pool = unsplashPool[category] || unsplashPool['villa'];
     const neighborhoods = ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kondapur', 'HITEC City', 'Kokapet', 'Begumpet', 'Madhapur', 'Gandipet', 'Financial District'];
-    const styles = ['Japandi Minimalist', 'Warm Editorial', 'Clean Contemporary', 'Luxury Architectural', 'Scandinavian Crafted', 'Modern Classic', 'Warm Contemporary', 'Industrial Editorial'];
+    const styles = ['Warm Minimalist', 'Warm Editorial', 'Clean Contemporary', 'Luxury Architectural', 'Scandinavian Crafted', 'Modern Classic', 'Warm Contemporary', 'Industrial Editorial'];
 
     const hood = neighborhoods[(category.charCodeAt(0) + index) % neighborhoods.length];
     const style = styles[(category.charCodeAt(1) + index) % styles.length];
@@ -190,7 +190,7 @@ const ProjectDetails = () => {
       { name: 'Kavitha Varma', profession: 'Principal Architect & Homeowner', mobile: '+91 94400 55432', text: 'As an architect, I hold extremely high standards for material tolerances. Espacio surpassed my expectations in veneer grain matching and shadow-gap fittings.' },
       { name: 'Rajesh Goud', profession: 'Real Estate Developer', mobile: '+91 97000 88776', text: 'Espacio turned around our luxury residence within 5 months. Their material sourcing and on-site project management saved us both time and budget.' },
       { name: 'Meera Deshmukh', profession: 'Chartered Accountant & Homeowner', mobile: '+91 98660 33445', text: 'From initial 3D visualization to final hardware placement, the transparency and craftsmanship were phenomenal. Highly recommended for turnkey luxury homes.' },
-      { name: 'Amitabh Saxena', profession: 'VP of Product Engineering', mobile: '+91 91212 99887', text: 'Implacable attention to detail! The hidden partition channels and integrated ambient lighting gave our apartment an ultra-modern Japandi aesthetic.' },
+      { name: 'Amitabh Saxena', profession: 'VP of Product Engineering', mobile: '+91 91212 99887', text: 'Implacable attention to detail! The hidden partition channels and integrated ambient lighting gave our apartment an ultra-modern minimalist aesthetic.' },
       { name: 'Sunita Agarwal', profession: 'Industrialist & Philanthropist', mobile: '+91 93939 11223', text: 'Extremely professional team. Their custom modular kitchen and walk-in wardrobe executions are unmatched in Hyderabad.' }
     ];
     const clientDemo = clientDemoPool[(index - 1) % clientDemoPool.length];
@@ -236,37 +236,39 @@ const ProjectDetails = () => {
     <div className="bg-cream min-h-screen pb-24">
       <SEO title={`${p.title} — Luxury Case Study`} description={p.description ? p.description.substring(0, 150) : 'Case study description...'} image={p.heroImage} url={`/projects/${p.slug}`} />
       
-      {/* Hero section */}
-      <section className="relative h-[65vh] w-full bg-black pt-28">
-        <img
-          src={p.heroImage}
-          alt={p.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 to-transparent pointer-events-none" />
-        
-        {/* Back button */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-4">
-          <Link to="/projects" className="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-widest text-cream hover:text-gold font-bold transition-colors drop-shadow-sm">
-            <ArrowLeft size={14} />
-            <span>Back to Case Studies</span>
-          </Link>
-        </div>
-
-        <div className="absolute bottom-12 left-0 w-full z-10">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col space-y-3">
-            <span className="font-sans text-xs uppercase tracking-widest text-gold font-bold">
-              {p.style || 'Bespoke execution'}
-            </span>
-            <h1 className="text-white text-4xl md:text-5xl font-editorial font-bold leading-tight">
-              {p.title}
-            </h1>
+      {/* Hero section with curved borders and side margins */}
+      <section className="pt-24 md:pt-28 px-4 md:px-8 lg:px-12 max-w-[1440px] mx-auto">
+        <div className="relative h-[70vh] min-h-[500px] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-walnut/15">
+          <img
+            src={p.heroImage}
+            alt={p.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-75 transform scale-100 hover:scale-105 transition-transform duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 to-transparent pointer-events-none" />
+          
+          {/* Back button */}
+          <div className="relative z-10 p-6 md:p-10">
+            <Link to="/projects" className="inline-flex items-center space-x-2 text-xs font-sans uppercase tracking-widest text-cream hover:text-gold font-bold transition-colors bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 hover:border-gold/50 shadow-md">
+              <ArrowLeft size={14} />
+              <span>Back to Case Studies</span>
+            </Link>
           </div>
-        </div>
 
-        {/* Scroll Down Indicator */}
-        <ScrollDownIndicator />
+          <div className="absolute bottom-10 left-0 w-full z-10 px-6 md:px-10">
+            <div className="flex flex-col space-y-2">
+              <span className="font-sans text-xs uppercase tracking-widest text-gold font-bold drop-shadow-md">
+                {p.style || 'Bespoke execution'}
+              </span>
+              <h1 className="text-white text-3xl md:text-5xl font-editorial font-bold leading-tight drop-shadow-lg">
+                {p.title}
+              </h1>
+            </div>
+          </div>
+
+          {/* Scroll Down Indicator */}
+          <ScrollDownIndicator />
+        </div>
       </section>
 
       {/* Overview Block */}
@@ -416,14 +418,11 @@ const ProjectDetails = () => {
                   alt={`Project Photo ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="bg-gold text-charcoal font-sans text-xs uppercase tracking-widest font-bold px-4 py-2 rounded-full shadow-lg">
-                    Expand Photo
-                  </span>
+                <div className="absolute inset-0 bg-black/25 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                    <Maximize2 size={16} strokeWidth={2} />
+                  </div>
                 </div>
-                <span className="absolute bottom-3 left-3 bg-black/60 text-white font-sans text-[10px] uppercase tracking-widest px-2.5 py-1 rounded">
-                  Photo {index + 1} of {p.gallery.length}
-                </span>
               </div>
             ))}
           </div>
@@ -512,14 +511,6 @@ const ProjectDetails = () => {
               <span className="font-medium text-gold">
                 {p.testimonial?.profession || p.testimonialProfession || p.testimonial?.role || 'Homeowner'}
               </span>
-              {(p.testimonial?.mobile || p.testimonialMobile) && (
-                <>
-                  <span>•</span>
-                  <span className="font-mono text-[11px] text-charcoal/70">
-                    📞 {p.testimonial?.mobile || p.testimonialMobile}
-                  </span>
-                </>
-              )}
             </div>
           </div>
         </section>

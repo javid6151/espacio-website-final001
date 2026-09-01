@@ -189,7 +189,7 @@ const Products = () => {
 
   return (
     <div className="bg-bg min-h-screen pb-24">
-      <SEO title="Premium Material Library — WPC, Fluted, Acrylic Panels" description="Explore ESPACIO's curated material library. WPC wall panels, fluted panels, polygranite, acrylic sheets, mosaic tiles and more. Request samples and catalogue." url="/products" />
+      <SEO title="Premium Material Library — WPC, Fluted, Acrylic Panels" description="Explore ESPACIO's curated material library. WPC wall panels, fluted panels, polygranite, acrylic sheets, mosaic tiles and more. Request samples and catalogue." url="/materials" />
       
       {/* Hero with Dome Gallery — matches Home & Services rounded framed card */}
       <section className="relative h-[90vh] sm:h-[94vh] lg:h-[98vh] min-h-[540px] lg:min-h-0 px-3 sm:px-6 pt-2 sm:pt-2.5 lg:pt-3 pb-2 sm:pb-3 lg:px-10 z-0">
@@ -238,7 +238,7 @@ const Products = () => {
         ) : filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map((product, idx) => (
-              <Link key={product.slug || idx} to={`/products/${product.slug}`}
+              <Link key={product.slug || idx} to={`/materials/${product.slug}`}
                 className="group block rounded-card overflow-hidden bg-offwhite border border-walnut/5 hover:-translate-y-2 transition-all duration-400 shadow-sm">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={getOptimizedImageUrl(product.heroImage || fallbacks[idx % fallbacks.length], 600, 70)} alt={product.title}
