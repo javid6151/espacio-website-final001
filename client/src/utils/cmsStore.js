@@ -1202,6 +1202,51 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/commercial/commercial_drive_41.webp"
             ];
 
+            const CAFES_RESTAURANTS_DRIVE_IMAGES = [
+              "/images/spaces/cafes/cafe_drive_1.webp",
+              "/images/spaces/cafes/cafe_drive_2.webp",
+              "/images/spaces/cafes/cafe_drive_3.webp",
+              "/images/spaces/cafes/cafe_drive_4.webp",
+              "/images/spaces/cafes/cafe_drive_5.webp",
+              "/images/spaces/cafes/cafe_drive_6.webp",
+              "/images/spaces/cafes/cafe_drive_7.webp",
+              "/images/spaces/cafes/cafe_drive_8.webp",
+              "/images/spaces/cafes/cafe_drive_9.webp",
+              "/images/spaces/cafes/cafe_drive_10.webp",
+              "/images/spaces/cafes/cafe_drive_11.webp",
+              "/images/spaces/cafes/cafe_drive_12.webp",
+              "/images/spaces/cafes/cafe_drive_13.webp",
+              "/images/spaces/cafes/cafe_drive_14.webp",
+              "/images/spaces/cafes/cafe_drive_15.webp",
+              "/images/spaces/cafes/cafe_drive_16.webp",
+              "/images/spaces/cafes/cafe_drive_17.webp",
+              "/images/spaces/cafes/cafe_drive_18.webp",
+              "/images/spaces/cafes/cafe_drive_19.webp",
+              "/images/spaces/cafes/cafe_drive_20.webp",
+              "/images/spaces/cafes/cafe_drive_21.webp",
+              "/images/spaces/cafes/cafe_drive_22.webp",
+              "/images/spaces/cafes/cafe_drive_23.webp",
+              "/images/spaces/cafes/cafe_drive_24.webp",
+              "/images/spaces/cafes/cafe_drive_25.webp",
+              "/images/spaces/cafes/cafe_drive_26.webp",
+              "/images/spaces/cafes/cafe_drive_27.webp",
+              "/images/spaces/cafes/cafe_drive_28.webp",
+              "/images/spaces/cafes/cafe_drive_29.webp",
+              "/images/spaces/cafes/cafe_drive_30.webp",
+              "/images/spaces/cafes/cafe_drive_31.webp",
+              "/images/spaces/cafes/cafe_drive_32.webp",
+              "/images/spaces/cafes/cafe_drive_33.webp",
+              "/images/spaces/cafes/cafe_drive_34.webp",
+              "/images/spaces/cafes/cafe_drive_35.webp",
+              "/images/spaces/cafes/cafe_drive_36.webp",
+              "/images/spaces/cafes/cafe_drive_37.webp",
+              "/images/spaces/cafes/cafe_drive_38.webp",
+              "/images/spaces/cafes/cafe_drive_39.webp",
+              "/images/spaces/cafes/cafe_drive_40.webp",
+              "/images/spaces/cafes/cafe_drive_41.webp",
+              "/images/spaces/cafes/cafe_drive_42.webp"
+            ];
+
             const HOME_OFFICE_DRIVE_IMAGES = [
               "/images/spaces/home_office/home_office_drive_1.webp",
               "/images/spaces/home_office/home_office_drive_2.webp",
@@ -1428,6 +1473,11 @@ export const getCMSData = (key, fallback = null) => {
               if (cat.slug === 'commercial-interiors' && (!cat.galleryImages || cat.galleryImages.length !== 41 || !cat.galleryImages[0]?.includes('.webp'))) {
                 cat.galleryImages = COMMERCIAL_INTERIORS_DRIVE_IMAGES;
                 cat.heroImage = "/images/spaces/commercial/commercial_drive_1.webp";
+                modified = true;
+              }
+              if (cat.slug === 'cafes-restaurants' && (!cat.galleryImages || cat.galleryImages.length !== 42 || !cat.galleryImages[0]?.includes('.webp'))) {
+                cat.galleryImages = CAFES_RESTAURANTS_DRIVE_IMAGES;
+                cat.heroImage = "/images/spaces/cafes/cafe_drive_1.webp";
                 modified = true;
               }
             });
