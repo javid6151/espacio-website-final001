@@ -1155,7 +1155,51 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/apartments/apartment_drive_41.webp",
               "/images/spaces/apartments/apartment_drive_42.webp",
               "/images/spaces/apartments/apartment_drive_43.webp",
-              "/images/spaces/apartments/apartment_drive_44.webp"
+              "/images/spaces/apartments/apartment_drive_44.webp",
+              "/images/spaces/apartments/apartment_drive_45.webp",
+              "/images/spaces/apartments/apartment_drive_46.webp",
+              "/images/spaces/apartments/apartment_drive_47.webp",
+              "/images/spaces/apartments/apartment_drive_48.webp",
+              "/images/spaces/apartments/apartment_drive_49.webp",
+              "/images/spaces/apartments/apartment_drive_50.webp",
+              "/images/spaces/apartments/apartment_drive_51.webp",
+              "/images/spaces/apartments/apartment_drive_52.webp",
+              "/images/spaces/apartments/apartment_drive_53.webp",
+              "/images/spaces/apartments/apartment_drive_54.webp",
+              "/images/spaces/apartments/apartment_drive_55.webp",
+              "/images/spaces/apartments/apartment_drive_56.webp",
+              "/images/spaces/apartments/apartment_drive_57.webp",
+              "/images/spaces/apartments/apartment_drive_58.webp",
+              "/images/spaces/apartments/apartment_drive_59.webp",
+              "/images/spaces/apartments/apartment_drive_60.webp",
+              "/images/spaces/apartments/apartment_drive_61.webp",
+              "/images/spaces/apartments/apartment_drive_62.webp",
+              "/images/spaces/apartments/apartment_drive_63.webp",
+              "/images/spaces/apartments/apartment_drive_64.webp",
+              "/images/spaces/apartments/apartment_drive_65.webp",
+              "/images/spaces/apartments/apartment_drive_66.webp",
+              "/images/spaces/apartments/apartment_drive_67.webp",
+              "/images/spaces/apartments/apartment_drive_68.webp",
+              "/images/spaces/apartments/apartment_drive_69.webp",
+              "/images/spaces/apartments/apartment_drive_70.webp",
+              "/images/spaces/apartments/apartment_drive_71.webp",
+              "/images/spaces/apartments/apartment_drive_72.webp",
+              "/images/spaces/apartments/apartment_drive_73.webp",
+              "/images/spaces/apartments/apartment_drive_74.webp",
+              "/images/spaces/apartments/apartment_drive_75.webp",
+              "/images/spaces/apartments/apartment_drive_76.webp",
+              "/images/spaces/apartments/apartment_drive_77.webp",
+              "/images/spaces/apartments/apartment_drive_78.webp",
+              "/images/spaces/apartments/apartment_drive_79.webp",
+              "/images/spaces/apartments/apartment_drive_80.webp",
+              "/images/spaces/apartments/apartment_drive_81.webp",
+              "/images/spaces/apartments/apartment_drive_82.webp",
+              "/images/spaces/apartments/apartment_drive_83.webp",
+              "/images/spaces/apartments/apartment_drive_84.webp",
+              "/images/spaces/apartments/apartment_drive_85.webp",
+              "/images/spaces/apartments/apartment_drive_86.webp",
+              "/images/spaces/apartments/apartment_drive_87.webp",
+              "/images/spaces/apartments/apartment_drive_88.webp"
             ];
 
             const COMMERCIAL_INTERIORS_DRIVE_IMAGES = [
@@ -1465,7 +1509,7 @@ export const getCMSData = (key, fallback = null) => {
                 cat.heroImage = "/images/spaces/wardrobes/wardrobe_drive_1.webp";
                 modified = true;
               }
-              if (cat.slug === 'apartments' && (!cat.galleryImages || cat.galleryImages.length !== 44 || !cat.galleryImages[0]?.includes('.webp'))) {
+              if (cat.slug === 'apartments' && (!cat.galleryImages || cat.galleryImages.length !== 88 || !cat.galleryImages[0]?.includes('.webp'))) {
                 cat.galleryImages = APARTMENT_DRIVE_IMAGES;
                 cat.heroImage = "/images/spaces/apartments/apartment_drive_1.webp";
                 modified = true;
