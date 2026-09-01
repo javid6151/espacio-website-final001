@@ -137,29 +137,6 @@
 ::-webkit-scrollbar-thumb { background: #d0d1db; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #C9A96E; }
 
-/* ── Custom Cursor ───────────────────────────────────────────────────────────── */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid #101014;
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 99999;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s ease,
-              border-color 0.3s ease;
-  mix-blend-mode: multiply;
-}
-.custom-cursor-hover {
-  width: 44px;
-  height: 44px;
-  background-color: rgba(201, 169, 110, 0.18);
-  border-color: #C9A96E;
-}
-
 /* ── Slider ──────────────────────────────────────────────────────────────────── */
 .slider-handle-drag { cursor: ew-resize; }
 
@@ -473,7 +450,7 @@
   top: 50%;
 }
 
-/* ── Split-fill Navigation Button ───────────────────────────────────────────── */
+/* ── Split-fill Navigation Button (Broken / Split Shutter Hover Effect) ────── */
 .btn-nav-split {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
@@ -482,22 +459,25 @@
   gap: 8px;
   cursor: pointer;
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 99rem;
   border: 1.5px solid #101014;
   overflow: hidden;
-  padding: 0.5rem 1.7rem;
+  padding: 0.6rem 1.6rem;
   position: relative;
   text-decoration: none;
   background-color: #101014;
   color: #ffffff !important;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
-/* For cinematic state when navbar is transparent, we can make the border white for contrast */
+.btn-nav-split:active {
+  transform: scale(0.96);
+}
+
 .btn-nav-split.cinematic {
   border-color: rgba(255, 255, 255, 0.4);
 }
@@ -554,7 +534,6 @@
 .btn-nav-split:hover::before {
   --progress: 0%;
 }
-
 /* ── Lenis Smooth Scroll Configuration ── */
 html.lenis, html.lenis body {
   height: auto;
