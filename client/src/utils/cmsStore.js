@@ -1324,6 +1324,47 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/foyer/foyer_drive_30.webp"
             ];
 
+            const BAR_DRIVE_IMAGES = [
+              "/images/spaces/bar/bar_drive_1.webp",
+              "/images/spaces/bar/bar_drive_2.webp",
+              "/images/spaces/bar/bar_drive_3.webp",
+              "/images/spaces/bar/bar_drive_4.webp",
+              "/images/spaces/bar/bar_drive_5.webp",
+              "/images/spaces/bar/bar_drive_6.webp",
+              "/images/spaces/bar/bar_drive_7.webp",
+              "/images/spaces/bar/bar_drive_8.webp",
+              "/images/spaces/bar/bar_drive_9.webp",
+              "/images/spaces/bar/bar_drive_10.webp",
+              "/images/spaces/bar/bar_drive_11.webp",
+              "/images/spaces/bar/bar_drive_12.webp",
+              "/images/spaces/bar/bar_drive_13.webp",
+              "/images/spaces/bar/bar_drive_14.webp",
+              "/images/spaces/bar/bar_drive_15.webp",
+              "/images/spaces/bar/bar_drive_16.webp",
+              "/images/spaces/bar/bar_drive_17.webp",
+              "/images/spaces/bar/bar_drive_18.webp",
+              "/images/spaces/bar/bar_drive_19.webp",
+              "/images/spaces/bar/bar_drive_20.webp",
+              "/images/spaces/bar/bar_drive_21.webp",
+              "/images/spaces/bar/bar_drive_22.webp",
+              "/images/spaces/bar/bar_drive_23.webp",
+              "/images/spaces/bar/bar_drive_24.webp",
+              "/images/spaces/bar/bar_drive_25.webp",
+              "/images/spaces/bar/bar_drive_26.webp",
+              "/images/spaces/bar/bar_drive_27.webp",
+              "/images/spaces/bar/bar_drive_28.webp",
+              "/images/spaces/bar/bar_drive_29.webp",
+              "/images/spaces/bar/bar_drive_30.webp",
+              "/images/spaces/bar/bar_drive_31.webp",
+              "/images/spaces/bar/bar_drive_32.webp",
+              "/images/spaces/bar/bar_drive_33.webp",
+              "/images/spaces/bar/bar_drive_34.webp",
+              "/images/spaces/bar/bar_drive_35.webp",
+              "/images/spaces/bar/bar_drive_36.webp",
+              "/images/spaces/bar/bar_drive_37.webp",
+              "/images/spaces/bar/bar_drive_38.webp"
+            ];
+
             const HOME_OFFICE_DRIVE_IMAGES = [
               "/images/spaces/home_office/home_office_drive_1.webp",
               "/images/spaces/home_office/home_office_drive_2.webp",
@@ -1560,6 +1601,11 @@ export const getCMSData = (key, fallback = null) => {
               if (cat.slug === 'foyer' && (!cat.galleryImages || cat.galleryImages.length !== 30 || !cat.galleryImages[0]?.includes('.webp'))) {
                 cat.galleryImages = FOYER_DRIVE_IMAGES;
                 cat.heroImage = "/images/spaces/foyer/foyer_drive_1.webp";
+                modified = true;
+              }
+              if (cat.slug === 'bar' && (!cat.galleryImages || cat.galleryImages.length !== 38 || !cat.galleryImages[0]?.includes('.webp'))) {
+                cat.galleryImages = BAR_DRIVE_IMAGES;
+                cat.heroImage = "/images/spaces/bar/bar_drive_1.webp";
                 modified = true;
               }
             });
