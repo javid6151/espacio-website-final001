@@ -106,6 +106,8 @@ const TiltCard = ({ children, className }) => {
 
 const AutoScrollingInteriorBox = ({ activeIdx, items }) => {
   const [index, setIndex] = useState(0);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
 
   useEffect(() => {
     if (activeIdx !== null && activeIdx !== undefined) {
@@ -113,15 +115,16 @@ const AutoScrollingInteriorBox = ({ activeIdx, items }) => {
     }
   }, [activeIdx]);
 
-  // Pure continuous auto-slide animation
+  // Pure continuous auto-slide animation only when in view
   useEffect(() => {
     if (activeIdx !== null && activeIdx !== undefined) return;
+    if (!isInView) return;
     const listLen = items && items.length > 0 ? items.length : 1;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % listLen);
     }, 2800);
     return () => clearInterval(interval);
-  }, [activeIdx, items]);
+  }, [activeIdx, items, isInView]);
 
   const activeItem = (items && items.length > 0)
     ? items[index % items.length]
@@ -132,62 +135,64 @@ const AutoScrollingInteriorBox = ({ activeIdx, items }) => {
   const activeCaption = activeItem?.q || '';
 
   return (
-    <TiltCard className="relative w-full max-w-[520px] xl:max-w-[560px] mx-auto">
-      <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[26px] shadow-2xl bg-stone-900 cursor-pointer border border-black/10">
-        <AnimatePresence mode="sync">
-          <motion.img
-            key={index}
-            src={activeImg}
-            alt={activeCaption || 'ESPACIO Showcase'}
-            decoding="async"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              willChange: 'transform, opacity',
-              imageRendering: 'auto',
-              backfaceVisibility: 'hidden',
-            }}
-            className="absolute inset-0 w-full h-full object-cover object-center transform-gpu"
-          />
-        </AnimatePresence>
+    <div ref={containerRef} className="w-full">
+      <TiltCard className="relative w-full max-w-[520px] xl:max-w-[560px] mx-auto">
+        <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[26px] shadow-2xl bg-stone-900 cursor-pointer border border-black/10">
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={index}
+              src={activeImg}
+              alt={activeCaption || 'ESPACIO Showcase'}
+              decoding="async"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                willChange: 'transform, opacity',
+                imageRendering: 'auto',
+                backfaceVisibility: 'hidden',
+              }}
+              className="absolute inset-0 w-full h-full object-cover object-center transform-gpu"
+            />
+          </AnimatePresence>
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
 
-        {/* Active tag & caption */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            className="absolute bottom-5 left-5 right-5 text-left pointer-events-none z-10"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.16em] text-[#C9A96E]">
-                {activeTag}
-              </span>
-              <span className="w-1 h-1 rounded-full bg-white/40" />
-              <span className="text-[11px] font-sans font-medium tracking-[0.12em] text-white/70 uppercase">
-                Featured Space
-              </span>
-            </div>
-            <p className="text-[#FAF8F5] font-sans text-[15px] sm:text-[16px] font-medium leading-snug tracking-tight">
-              {activeCaption}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+          {/* Active tag & caption */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              className="absolute bottom-5 left-5 right-5 text-left pointer-events-none z-10"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.16em] text-[#C9A96E]">
+                  {activeTag}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-white/40" />
+                <span className="text-[11px] font-sans font-medium tracking-[0.12em] text-white/70 uppercase">
+                  Featured Space
+                </span>
+              </div>
+              <p className="text-[#FAF8F5] font-sans text-[15px] sm:text-[16px] font-medium leading-snug tracking-tight">
+                {activeCaption}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      {/* Floating 3D layer depth effect */}
-      <div
-        className="absolute -inset-3 rounded-[36px] -z-10 opacity-25 blur-xl pointer-events-none"
-        style={{ background: 'linear-gradient(135deg, #c5a572, #a07845)' }}
-      />
-    </TiltCard>
+        {/* Floating 3D layer depth effect */}
+        <div
+          className="absolute -inset-3 rounded-[36px] -z-10 opacity-25 blur-xl pointer-events-none"
+          style={{ background: 'linear-gradient(135deg, #c5a572, #a07845)' }}
+        />
+      </TiltCard>
+    </div>
   );
 };
 
@@ -226,6 +231,8 @@ const TeamProjectsShowcase = ({ customSlides }) => {
   const slides = (Array.isArray(customSlides) && customSlides.length > 0 && !customSlides.some(s => s.projectImg?.includes('company/'))) ? customSlides : teamProjectsData;
   const [idx, setIdx] = useState(0);
   const [direction, setDirection] = useState(1);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
   const progressBarRef = useRef(null);
   const timerRef = useRef(null);
   const progressRef = useRef(null);
@@ -248,6 +255,7 @@ const TeamProjectsShowcase = ({ customSlides }) => {
 
   const resetTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (!isInView) return;
     startProgress();
     timerRef.current = setInterval(() => {
       setDirection(1);
@@ -257,12 +265,17 @@ const TeamProjectsShowcase = ({ customSlides }) => {
   };
 
   useEffect(() => {
-    resetTimer();
+    if (isInView) {
+      resetTimer();
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    }
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
       if (progressRef.current) cancelAnimationFrame(progressRef.current);
     };
-  }, [slides.length]);
+  }, [slides.length, isInView]);
 
   const handleNext = (e) => {
     if (e) e.stopPropagation();
@@ -1083,6 +1096,7 @@ const Home = () => {
                       <div className="w-full aspect-[16/10] sm:aspect-[16/9] rounded-[14px] overflow-hidden mb-5 relative bg-black/20">
                         {activeHeroBgImages.map((imgUrl, imgIdx) => {
                           const isActive = imgIdx === (currentImageIdx % activeHeroBgImages.length);
+                          if (!isActive) return null;
                           const thumbSrc = (typeof imgUrl === 'string' && imgUrl.includes('/images/hero/hero_') && !imgUrl.includes('_thumb'))
                             ? imgUrl.replace(/\.(webp|jpg|png)$/i, '_thumb.webp')
                             : imgUrl;
@@ -1093,20 +1107,13 @@ const Home = () => {
                               alt="Luxury interior showcase"
                               decoding="async"
                               initial={false}
-                              animate={isActive ? {
-                                opacity: 1,
-                                scale: 1.0,
-                              } : {
-                                opacity: 0,
-                                scale: 1.06,
-                              }}
+                              animate={{ opacity: 1, scale: 1.0 }}
                               transition={{
                                 duration: 0.65,
                                 ease: [0.22, 1, 0.36, 1],
-                                opacity: { duration: 0.55, ease: 'easeInOut' }
                               }}
                               style={{
-                                zIndex: isActive ? 2 : 1,
+                                zIndex: 2,
                                 imageRendering: 'high-quality',
                                 WebkitBackfaceVisibility: 'hidden',
                                 backfaceVisibility: 'hidden',

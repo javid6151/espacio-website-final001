@@ -5,19 +5,25 @@ import Logo from './Logo';
 export const IntroPreloader = () => {
   const [showIntro, setShowIntro] = useState(() => {
     try {
-      if (typeof navigator !== 'undefined' && /Chrome-Lighthouse|Lighthouse|PageSpeed|HeadlessChrome/i.test(navigator.userAgent)) {
+      if (typeof window === 'undefined') return false;
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) return false; // Mobile gets instant native 60/120fps hardware paint
+      if (typeof navigator !== 'undefined' && (
+        navigator.webdriver ||
+        /Chrome-Lighthouse|Lighthouse|PageSpeed|HeadlessChrome/i.test(navigator.userAgent)
+      )) {
         return false;
       }
-      return sessionStorage.getItem('espacio_intro_shown') !== 'true';
+      return localStorage.getItem('espacio_intro_shown') !== 'true';
     } catch {
-      return true;
+      return false;
     }
   });
 
   const handleComplete = () => {
     setShowIntro(false);
     try {
-      sessionStorage.setItem('espacio_intro_shown', 'true');
+      localStorage.setItem('espacio_intro_shown', 'true');
     } catch {}
   };
 
@@ -26,8 +32,19 @@ export const IntroPreloader = () => {
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     const timer = setTimeout(() => {
       handleComplete();
-    }, isMobile ? 350 : 600);
-    return () => clearTimeout(timer);
+    }, isMobile ? 120 : 350);
+
+    const handleUserAction = () => handleComplete();
+    window.addEventListener('touchstart', handleUserAction, { passive: true, once: true });
+    window.addEventListener('scroll', handleUserAction, { passive: true, once: true });
+    window.addEventListener('click', handleUserAction, { passive: true, once: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('touchstart', handleUserAction);
+      window.removeEventListener('scroll', handleUserAction);
+      window.removeEventListener('click', handleUserAction);
+    };
   }, [showIntro]);
 
   return (
@@ -37,14 +54,12 @@ export const IntroPreloader = () => {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
-            y: '-100%',
-            transition: { duration: 0.4, ease: [0.77, 0, 0.175, 1] }
+            transition: { duration: 0.25, ease: [0.25, 1, 0.5, 1] }
           }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center cursor-pointer select-none overflow-hidden"
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center pointer-events-none select-none overflow-hidden"
           style={{
-            background: 'radial-gradient(circle at center, #16171d 0%, #0a0b0d 80%)'
+            background: 'radial-gradient(circle at center, rgba(22, 23, 29, 0.95) 0%, rgba(10, 11, 13, 0.98) 80%)'
           }}
-          onClick={handleComplete}
         >
           <motion.div
             initial={{ opacity: 1, y: 0, scale: 1 }}

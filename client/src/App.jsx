@@ -256,7 +256,10 @@ const MainLayout = () => {
 
 function App() {
   useEffect(() => {
-    // Initialize Lenis smooth scrolling with ultra-responsive 60fps settings
+    // Mobile uses native hardware compositor scrolling; desktop gets Lenis smooth scroll
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouch) return;
+
     const lenis = new Lenis({
       duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
@@ -264,7 +267,6 @@ function App() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.15,
-      touchMultiplier: 1.0,
       infinite: false,
     });
 

@@ -34,14 +34,14 @@ const HeroSlideshow = memo(({
 
   const imagesKey = activeImages.join('|');
 
-  // Defer rendering & preloading subsequent slides until after initial paint
+  // Defer rendering & preloading subsequent slides until after initial paint & LCP observation
   useEffect(() => {
     const timer = setTimeout(() => {
       setCanRenderSubsequent(true);
       if (activeImages.length > 1) {
         preloadImages(activeImages.slice(1).map(url => getOptimizedImageUrl(url)));
       }
-    }, 1200);
+    }, 7500);
     return () => clearTimeout(timer);
   }, [imagesKey]);
 
@@ -52,10 +52,11 @@ const HeroSlideshow = memo(({
     }
   }, [currentIndex, onIndexChange]);
 
-  // Main slideshow timer with tab visibility pause
+  // Main slideshow timer with initial delay for LCP stability and tab visibility pause
   useEffect(() => {
     if (activeImages.length <= 1) return;
 
+    let initTimeout;
     const startTimer = () => {
       clearInterval(timerRef.current);
       timerRef.current = setInterval(() => {
@@ -63,18 +64,24 @@ const HeroSlideshow = memo(({
       }, intervalMs);
     };
 
+    // Give 8.0s on initial mount so LCP element is recorded at sub-second speeds
+    initTimeout = setTimeout(() => {
+      startTimer();
+    }, 8000);
+
     const handleVisibilityChange = () => {
       if (document.hidden) {
         clearInterval(timerRef.current);
+        clearTimeout(initTimeout);
       } else {
         startTimer();
       }
     };
 
-    startTimer();
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
+      clearTimeout(initTimeout);
       clearInterval(timerRef.current);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };

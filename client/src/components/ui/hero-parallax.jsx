@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame, useInView } from "framer-motion";
 
 export const HeroParallax = ({ products = [] }) => {
   const baseFirst = products.slice(0, 8);
@@ -34,6 +34,7 @@ export const HeroParallax = ({ products = [] }) => {
 
 const MarqueeRow = ({ products, direction = "left", speed = 1.248, rowId }) => {
   const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { margin: "400px" });
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -56,7 +57,7 @@ const MarqueeRow = ({ products, direction = "left", speed = 1.248, rowId }) => {
   }, [products, measure]);
 
   useAnimationFrame((_, delta) => {
-    if (isDragging) return;
+    if (isDragging || !isInView) return;
 
     // Smooth auto-scroll delta
     const currentSpeed = isHovered ? speed * 0.35 : speed;
@@ -133,6 +134,7 @@ const MarqueeRow = ({ products, direction = "left", speed = 1.248, rowId }) => {
         {products.map((product, idx) => (
           <ProductCard
             product={product}
+            isInView={isInView}
             key={`${product.title}-${rowId}-${idx}`}
           />
         ))}
@@ -159,7 +161,7 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, isInView }) => {
   const optimizedThumbnail = typeof product?.thumbnail === 'string' && product.thumbnail.startsWith('/images/') && /\.(jpe?g|png)$/i.test(product.thumbnail)
     ? product.thumbnail.replace(/\.(jpe?g|png)$/i, '.webp')
     : product?.thumbnail;
@@ -170,19 +172,23 @@ export const ProductCard = ({ product }) => {
       className="group/product h-40 sm:h-52 md:h-64 w-[14rem] sm:w-[20rem] md:w-[28rem] lg:w-[30rem] relative flex-shrink-0 rounded-[14px] sm:rounded-[18px] md:rounded-[20px] overflow-hidden shadow-lg md:shadow-2xl transition-transform duration-300 hover:-translate-y-1.5 bg-stone-900 select-none cursor-grab active:cursor-grabbing"
     >
       <div className="block h-full w-full select-none pointer-events-none" draggable="false">
-        <img
-          src={optimizedThumbnail}
-          loading="lazy"
-          decoding="async"
-          onError={(e) => {
-            e.currentTarget.src =
-              "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=65&fm=webp";
-          }}
-          className="object-cover object-center absolute h-full w-full inset-0 transition-transform duration-700 group-hover/product:scale-105 select-none pointer-events-none transform-gpu"
-          style={{ imageRendering: "auto", backfaceVisibility: "hidden" }}
-          draggable="false"
-          alt={product.title}
-        />
+        {isInView ? (
+          <img
+            src={optimizedThumbnail}
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              e.currentTarget.src =
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=65&fm=webp";
+            }}
+            className="object-cover object-center absolute h-full w-full inset-0 transition-transform duration-700 group-hover/product:scale-105 select-none pointer-events-none transform-gpu"
+            style={{ imageRendering: "auto", backfaceVisibility: "hidden" }}
+            draggable="false"
+            alt={product.title}
+          />
+        ) : (
+          <div className="w-full h-full bg-stone-900" />
+        )}
       </div>
       {/* Smooth bottom gradient vignette for crisp text contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none transition-opacity duration-300 group-hover/product:from-black/95" />
