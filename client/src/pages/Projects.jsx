@@ -8,6 +8,7 @@ import HeroSlideshow from '../components/common/HeroSlideshow';
 import ScrollDownIndicator from '../components/common/ScrollDownIndicator';
 import GooeyInput from '../components/ui/gooey-input';
 import { getOptimizedImageUrl } from '../utils/imageOptimizer';
+import { DEFAULT_PROJECTS } from '../utils/cmsStore';
 
 const Reveal = ({ children, delay = 0, className = '' }) => {
   const ref = useRef(null);
@@ -42,13 +43,13 @@ const heroImages = [
 ];
 
 const Projects = () => {
-  const [projects, setProjects]               = useState([]);
-  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [projects, setProjects]               = useState(DEFAULT_PROJECTS);
+  const [filteredProjects, setFilteredProjects] = useState(DEFAULT_PROJECTS);
   const [activeFilter, setActiveFilter]       = useState('all');
   const [searchQuery, setSearchQuery]         = useState('');
   const [loading, setLoading]                 = useState(false);
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
-  const [visibleCount, setVisibleCount]       = useState(6);
+  const [visibleCount, setVisibleCount]       = useState(8);
   const [isUnlocked, setIsUnlocked]           = useState(false);
   const heroRef = useRef(null);
 
@@ -262,7 +263,7 @@ const Projects = () => {
     setFilteredProjects(result);
   }, [activeFilter, searchQuery, projects]);
 
-  const displayedProjects = isUnlocked ? filteredProjects : filteredProjects.slice(0, visibleCount);
+  const displayedProjects = filteredProjects;
 
   return (
     <div className="bg-bg">
@@ -377,18 +378,12 @@ const Projects = () => {
                             alt={project.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-expo-out"
                           />
-                          {(project.featured === true || project.featured === 'true') && (
-                            <div className="absolute top-3 left-3 bg-gold text-charcoal font-sans text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-lg z-10 select-none">
-                              ★ Featured
-                            </div>
-                          )}
                         </div>
                         <div className="p-6 select-none">
-                          <div className="flex items-center justify-between mb-2 select-none">
+                          <div className="mb-2 select-none">
                             <span className="font-sans text-[10px] uppercase tracking-widest text-gold font-bold select-none">
                               {project.style || 'Luxury build'}
                             </span>
-                            <span className="font-sans text-[11px] text-ink-muted select-none">{project.year}</span>
                           </div>
                           <h3 className="font-display text-[22px] font-bold text-ink group-hover:text-ink-soft transition-colors mb-2 leading-snug select-none">
                             {project.title}
@@ -419,9 +414,6 @@ const Projects = () => {
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </motion.button>
-                  <p className="font-sans text-[12px] sm:text-[13px] text-ink-soft mt-3 font-medium select-none">
-                    Fill details to explore our full private lookbook & unreleased luxury projects
-                  </p>
                 </div>
               )}
             </>

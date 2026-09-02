@@ -346,7 +346,7 @@ const About = () => {
                 src={aboutData.heroImage}
                 alt="ESPACIO Luxury Background"
                 className="w-full h-full object-cover object-center"
-                style={{ filter: 'blur(2px) brightness(0.85)', transform: 'scale(1.04)' }}
+                style={{ filter: 'brightness(0.9)', transform: 'scale(1.02)' }}
               />
             </motion.div>
             {/* Dark overlays for depth */}

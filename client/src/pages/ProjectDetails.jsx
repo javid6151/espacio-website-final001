@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { ArrowLeft, MapPin, Calendar, LayoutGrid, Layers, Maximize2 } from 'lucide-react';
+import { ArrowLeft, MapPin, Home, CheckCircle2, Layers, Maximize2 } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import ScrollDownIndicator from '../components/common/ScrollDownIndicator';
 
@@ -281,17 +281,19 @@ const ProjectDetails = () => {
           </div>
         </div>
         <div className="flex items-center space-x-3">
-          <LayoutGrid className="text-gold shrink-0" size={20} />
+          <Home className="text-gold shrink-0" size={20} />
           <div>
-            <span className="font-sans text-[10px] text-walnut uppercase tracking-widest block">Size</span>
-            <span className="font-sans font-bold text-sm text-charcoal">{p.area || 'N/A'}</span>
+            <span className="font-sans text-[10px] text-walnut uppercase tracking-widest block">Configuration</span>
+            <span className="font-sans font-bold text-sm text-charcoal">
+              {p.configuration || (p.title?.match(/(\d+BHK|Duplex)/i) ? `${p.title.match(/(\d+BHK|Duplex)/i)[0]} Residence` : 'Luxury Residence')}
+            </span>
           </div>
         </div>
         <div className="flex items-center space-x-3">
-          <Calendar className="text-gold shrink-0" size={20} />
+          <CheckCircle2 className="text-gold shrink-0" size={20} />
           <div>
-            <span className="font-sans text-[10px] text-walnut uppercase tracking-widest block">Year</span>
-            <span className="font-sans font-bold text-sm text-charcoal">{p.year || p.completionYear || 2025}</span>
+            <span className="font-sans text-[10px] text-walnut uppercase tracking-widest block">Status</span>
+            <span className="font-sans font-bold text-sm text-charcoal">{p.statusText || 'Completed Handover'}</span>
           </div>
         </div>
         <div className="flex items-center space-x-3">
