@@ -2887,12 +2887,17 @@ const WhatWeDo = () => {
               />
             </motion.div>
 
-            {/* AFTER Label (Bottom Right) */}
-            <div className="absolute right-6 bottom-6 md:right-8 md:bottom-8 z-20 pointer-events-none">
-              <div className="bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg">
-                <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-white/90">
-                  AFTER
-                </span>
+            {/* AFTER Label (Bottom Right, Clipped to slider line) */}
+            <div 
+              className="absolute inset-0 pointer-events-none z-20 overflow-hidden"
+              style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
+            >
+              <div className="absolute right-6 bottom-6 md:right-8 md:bottom-8">
+                <div className="bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg whitespace-nowrap">
+                  <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-white/90">
+                    AFTER
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -2914,17 +2919,14 @@ const WhatWeDo = () => {
                   />
                 </motion.div>
               </div>
-            </div>
 
-            {/* BEFORE Label (Bottom Left) */}
-            <div 
-              className="absolute left-6 bottom-6 md:left-8 md:bottom-8 z-20 pointer-events-none transition-opacity duration-200"
-              style={{ opacity: sliderPos > 10 ? 1 : 0 }}
-            >
-              <div className="bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg">
-                <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-white/90">
-                  BEFORE
-                </span>
+              {/* BEFORE Label (Bottom Left, inside clipped layer) */}
+              <div className="absolute left-6 bottom-6 md:left-8 md:bottom-8 z-20 pointer-events-none">
+                <div className="bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg whitespace-nowrap">
+                  <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-white/90">
+                    BEFORE
+                  </span>
+                </div>
               </div>
             </div>
 

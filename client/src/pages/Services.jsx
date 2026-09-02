@@ -667,9 +667,14 @@ const ServicesBeforeAfterSection = ({ baContent }) => {
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
 
-            {/* After Badge */}
-            <div className="absolute bottom-4 right-4 z-20 bg-gold text-charcoal font-sans text-[11px] sm:text-xs uppercase font-bold tracking-widest px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg pointer-events-none">
-              After • Finished Handover
+            {/* After Badge (Clipped as slider divider moves over it) */}
+            <div 
+              className="absolute inset-0 overflow-hidden pointer-events-none z-10"
+              style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
+            >
+              <div className="absolute bottom-4 right-4 bg-gold text-charcoal font-sans text-[11px] sm:text-xs uppercase font-bold tracking-widest px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg pointer-events-none whitespace-nowrap">
+                After • Finished Handover
+              </div>
             </div>
 
             {/* Before Image (Clipped) */}
@@ -685,7 +690,7 @@ const ServicesBeforeAfterSection = ({ baContent }) => {
               />
 
               {/* Before Badge */}
-              <div className="absolute bottom-4 left-4 z-20 bg-black/85 text-cream font-sans text-[11px] sm:text-xs uppercase font-bold tracking-widest px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg border border-white/20 pointer-events-none">
+              <div className="absolute bottom-4 left-4 z-20 bg-black/85 text-cream font-sans text-[11px] sm:text-xs uppercase font-bold tracking-widest px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg border border-white/20 pointer-events-none whitespace-nowrap">
                 Before • Raw Site
               </div>
             </div>

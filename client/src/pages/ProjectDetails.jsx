@@ -354,14 +354,17 @@ const ProjectDetails = () => {
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
 
-              {/* After Badge: Appears initially, and when sliding to the left side */}
-              {(!hasMoved || sliderPos <= 50) && (
-                <div className="absolute bottom-4 right-4 z-20 bg-gold text-charcoal font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg transition-opacity duration-300 pointer-events-none">
+              {/* After Badge: Clipped at the slider line */}
+              <div 
+                className="absolute inset-0 overflow-hidden pointer-events-none z-10"
+                style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
+              >
+                <div className="absolute bottom-4 right-4 bg-gold text-charcoal font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg pointer-events-none whitespace-nowrap">
                   After Transformation
                 </div>
-              )}
+              </div>
 
-              {/* Before Image */}
+              {/* Before Image & Badge (Clipped to slider width) */}
               <div
                 className="absolute inset-0 overflow-hidden pointer-events-none z-10"
                 style={{ width: `${sliderPos}%` }}
@@ -373,12 +376,10 @@ const ProjectDetails = () => {
                   style={{ width: sliderContainerRef.current ? sliderContainerRef.current.getBoundingClientRect().width : '100%' }}
                 />
                 
-                {/* Before Badge: Appears initially, and when sliding to the right side */}
-                {(!hasMoved || sliderPos > 50) && (
-                  <div className="absolute bottom-4 left-4 z-20 bg-black/80 text-cream font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg border border-white/20 transition-opacity duration-300 pointer-events-none">
-                    Before Raw Site
-                  </div>
-                )}
+                {/* Before Badge */}
+                <div className="absolute bottom-4 left-4 bg-black/80 text-cream font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg border border-white/20 pointer-events-none whitespace-nowrap">
+                  Before Raw Site
+                </div>
               </div>
 
               {/* Drag handle line */}
