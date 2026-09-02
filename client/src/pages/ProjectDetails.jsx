@@ -359,8 +359,15 @@ const ProjectDetails = () => {
                 className="absolute inset-0 overflow-hidden pointer-events-none z-10"
                 style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
               >
-                <div className="absolute bottom-4 right-4 bg-gold text-charcoal font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg pointer-events-none whitespace-nowrap">
-                  After Transformation
+                <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 inline-flex items-center gap-2 bg-[#C9A96E]/95 backdrop-blur-md text-[#101014] px-4 py-1.5 sm:px-5 sm:py-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] border border-white/40 pointer-events-none whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#101014] shrink-0" />
+                  <span className="font-editorial text-xs sm:text-[13.5px] font-semibold tracking-wide text-[#101014]">
+                    After
+                  </span>
+                  <span className="text-[#101014]/40 text-xs font-light">•</span>
+                  <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#101014]/90">
+                    Finished Space
+                  </span>
                 </div>
               </div>
 
@@ -377,8 +384,15 @@ const ProjectDetails = () => {
                 />
                 
                 {/* Before Badge */}
-                <div className="absolute bottom-4 left-4 bg-black/80 text-cream font-sans text-xs uppercase font-bold tracking-widest px-4 py-2 rounded-full shadow-lg border border-white/20 pointer-events-none whitespace-nowrap">
-                  Before Raw Site
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 inline-flex items-center gap-2 bg-black/80 backdrop-blur-md text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/20 pointer-events-none whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#C9A96E] shrink-0" />
+                  <span className="font-editorial text-xs sm:text-[13.5px] font-semibold tracking-wide text-white">
+                    Before
+                  </span>
+                  <span className="text-white/40 text-xs font-light">•</span>
+                  <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-white/90">
+                    Raw Site
+                  </span>
                 </div>
               </div>
 
