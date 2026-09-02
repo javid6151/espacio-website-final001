@@ -16,7 +16,7 @@ export const HeroParallax = ({ products = [] }) => {
         <MarqueeRow
           products={firstRow}
           direction="left"
-          speed={1.2}
+          speed={1.248}
           rowId="r1"
         />
 
@@ -24,7 +24,7 @@ export const HeroParallax = ({ products = [] }) => {
         <MarqueeRow
           products={secondRow}
           direction="right"
-          speed={1.2}
+          speed={1.248}
           rowId="r2"
         />
       </div>
@@ -32,7 +32,7 @@ export const HeroParallax = ({ products = [] }) => {
   );
 };
 
-const MarqueeRow = ({ products, direction = "left", speed = 1.2, rowId }) => {
+const MarqueeRow = ({ products, direction = "left", speed = 1.248, rowId }) => {
   const containerRef = useRef(null);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);

@@ -17,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // On dark-hero pages: turn solid as soon as user leaves the hero header (~250px)
+      // On dark-hero pages: stay transparent until user leaves the hero
       // On other pages: become solid immediately after 20px.
       const threshold = hasDarkHero ? Math.min(window.innerHeight * 0.35, 250) : 20;
       setScrolled(window.scrollY > threshold);
@@ -103,8 +103,7 @@ const Navbar = () => {
     };
   }, []);
 
-
-
+  // isNavLight = true means white bg + dark text (post-hero or non-hero pages)
   const isNavLight = scrolled || !hasDarkHero || location.search.includes('success=true');
   const isBgTransparent = !isNavLight || location.search.includes('success=true');
   const isContact = location.pathname.startsWith('/contact');
@@ -129,37 +128,42 @@ const Navbar = () => {
 
   return (
     <>
-      <header 
-        role="banner"
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          scrolled 
-            ? 'py-2.5 sm:py-3.5 bg-bg/90 backdrop-blur-xl border-b border-ink-border/40 shadow-nav' 
-            : 'py-4 sm:py-5 bg-transparent'
-        }`}
+      <nav className={`${navPosition} top-0 left-0 w-full z-[100] transition-all duration-500 ${
+        isBgTransparent
+          ? 'bg-transparent px-5 pt-[6px] lg:px-12 lg:pt-[3px]'
+          : 'bg-bg/95 backdrop-blur-md shadow-sm px-0 pt-0'
+      }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
+        <div className={`max-w-[1440px] mx-auto pl-6 pr-10 flex items-center justify-between transition-all duration-500 ${
+          isBgTransparent ? 'pt-[6px] pb-[3px]' : 'py-[5px]'
+        }`}>
+
+          {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 z-10 transition-transform duration-300 active:scale-95 group"
+            aria-label="ESPACIO Home"
+            className={`hover:opacity-90 transition-opacity ${isNavLight ? '' : 'drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]'}`}
             onClick={() => resetScroll(true, '/')}
           >
-            <Logo scrolled={scrolled} />
+            <Logo scrolled={isNavLight} />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center">
-            <GooeyNav items={navLinks} scrolled={scrolled} />
-          </div>
+          {/* Desktop Nav & CTA Grouped on the right */}
+          <div className="hidden lg:flex items-center gap-12 ml-auto">
+            <GooeyNav 
+              items={navLinks} 
+              isNavLight={isNavLight}
+            />
 
-          <div className="hidden lg:flex items-center gap-3">
+            {/* CTA Button */}
             <Link 
-              to="/contact" 
+              to="/contact"
               onClick={() => resetScroll(true, '/contact')}
-              className={`btn-nav-split ${scrolled ? 'scrolled' : 'cinematic'}`}
+              className={`btn-nav-split ${isNavLight ? 'scrolled' : 'cinematic'}`}
             >
               <span>
                 Contact us
-                <ArrowUpRight size={13} />
+                <ArrowUpRight size={14} />
               </span>
             </Link>
           </div>
@@ -169,26 +173,39 @@ const Navbar = () => {
             aria-label="Toggle navigation menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`lg:hidden p-2.5 rounded-full transition-colors flex items-center justify-center cursor-pointer ${
-              scrolled 
+              isNavLight 
                 ? 'text-ink hover:bg-ink-muted/10' 
-                : 'text-ink hover:bg-black/5'
+                : 'text-white hover:bg-white/10'
             }`}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </header>
+      </nav>
 
-      {/* Mobile Drawer (Fullscreen overlay) */}
+      {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-bg-dark text-bg flex flex-col justify-between p-8 pt-28 lg:hidden shadow-2xl"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-bg-dark z-[100] flex flex-col p-8"
           >
+            <div className="flex items-center justify-between mb-16">
+              <Link to="/" className="hover:opacity-90">
+                <Logo scrolled={false} />
+              </Link>
+              <button 
+                onClick={() => setMobileMenuOpen(false)} 
+                aria-label="Close navigation menu"
+                className="text-white/60 hover:text-white transition-colors p-2"
+              >
+                <X size={22} />
+              </button>
+            </div>
+            
             <nav className="flex flex-col gap-2 flex-1">
               {navLinks.map((link, i) => (
                 <motion.div 
@@ -295,8 +312,8 @@ const Navbar = () => {
 
         {/* Tab: Materials */}
         <Link 
-          to="/products" 
-          onClick={() => resetScroll(true, '/products')}
+          to="/materials" 
+          onClick={() => resetScroll(true, '/materials')}
           className="flex flex-col items-center gap-1 text-ink-soft hover:text-ink transition-colors flex-1 py-2"
         >
           <Package size={22} className="text-ink-soft" />

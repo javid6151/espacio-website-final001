@@ -56,6 +56,10 @@ const QuoteModal = () => {
         setModalMode('catalogue');
         setModalTitle(detail.title || 'To Unlock More Catalogs, Fill the Details');
         setProductContext(detail.productName || null);
+      } else if (detail && detail.mode === 'projects') {
+        setModalMode('projects');
+        setModalTitle(detail.title || 'Fill Details to Get More Projects');
+        setProductContext(detail.context || null);
       } else {
         setModalMode('estimate');
         setModalTitle('Get Free Estimate');
@@ -133,15 +137,16 @@ const QuoteModal = () => {
 
     try {
       const isCatalogue = modalMode === 'catalogue';
-      const type = isCatalogue ? 'CATALOGUE_REQUEST' : 'FREE_ESTIMATE';
-      const source = isCatalogue ? 'CATALOGUE_REQUEST' : 'GET_FREE_ESTIMATE';
+      const isProjects = modalMode === 'projects';
+      const type = isProjects ? 'PROJECTS_UNLOCK' : (isCatalogue ? 'CATALOGUE_REQUEST' : 'FREE_ESTIMATE');
+      const source = isProjects ? 'LOAD_MORE_PROJECTS' : (isCatalogue ? 'CATALOGUE_REQUEST' : 'GET_FREE_ESTIMATE');
+      const prefix = isProjects ? 'ESP-PR' : (isCatalogue ? 'ESP-CR' : 'ESP-FE');
       
       // Save structured enquiry into local CMS store for real-time admin sync
       try {
         const { getCMSData, setCMSData, STORAGE_KEYS, notifyCMSUpdate } = await import('../../utils/cmsStore');
         const existing = getCMSData(STORAGE_KEYS.ENQUIRIES) || [];
         const count = existing.length + 1;
-        const prefix = isCatalogue ? 'ESP-CR' : 'ESP-FE';
         const enquiryId = `${prefix}-${String(count).padStart(5, '0')}`;
         
         const newRecord = {
@@ -175,15 +180,20 @@ const QuoteModal = () => {
           email: formData.email,
           phone: formData.phone2 ? `${formData.phone1} / ${formData.phone2}` : formData.phone1,
           location: formData.location,
-          projectType: isCatalogue ? 'Catalogue Request' : 'Free Estimate Request',
+          projectType: isProjects ? 'Projects Portfolio Unlock' : (isCatalogue ? 'Catalogue Request' : 'Free Estimate Request'),
           catalogueMaterial: isCatalogue ? productContext : undefined,
-          message: isCatalogue 
-            ? `Catalogue Material: ${productContext || 'N/A'}. Location: ${formData.location || 'N/A'}` 
-            : `Location: ${formData.location || 'N/A'}. Secondary Phone: ${formData.phone2 || 'None'}`,
+          message: isProjects
+            ? `Client requested to load more projects. Location: ${formData.location || 'N/A'}`
+            : (isCatalogue 
+              ? `Catalogue Material: ${productContext || 'N/A'}. Location: ${formData.location || 'N/A'}` 
+              : `Location: ${formData.location || 'N/A'}. Secondary Phone: ${formData.phone2 || 'None'}`),
         });
       } catch (backendErr) {
         console.warn('Backend leads API warning:', backendErr.message);
       }
+
+      // Dispatch unlock event for any listening project views
+      window.dispatchEvent(new CustomEvent('projects-unlocked', { detail: { name: formData.name } }));
 
       setSubmitted(true);
       sessionStorage.setItem('quote_modal_dismissed', 'true');
@@ -237,6 +247,8 @@ const QuoteModal = () => {
                   <p className="font-sans text-xs sm:text-sm text-ink-soft mt-3 leading-relaxed">
                     {modalMode === 'catalogue'
                       ? 'Please fill out the details below to unlock more premium design pages instantly.'
+                      : modalMode === 'projects'
+                      ? 'Please fill out your details below to unlock our exclusive architectural projects and receive our private lookbook portfolio.'
                       : 'Please fill out the enquiry below and we will get back to you as soon as possible.'
                     }
                   </p>
@@ -332,7 +344,7 @@ const QuoteModal = () => {
                       </>
                     ) : (
                       <>
-                        <span>Submit</span>
+                        <span>{modalMode === 'projects' ? 'Submit & Unlock Projects' : (modalMode === 'catalogue' ? 'Unlock Catalogs' : 'Submit')}</span>
                         <ArrowUpRight size={16} />
                       </>
                     )}
@@ -346,11 +358,17 @@ const QuoteModal = () => {
                   <CheckCircle2 size={36} />
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">
-                  {modalMode === 'catalogue' ? 'Catalogue Request Received!' : 'Estimate Request Received!'}
+                  {modalMode === 'catalogue' 
+                    ? 'Catalogue Request Received!' 
+                    : modalMode === 'projects'
+                    ? 'Portfolio Access Unlocked!'
+                    : 'Estimate Request Received!'}
                 </h3>
                 <p className="font-sans text-sm text-ink-soft max-w-[380px] mx-auto leading-relaxed">
                   {modalMode === 'catalogue' 
                     ? <>Thank you, <strong>{formData.name || 'valued client'}</strong>. You will receive an SMS and email with details to access our full catalog library shortly.</>
+                    : modalMode === 'projects'
+                    ? <>Thank you, <strong>{formData.name || 'valued client'}</strong>! Our senior design consultancy team has unlocked our private portfolio and will also share our high-res project lookbooks and floor plans with you via WhatsApp.</>
                     : <>Thank you, <strong>{formData.name || 'valued client'}</strong>. Your estimate request has been logged. Our principal design team will share your personalized estimate range on a quick call, since actual site conditions affect final BOQ significantly.</>
                   }
                 </p>

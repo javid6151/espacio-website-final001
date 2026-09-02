@@ -30,7 +30,7 @@ const mockCategories = [
     "name": "Modular Kitchen",
     "slug": "modular-kitchen",
     "description": "Precision-engineered kitchens with high-gloss acrylic, polygranite surfaces, and concealed lighting tracks.",
-    "heroImage": "/images/materials/user_luxury_kitchen_6.webp",
+    "heroImage": "/images/spaces/modular_kitchen/kitchen_drive_24.webp",
     "visible": true,
     "details": {
       "tag": "Culinary Architecture",
@@ -49,18 +49,38 @@ const mockCategories = [
       ]
     },
     "galleryImages": [
-      "/images/materials/user_luxury_kitchen_6.webp",
-      "/images/materials/user_luxury_kitchen_7.webp",
-      "/images/materials/user_luxury_kitchen_8.webp",
-      "/images/materials/user_luxury_kitchen_1.webp",
-      "/images/materials/user_luxury_kitchen_2.webp",
-      "/images/materials/user_luxury_kitchen_3.webp",
-      "/images/materials/user_luxury_kitchen_4.webp",
-      "/images/materials/user_luxury_kitchen_5.webp",
-      "/images/materials/user_l_shape_kitchen_1.webp",
-      "/images/materials/user_l_shape_kitchen_2.webp",
-      "/images/materials/island_kitchen_1.webp",
-      "/images/materials/parallel_kitchen_1.webp"
+      "/images/spaces/modular_kitchen/kitchen_drive_24.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_1.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_2.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_3.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_4.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_5.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_6.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_7.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_8.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_9.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_10.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_11.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_12.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_13.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_14.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_15.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_16.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_17.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_18.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_19.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_20.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_21.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_22.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_23.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_25.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_26.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_27.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_28.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_29.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_30.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_31.webp",
+      "/images/spaces/modular_kitchen/kitchen_drive_32.webp"
     ],
     "filters": [
       "Island Kitchen",
@@ -418,7 +438,7 @@ const mockCategories = [
     "name": "Pooja Room",
     "slug": "pooja-room",
     "description": "Sacred sanctuaries merging ancestral stone textures with sleek back-lit marble panels and warm lighting.",
-    "heroImage": "/images/spaces/pooja/pooja_drive_1.webp",
+    "heroImage": "/images/spaces/pooja/pooja_drive_12.webp",
     "visible": true,
     "details": {
       "tag": "Sacred Spaces",
@@ -478,7 +498,7 @@ const mockCategories = [
     "name": "Dining Room",
     "slug": "dining-room",
     "description": "Refined gathering spaces with custom hardwood dining tables, feature pendant lighting, and plaster wall finishes.",
-    "heroImage": "/images/spaces/dining/dining_drive_1.webp",
+    "heroImage": "/images/spaces/dining/dining_drive_27.webp",
     "visible": true,
     "details": {
       "tag": "Gather & Dine",
@@ -776,7 +796,7 @@ const mockCategories = [
     "name": "Reception Areas",
     "slug": "reception-areas",
     "description": "Striking lobby and reception spaces that communicate professionalism and set the tone for the entire building experience.",
-    "heroImage": "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/images/spaces/reception/reception_drive_1.webp",
     "visible": true,
     "details": {
       "tag": "First Impressions",
@@ -794,14 +814,41 @@ const mockCategories = [
       ]
     },
     "galleryImages": [
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=800&q=80"
+      "/images/spaces/reception/reception_drive_1.webp",
+      "/images/spaces/reception/reception_drive_2.webp",
+      "/images/spaces/reception/reception_drive_3.webp",
+      "/images/spaces/reception/reception_drive_4.webp",
+      "/images/spaces/reception/reception_drive_5.webp",
+      "/images/spaces/reception/reception_drive_6.webp",
+      "/images/spaces/reception/reception_drive_7.webp",
+      "/images/spaces/reception/reception_drive_8.webp",
+      "/images/spaces/reception/reception_drive_9.webp",
+      "/images/spaces/reception/reception_drive_10.webp",
+      "/images/spaces/reception/reception_drive_11.webp",
+      "/images/spaces/reception/reception_drive_12.webp",
+      "/images/spaces/reception/reception_drive_13.webp",
+      "/images/spaces/reception/reception_drive_14.webp",
+      "/images/spaces/reception/reception_drive_15.webp",
+      "/images/spaces/reception/reception_drive_16.webp",
+      "/images/spaces/reception/reception_drive_17.webp",
+      "/images/spaces/reception/reception_drive_18.webp",
+      "/images/spaces/reception/reception_drive_19.webp",
+      "/images/spaces/reception/reception_drive_20.webp",
+      "/images/spaces/reception/reception_drive_21.webp",
+      "/images/spaces/reception/reception_drive_22.webp",
+      "/images/spaces/reception/reception_drive_23.webp",
+      "/images/spaces/reception/reception_drive_24.webp",
+      "/images/spaces/reception/reception_drive_25.webp",
+      "/images/spaces/reception/reception_drive_26.webp",
+      "/images/spaces/reception/reception_drive_27.webp",
+      "/images/spaces/reception/reception_drive_28.webp",
+      "/images/spaces/reception/reception_drive_29.webp",
+      "/images/spaces/reception/reception_drive_30.webp",
+      "/images/spaces/reception/reception_drive_31.webp",
+      "/images/spaces/reception/reception_drive_32.webp",
+      "/images/spaces/reception/reception_drive_33.webp",
+      "/images/spaces/reception/reception_drive_34.webp",
+      "/images/spaces/reception/reception_drive_35.webp"
     ],
     "filters": [
       "Monolithic Stone Reception Desk",
@@ -1046,7 +1093,7 @@ const mockCategories = [
     "name": "Luxury Homes",
     "slug": "luxury-homes",
     "description": "Ultra-premium residences where every material is hand-selected, every detail is bespoke, and the result is truly one of a kind.",
-    "heroImage": "/images/spaces/luxury_homes/luxury_drive_1.webp",
+    "heroImage": "/images/spaces/luxury_homes/luxury_drive_10.webp",
     "visible": true,
     "details": {
       "tag": "Signature Collection",
@@ -1283,7 +1330,7 @@ const mockCategories = [
     "name": "Walk-in Wardrobe",
     "slug": "walk-in-wardrobe",
     "description": "Boutique-style walk-in dressing suites with central accessory islands, velvet-lined drawers, and illuminated tinted glass enclosures.",
-    "heroImage": "https://images.unsplash.com/photo-1558882224-dda166733079?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/images/spaces/wardrobes/walk_in_wardrobe_drive_1.webp",
     "visible": true,
     "details": {
       "tag": "Boutique Dressing Suites",
@@ -1301,14 +1348,31 @@ const mockCategories = [
       ]
     },
     "galleryImages": [
-      "https://images.unsplash.com/photo-1558882224-dda166733079?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80",
-      "/images/materials/bedroom_3.webp",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_1.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_2.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_3.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_4.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_5.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_6.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_7.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_8.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_9.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_10.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_11.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_12.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_13.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_14.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_15.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_16.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_17.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_18.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_19.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_20.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_21.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_22.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_23.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_24.webp",
+      "/images/spaces/wardrobes/walk_in_wardrobe_drive_25.webp"
     ],
     "filters": [
       "Central Island Suite",
@@ -1734,6 +1798,43 @@ const GALLERY_IMAGE_TAGS = {
   'commercial_drive_40': ['Tech Innovation Hub', 'Law & Financial Atelier'],
   'commercial_drive_41': ['Corporate Headquarters', 'Retail & Showroom Store'],
 
+  // ── 35 Unique Reception Areas Drive Images Tagging (Minimum 14 per category) ──
+  'reception_drive_1': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_2': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_3': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_4': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_5': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_6': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_7': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_8': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_9': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_10': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_11': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_12': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_13': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_14': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_15': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_16': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_17': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_18': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_19': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_20': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_21': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_22': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_23': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_24': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_25': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_26': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_27': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_28': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_29': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_30': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+  'reception_drive_31': ['Monolithic Stone Reception Desk', 'Corporate Brand Identity Wall'],
+  'reception_drive_32': ['Corporate Brand Identity Wall', 'Luxury Client Lounge'],
+  'reception_drive_33': ['Luxury Client Lounge', 'Fluted Wood & Green Wall'],
+  'reception_drive_34': ['Fluted Wood & Green Wall', 'Double-Height Entry Lobby'],
+  'reception_drive_35': ['Double-Height Entry Lobby', 'Monolithic Stone Reception Desk'],
+
   // ── 42 Unique Cafes & Restaurants Drive Images Tagging (Minimum 16-17 per category) ──
   'cafe_drive_1': ['Specialty Coffee Bistro', 'Fine Dining Hall'],
   'cafe_drive_2': ['Fine Dining Hall', 'Industrial Rooftop Bar'],
@@ -1939,6 +2040,33 @@ const GALLERY_IMAGE_TAGS = {
   'bar_drive_36': ['Backlit Onyx Counter', 'Temperature-Controlled Wine Cellar'],
   'bar_drive_37': ['Temperature-Controlled Wine Cellar', 'Compact Dry Bar'],
   'bar_drive_38': ['Compact Dry Bar', 'Fluted Glass Cocktail Station'],
+
+  // ── 25 Unique Walk-in Wardrobe Drive Images Tagging (Minimum 10 per category) ──
+  'walk_in_wardrobe_drive_1': ['Central Island Suite', 'Tinted Bronze Glass Wardrobe'],
+  'walk_in_wardrobe_drive_2': ['Tinted Bronze Glass Wardrobe', 'Velvet Boutique Salon'],
+  'walk_in_wardrobe_drive_3': ['Velvet Boutique Salon', 'Minimalist Open Dressing'],
+  'walk_in_wardrobe_drive_4': ['Minimalist Open Dressing', '360-Degree Illuminated Vanity'],
+  'walk_in_wardrobe_drive_5': ['360-Degree Illuminated Vanity', 'Central Island Suite'],
+  'walk_in_wardrobe_drive_6': ['Central Island Suite', 'Tinted Bronze Glass Wardrobe'],
+  'walk_in_wardrobe_drive_7': ['Tinted Bronze Glass Wardrobe', 'Velvet Boutique Salon'],
+  'walk_in_wardrobe_drive_8': ['Velvet Boutique Salon', 'Minimalist Open Dressing'],
+  'walk_in_wardrobe_drive_9': ['Minimalist Open Dressing', '360-Degree Illuminated Vanity'],
+  'walk_in_wardrobe_drive_10': ['360-Degree Illuminated Vanity', 'Central Island Suite'],
+  'walk_in_wardrobe_drive_11': ['Central Island Suite', 'Tinted Bronze Glass Wardrobe'],
+  'walk_in_wardrobe_drive_12': ['Tinted Bronze Glass Wardrobe', 'Velvet Boutique Salon'],
+  'walk_in_wardrobe_drive_13': ['Velvet Boutique Salon', 'Minimalist Open Dressing'],
+  'walk_in_wardrobe_drive_14': ['Minimalist Open Dressing', '360-Degree Illuminated Vanity'],
+  'walk_in_wardrobe_drive_15': ['360-Degree Illuminated Vanity', 'Central Island Suite'],
+  'walk_in_wardrobe_drive_16': ['Central Island Suite', 'Tinted Bronze Glass Wardrobe'],
+  'walk_in_wardrobe_drive_17': ['Tinted Bronze Glass Wardrobe', 'Velvet Boutique Salon'],
+  'walk_in_wardrobe_drive_18': ['Velvet Boutique Salon', 'Minimalist Open Dressing'],
+  'walk_in_wardrobe_drive_19': ['Minimalist Open Dressing', '360-Degree Illuminated Vanity'],
+  'walk_in_wardrobe_drive_20': ['360-Degree Illuminated Vanity', 'Central Island Suite'],
+  'walk_in_wardrobe_drive_21': ['Central Island Suite', 'Tinted Bronze Glass Wardrobe'],
+  'walk_in_wardrobe_drive_22': ['Tinted Bronze Glass Wardrobe', 'Velvet Boutique Salon'],
+  'walk_in_wardrobe_drive_23': ['Velvet Boutique Salon', 'Minimalist Open Dressing'],
+  'walk_in_wardrobe_drive_24': ['Minimalist Open Dressing', '360-Degree Illuminated Vanity'],
+  'walk_in_wardrobe_drive_25': ['360-Degree Illuminated Vanity', 'Central Island Suite'],
 
   // ── 44 Unique Home Office Drive Images Tagging (Minimum 17-18 per category) ──
   'home_office_drive_1': ['Executive Study', 'Minimal Studio Desk'],
@@ -2411,13 +2539,8 @@ const WhatWeDo = () => {
 
   // ── CATEGORY DETAIL PAGE ───────────────────────────────────────────────────
   if (activeCategory) {
-    const filters = ['All', ...(activeCategory.filters || [])];
-    const filteredImages = (activeCategory.galleryImages || []).filter(img => {
-      if (activeFilter === 'All') return true;
-      const tags = getTagsForImage(img, activeCategory.filters || []);
-      return tags.includes(activeFilter);
-    });
-    const visibleImages = filteredImages.slice(0, visibleCount);
+    const allImages = activeCategory.galleryImages || [];
+    const visibleImages = allImages.slice(0, visibleCount);
 
     return (
       <div className="bg-bg min-h-screen">
@@ -2427,109 +2550,76 @@ const WhatWeDo = () => {
           url={`/spaces/${activeCategory.slug}`} 
         />
 
-        {/* Cinematic Detail Hero */}
-        <section className="relative h-[65vh] sm:h-[72vh] min-h-[480px] bg-bg-dark flex items-end overflow-hidden">
-          <img 
-            src={getOptimizedImageUrl(activeCategory.heroImage, 1920, 90)} 
-            alt={activeCategory.name} 
-            className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 transition-transform duration-1000" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-transparent" />
-          <div className="relative max-w-[1440px] w-full mx-auto px-6 md:px-12 pb-14 z-10">
-            <nav className="flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.18em] text-bg/60 mb-4">
-              <Link to="/" className="hover:text-gold transition-colors">Home</Link>
-              <span>/</span>
-              <Link to="/spaces" className="hover:text-gold transition-colors">Spaces</Link>
-              <span>/</span>
-              <span className="text-gold font-bold">{activeCategory.name}</span>
-            </nav>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold/20 backdrop-blur-md border border-gold/40 text-gold text-[10.5px] font-sans font-bold uppercase tracking-widest mb-3">
-              <Sparkles size={11} />
-              {activeCategory.details?.tag || 'Interior Domain'}
-            </span>
-            <h1 className="font-display text-[clamp(34px,5vw,64px)] font-bold text-bg leading-[1.1] tracking-tight mb-3">
-              {activeCategory.name}
-            </h1>
-            <p className="font-sans text-[14px] sm:text-[15.5px] text-bg/75 max-w-[620px] leading-relaxed">
-              {activeCategory.description}
-            </p>
+        {/* Cinematic Detail Hero (90% Screen Height with Sleek Tight Margin & Curved Corners) */}
+        <section className="relative pt-2 sm:pt-3 pb-2.5 sm:pb-3.5 px-2.5 sm:px-4 md:px-5 lg:px-6 w-full h-[88vh] sm:h-[90vh] min-h-[580px] bg-bg flex flex-col justify-end">
+          <div className="relative w-full h-full rounded-[18px] sm:rounded-[26px] lg:rounded-[32px] overflow-hidden bg-bg-dark shadow-[0_16px_40px_rgba(0,0,0,0.22)] border border-white/10 flex items-end">
+            <img 
+              src={getOptimizedImageUrl(
+                (activeCategory.slug === 'modular-kitchen' && (!activeCategory.heroImage || activeCategory.heroImage.includes('user_luxury_kitchen') || activeCategory.heroImage.includes('2bhk_urban') || activeCategory.heroImage.includes('3bhk_lux')))
+                  ? '/images/spaces/modular_kitchen/kitchen_drive_24.webp'
+                  : (activeCategory.slug === 'pooja-room' && (!activeCategory.heroImage || activeCategory.heroImage.includes('pooja_drive_1.webp')))
+                  ? '/images/spaces/pooja/pooja_drive_12.webp'
+                  : (activeCategory.slug === 'dining-room' && (!activeCategory.heroImage || activeCategory.heroImage.includes('dining_drive_1.webp')))
+                  ? '/images/spaces/dining/dining_drive_27.webp'
+                  : (activeCategory.slug === 'luxury-homes' && (!activeCategory.heroImage || activeCategory.heroImage.includes('luxury_drive_1.webp')))
+                  ? '/images/spaces/luxury_homes/luxury_drive_10.webp'
+                  : activeCategory.heroImage,
+                2560,
+                95
+              )} 
+              alt={activeCategory.name} 
+              className="absolute inset-0 w-full h-full object-cover opacity-80 scale-100 transition-transform duration-1000" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/95 via-bg-dark/45 to-black/25" />
+            
+            <div className="relative max-w-[1440px] w-full mx-auto px-6 sm:px-10 md:px-14 pb-10 sm:pb-14 z-10">
+              <nav className="flex items-center gap-2 font-sans text-[11.5px] uppercase tracking-[0.2em] text-bg/75 mb-4 font-semibold">
+                <Link to="/" className="hover:text-gold transition-colors">Home</Link>
+                <span>/</span>
+                <Link to="/spaces" className="hover:text-gold transition-colors">Spaces</Link>
+                <span>/</span>
+                <span className="text-gold font-bold">{activeCategory.name}</span>
+              </nav>
+              <h1 className="font-display text-[clamp(36px,5.5vw,72px)] font-bold text-bg leading-[1.08] tracking-tight mb-4">
+                {activeCategory.name}
+              </h1>
+              <p className="font-sans text-[15px] sm:text-[17px] text-bg/85 max-w-[680px] leading-relaxed font-normal">
+                {activeCategory.description}
+              </p>
+            </div>
+
+            {/* Standard Luxury Scroll Down Indicator */}
+            <ScrollDownIndicator className="bottom-4 sm:bottom-6" />
           </div>
         </section>
 
-        {/* Detailed Domain Info & What's Included */}
+        {/* Detailed Domain Info */}
         {activeCategory.details && (
-          <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 border-b border-ink-border/20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <div className="lg:col-span-6 space-y-6">
-                <Reveal>
-                  <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
-                    {activeCategory.details.tag}
-                  </p>
-                  <h2 className="font-display text-[clamp(26px,3.2vw,42px)] font-bold tracking-tight text-ink leading-tight mt-2">
-                    {activeCategory.details.headline}
-                  </h2>
-                  <p className="font-sans text-[15px] sm:text-[16px] text-ink-soft leading-relaxed mt-4">
-                    {activeCategory.details.body}
-                  </p>
-                  <div className="pt-4">
-                    <Link 
-                      to="/contact" 
-                      className="inline-flex items-center gap-2 bg-ink text-bg font-sans text-[12px] uppercase font-bold tracking-widest px-7 py-3.5 rounded-full hover:bg-gold hover:text-ink transition-all duration-300 shadow-md"
-                    >
-                      <span>Enquire About {activeCategory.name}</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </Reveal>
-              </div>
-
-              <div className="lg:col-span-6 bg-bg-card rounded-[24px] p-6 sm:p-8 border border-ink-border/25 shadow-sm">
-                <Reveal delay={0.1}>
-                  <div className="flex items-center justify-between border-b border-ink-border/20 pb-4 mb-6">
-                    <span className="font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-ink">
-                      What's Included in {activeCategory.name}
-                    </span>
-                    <span className="text-[11px] font-sans text-gold font-semibold">
-                      {(activeCategory.details.includes || []).length} Deliverables
-                    </span>
-                  </div>
-
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    {(activeCategory.details.includes || []).map((item, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-3 font-sans text-[13.5px] text-ink-soft leading-snug">
-                        <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </div>
+          <section id="space-details-section" className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 border-b border-ink-border/20">
+            <div className="max-w-[840px] space-y-5">
+              <Reveal>
+                <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
+                  {activeCategory.details.tag || `${activeCategory.name} Architecture`}
+                </p>
+                <h2 className="font-display text-[clamp(28px,3.5vw,46px)] font-bold tracking-tight text-ink leading-tight mt-2">
+                  {activeCategory.details.headline}
+                </h2>
+                <p className="font-sans text-[15.5px] sm:text-[16.5px] text-ink-soft leading-relaxed mt-4">
+                  {activeCategory.details.body}
+                </p>
+                <div className="pt-4">
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center gap-2 bg-ink text-bg font-sans text-[12px] uppercase font-bold tracking-widest px-7 py-3.5 rounded-full hover:bg-gold hover:text-ink transition-all duration-300 shadow-md"
+                  >
+                    <span>Enquire About {activeCategory.name}</span>
+                    <ArrowUpRight size={14} />
+                  </Link>
+                </div>
+              </Reveal>
             </div>
           </section>
         )}
-
-        {/* Filter Navigation Chips (Sticky flush below navbar with internal button margin) */}
-        <div className="sticky top-[74px] lg:top-[80px] z-30 bg-bg/95 backdrop-blur-xl border-b border-ink-border/20 py-3.5 shadow-sm">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center gap-2.5 overflow-x-auto scrollbar-none">
-            <span className="font-sans text-[10.5px] uppercase font-bold tracking-widest text-ink-muted shrink-0 mr-2 flex items-center gap-1">
-              <Layers size={13} className="text-gold" />
-              <span>Styles:</span>
-            </span>
-            {filters.map(f => (
-              <button 
-                key={f} 
-                onClick={() => setActiveFilter(f)}
-                className={`shrink-0 font-sans text-[11px] font-semibold uppercase tracking-wider px-4 py-2 rounded-full transition-all duration-200 cursor-pointer ${
-                  activeFilter === f 
-                    ? 'bg-ink text-bg shadow-md' 
-                    : 'bg-bg-card text-ink-soft hover:text-ink hover:bg-black/5 border border-ink-border/30'
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </div>
 
         {/* Gallery Grid */}
         <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-16">
@@ -2541,11 +2631,11 @@ const WhatWeDo = () => {
               </h3>
             </div>
             <span className="font-sans text-[12px] text-ink-muted">
-              Showing {visibleImages.length} of {filteredImages.length} images
+              Showing {visibleImages.length} of {allImages.length} images
             </span>
           </div>
 
-          {filteredImages.length > 0 ? (
+          {allImages.length > 0 && (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {visibleImages.map((img, i) => (
@@ -2568,11 +2658,11 @@ const WhatWeDo = () => {
                 ))}
               </div>
 
-              {filteredImages.length > 0 && (
+              {allImages.length > 0 && (
                 <div className="mt-12 text-center">
                   <button 
                     onClick={() => {
-                      if (filteredImages.length > visibleCount) {
+                      if (allImages.length > visibleCount) {
                         setVisibleCount(prev => prev + 6);
                       } else {
                         handleOpenCatalogModal();
@@ -2586,16 +2676,6 @@ const WhatWeDo = () => {
                 </div>
               )}
             </>
-          ) : (
-            <div className="text-center py-16 bg-bg-card rounded-[20px] border border-ink-border/20">
-              <p className="text-ink-muted font-sans text-sm">No designs match the selected filter category.</p>
-              <button 
-                onClick={() => setActiveFilter('All')} 
-                className="mt-3 text-gold font-sans text-xs font-bold uppercase tracking-wider underline cursor-pointer"
-              >
-                View All Designs
-              </button>
-            </div>
           )}
         </section>
 

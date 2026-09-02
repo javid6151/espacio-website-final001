@@ -48,6 +48,8 @@ const Projects = () => {
   const [searchQuery, setSearchQuery]         = useState('');
   const [loading, setLoading]                 = useState(false);
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
+  const [visibleCount, setVisibleCount]       = useState(6);
+  const [isUnlocked, setIsUnlocked]           = useState(false);
   const heroRef = useRef(null);
 
   const [heroContent, setHeroContent] = useState({
@@ -56,7 +58,6 @@ const Projects = () => {
     subtitle: 'Every space reflects thoughtful layouts, structural precision, custom material procurement, and meticulous attention to detail.',
     images: heroImages
   });
-
 
   // Page-level parallax (same as Home & Services)
   const { scrollYProgress } = useScroll();
@@ -75,6 +76,25 @@ const Projects = () => {
     { label: 'Renovations',        value: 'renovation'  },
     { label: 'Luxury Homes',       value: 'luxury_home' },
   ];
+
+  useEffect(() => {
+    const handleUnlock = () => {
+      setIsUnlocked(true);
+      setVisibleCount(999);
+    };
+    window.addEventListener('projects-unlocked', handleUnlock);
+    return () => window.removeEventListener('projects-unlocked', handleUnlock);
+  }, []);
+
+  const handleLoadMore = () => {
+    window.dispatchEvent(new CustomEvent('open-quote-modal', {
+      detail: {
+        mode: 'projects',
+        title: 'Fill Details to Get More Projects',
+        context: 'Projects Portfolio Unlock'
+      }
+    }));
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -148,42 +168,42 @@ const Projects = () => {
     office: [
       '/images/company/2bhk_mordern_retro/office_3.jpg',
       '/images/company/2bhk_mordern_retro/office_2.jpg',
-      '/images/company/2bhk_mordern_retro/office.jpg',
-      '/images/company/3bhk_lux/open_hall2.png',
-      '/images/company/2bhk_mordern_retro/hall_paneling.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Boys_Room_14-20260813-110617.jpg',
-      '/images/company/2bhk_lux/tv_unit_2_1.png',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_4-20260810-124909.jpg'
+      '/images/company/2bhk_mordern_retro/office_1.jpg',
+      '/images/company/2bhk_mordern_retro/hall_5.jpg',
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_4-20260813-110617.jpg',
+      '/images/company/indo_classical_elegance_3bhk/3BHK-Guest_restaurant_1-20260810-164320.jpg',
+      '/images/company/3bhk_lux/balcony_1.png',
+      '/images/company/2bhk_lux/hall_2.png'
     ],
     commercial: [
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_18-20260813-110611.jpg',
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_5-20260813-110615.jpg',
       '/images/company/2bhk_mordern_retro/office_3.jpg',
-      '/images/company/2bhk_mordern_retro/dining_2.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_20-20260813-110611.jpg',
-      '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-Guest_restaurant_0-20260810-120429.jpg',
-      '/images/company/2bhk_urban/Ideas_2_2-_0-20260810-173541.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_11-20260810-124912.jpg',
-      '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-Guest_restaurant_18-20260810-120436.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Kitchen_18-20260810-122232.jpg'
+      '/images/company/indo_classical_elegance_3bhk/3BHK-Guest_restaurant_4-20260810-164320.jpg',
+      '/images/company/3bhk_lux/open_hall.png',
+      '/images/company/2bhk_mordern_retro/hall_5.jpg',
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Boys_Room_4-20260813-110616.jpg',
+      '/images/company/3bhk_lux/open_hall2.png'
     ],
     renovation: [
-      '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-kitchen_4-20260810-120431.jpg',
-      '/images/company/3bhk_lux/kitchen_1.png',
-      '/images/company/2bhk_lux/kitchen_3_2.png',
-      '/images/company/2bhk_lux/crockery1_1.png',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_13-20260810-124909.jpg',
-      '/images/company/indo_classical_elegance_3bhk/3BHK-bedroom_3-20260810-121312.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Kitchen_17-20260810-122232.jpg',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_14-20260810-124909.jpg'
+      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_3-20260810-124909.jpg',
+      '/images/company/indo_classical_elegance_3bhk/3BHK-Guest_restaurant_4-20260810-164320.jpg',
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_18-20260813-110611.jpg',
+      '/images/company/2bhk_mordern_retro/b1_2.jpg',
+      '/images/company/3bhk_lux/open_hall.png',
+      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Living_room_1-20260810-122238.jpg',
+      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Bedroom_0-20260810-124909.jpg',
+      '/images/company/3bhk_lux/bedroom_1.png'
     ],
     luxury_home: [
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_18-20260813-110611.jpg',
-      '/images/company/indo_classical_elegance_3bhk/3BHK-bedroom_2-20260810-121310.jpg',
+      '/images/company/3bhk_lux/open_hall.png',
+      '/images/company/3bhk_lux/open_hall2.png',
       '/images/company/3bhk_lux/bedroom_1.png',
-      '/images/company/minimalist_beige_2bhk/Minimalist_Beige_Bedroom_and_Contemporary_Living_R-Living_room_26-20260810-124913.jpg',
-      '/images/company/2bhk_aparna_zicon/Mr.Deepak-Aparna_Zicon-Detail_Drawing-04-03-2025-Bedroom_25-20260810-122233.jpg',
-      '/images/company/2bhk_mordern_retro/b1_tv_unit.jpg',
-      '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-bedroom_10-20260810-120431.jpg',
-      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_20-20260813-110611.jpg'
+      '/images/company/duplex/Exquisite_Fusion_of_Modern__Desi_in_a_4BHK-Guest_restaurant_18-20260813-110611.jpg',
+      '/images/company/indo_classical_elegance_3bhk/3BHK-Guest_restaurant_4-20260810-164320.jpg',
+      '/images/company/indo_classical_elegance_3bhk/3BHK-Master_Bedroom_0-20260810-164320.jpg',
+      '/images/company/2bhk_lux/hall1_1.png',
+      '/images/company/2bhk_lux/bed_room_2.png'
     ]
   };
 
@@ -242,8 +262,10 @@ const Projects = () => {
     setFilteredProjects(result);
   }, [activeFilter, searchQuery, projects]);
 
+  const displayedProjects = isUnlocked ? filteredProjects : filteredProjects.slice(0, visibleCount);
+
   return (
-    <div className="bg-bg overflow-x-hidden">
+    <div className="bg-bg">
       <SEO
         title="Portfolio & Case Studies — ESPACIO"
         description="Browse ESPACIO's luxury portfolio. Apartments, Independent Villas, Penthouse projects, and commercial offices executed to perfection in Hyderabad."
@@ -338,49 +360,71 @@ const Projects = () => {
               <p className="font-sans text-sm text-ink-soft select-none">No projects found matching your search.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, idx) => {
-                return (
-                  <Reveal key={idx} delay={(idx % 3) * 0.08}>
-                    <Link
-                      to={`/projects/${project.slug}`}
-                      className="group block rounded-card overflow-hidden bg-bg-card card-lift cursor-pointer select-none"
-                    >
-                      <div className="relative overflow-hidden aspect-[4/3]">
-                        <img
-                          src={getOptimizedImageUrl(project.heroImage, 600, 70)}
-                          loading="lazy"
-                          decoding="async"
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-expo-out"
-                        />
-                        {(project.featured === true || project.featured === 'true') && (
-                          <div className="absolute top-3 left-3 bg-gold text-charcoal font-sans text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-lg z-10 select-none">
-                            ★ Featured
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {displayedProjects.map((project, idx) => {
+                  return (
+                    <Reveal key={idx} delay={(idx % 3) * 0.08}>
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="group block rounded-card overflow-hidden bg-bg-card card-lift cursor-pointer select-none"
+                      >
+                        <div className="relative overflow-hidden aspect-[4/3]">
+                          <img
+                            src={getOptimizedImageUrl(project.heroImage, 600, 70)}
+                            loading="lazy"
+                            decoding="async"
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-expo-out"
+                          />
+                          {(project.featured === true || project.featured === 'true') && (
+                            <div className="absolute top-3 left-3 bg-gold text-charcoal font-sans text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-lg z-10 select-none">
+                              ★ Featured
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-6 select-none">
+                          <div className="flex items-center justify-between mb-2 select-none">
+                            <span className="font-sans text-[10px] uppercase tracking-widest text-gold font-bold select-none">
+                              {project.style || 'Luxury build'}
+                            </span>
+                            <span className="font-sans text-[11px] text-ink-muted select-none">{project.year}</span>
                           </div>
-                        )}
-                      </div>
-                      <div className="p-6 select-none">
-                        <div className="flex items-center justify-between mb-2 select-none">
-                          <span className="font-sans text-[10px] uppercase tracking-widest text-gold font-bold select-none">
-                            {project.style || 'Luxury build'}
-                          </span>
-                          <span className="font-sans text-[11px] text-ink-muted select-none">{project.year}</span>
+                          <h3 className="font-display text-[22px] font-bold text-ink group-hover:text-ink-soft transition-colors mb-2 leading-snug select-none">
+                            {project.title}
+                          </h3>
+                          <p className="font-sans text-[13px] text-ink-soft select-none">{project.location}</p>
+                          <div className="pt-4 flex items-center gap-1 text-[11px] text-ink font-semibold uppercase tracking-wider group-hover:translate-x-0.5 transition-transform select-none">
+                            <span>View case study</span>
+                            <ArrowUpRight size={13} />
+                          </div>
                         </div>
-                        <h3 className="font-display text-[22px] font-bold text-ink group-hover:text-ink-soft transition-colors mb-2 leading-snug select-none">
-                          {project.title}
-                        </h3>
-                        <p className="font-sans text-[13px] text-ink-soft select-none">{project.location}</p>
-                        <div className="pt-4 flex items-center gap-1 text-[11px] text-ink font-semibold uppercase tracking-wider group-hover:translate-x-0.5 transition-transform select-none">
-                          <span>View case study</span>
-                          <ArrowUpRight size={13} />
-                        </div>
-                      </div>
-                    </Link>
-                  </Reveal>
-                );
-              })}
-            </div>
+                      </Link>
+                    </Reveal>
+                  );
+                })}
+              </div>
+
+              {!isUnlocked && (
+                <div className="mt-14 sm:mt-18 text-center flex flex-col items-center justify-center">
+                  <motion.button
+                    type="button"
+                    onClick={handleLoadMore}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-ink text-white font-sans text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-ink transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer border border-white/10 group select-none"
+                  >
+                    <span>Load More Projects</span>
+                    <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-ink/10 flex items-center justify-center transition-colors">
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
+                  </motion.button>
+                  <p className="font-sans text-[12px] sm:text-[13px] text-ink-soft mt-3 font-medium select-none">
+                    Fill details to explore our full private lookbook & unreleased luxury projects
+                  </p>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

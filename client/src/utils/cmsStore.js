@@ -1246,6 +1246,44 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/commercial/commercial_drive_41.webp"
             ];
 
+            const RECEPTION_AREAS_DRIVE_IMAGES = [
+              "/images/spaces/reception/reception_drive_1.webp",
+              "/images/spaces/reception/reception_drive_2.webp",
+              "/images/spaces/reception/reception_drive_3.webp",
+              "/images/spaces/reception/reception_drive_4.webp",
+              "/images/spaces/reception/reception_drive_5.webp",
+              "/images/spaces/reception/reception_drive_6.webp",
+              "/images/spaces/reception/reception_drive_7.webp",
+              "/images/spaces/reception/reception_drive_8.webp",
+              "/images/spaces/reception/reception_drive_9.webp",
+              "/images/spaces/reception/reception_drive_10.webp",
+              "/images/spaces/reception/reception_drive_11.webp",
+              "/images/spaces/reception/reception_drive_12.webp",
+              "/images/spaces/reception/reception_drive_13.webp",
+              "/images/spaces/reception/reception_drive_14.webp",
+              "/images/spaces/reception/reception_drive_15.webp",
+              "/images/spaces/reception/reception_drive_16.webp",
+              "/images/spaces/reception/reception_drive_17.webp",
+              "/images/spaces/reception/reception_drive_18.webp",
+              "/images/spaces/reception/reception_drive_19.webp",
+              "/images/spaces/reception/reception_drive_20.webp",
+              "/images/spaces/reception/reception_drive_21.webp",
+              "/images/spaces/reception/reception_drive_22.webp",
+              "/images/spaces/reception/reception_drive_23.webp",
+              "/images/spaces/reception/reception_drive_24.webp",
+              "/images/spaces/reception/reception_drive_25.webp",
+              "/images/spaces/reception/reception_drive_26.webp",
+              "/images/spaces/reception/reception_drive_27.webp",
+              "/images/spaces/reception/reception_drive_28.webp",
+              "/images/spaces/reception/reception_drive_29.webp",
+              "/images/spaces/reception/reception_drive_30.webp",
+              "/images/spaces/reception/reception_drive_31.webp",
+              "/images/spaces/reception/reception_drive_32.webp",
+              "/images/spaces/reception/reception_drive_33.webp",
+              "/images/spaces/reception/reception_drive_34.webp",
+              "/images/spaces/reception/reception_drive_35.webp"
+            ];
+
             const CAFES_RESTAURANTS_DRIVE_IMAGES = [
               "/images/spaces/cafes/cafe_drive_1.webp",
               "/images/spaces/cafes/cafe_drive_2.webp",
@@ -1363,6 +1401,34 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/bar/bar_drive_36.webp",
               "/images/spaces/bar/bar_drive_37.webp",
               "/images/spaces/bar/bar_drive_38.webp"
+            ];
+
+            const WALK_IN_WARDROBE_DRIVE_IMAGES = [
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_1.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_2.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_3.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_4.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_5.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_6.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_7.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_8.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_9.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_10.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_11.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_12.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_13.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_14.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_15.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_16.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_17.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_18.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_19.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_20.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_21.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_22.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_23.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_24.webp",
+              "/images/spaces/wardrobes/walk_in_wardrobe_drive_25.webp"
             ];
 
             const HOME_OFFICE_DRIVE_IMAGES = [
@@ -1528,9 +1594,49 @@ export const getCMSData = (key, fallback = null) => {
               "/images/spaces/tv_units/tv_drive_37.webp"
             ];
 
+            const MODULAR_KITCHEN_DRIVE_IMAGES = [
+              "/images/spaces/modular_kitchen/kitchen_drive_24.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_1.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_2.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_3.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_4.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_5.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_6.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_7.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_8.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_9.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_10.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_11.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_12.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_13.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_14.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_15.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_16.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_17.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_18.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_19.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_20.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_21.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_22.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_23.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_25.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_26.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_27.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_28.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_29.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_30.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_31.webp",
+              "/images/spaces/modular_kitchen/kitchen_drive_32.webp"
+            ];
+
             data.spaces_list.forEach(cat => {
               if (SPACES_FILTERS_MAP[cat.slug] && (!cat.filters || cat.filters.length !== 5 || cat.filters.includes('Japandi Minimal'))) {
                 cat.filters = SPACES_FILTERS_MAP[cat.slug];
+                modified = true;
+              }
+              if (cat.slug === 'modular-kitchen' && (!cat.galleryImages || cat.galleryImages.length !== 32 || !cat.galleryImages[0]?.includes('modular_kitchen'))) {
+                cat.galleryImages = MODULAR_KITCHEN_DRIVE_IMAGES;
+                cat.heroImage = "/images/spaces/modular_kitchen/kitchen_drive_24.webp";
                 modified = true;
               }
               if (cat.slug === 'master-bedroom' && (!cat.galleryImages || cat.galleryImages.length !== 29 || !cat.galleryImages[0]?.includes('.webp'))) {
@@ -1553,14 +1659,14 @@ export const getCMSData = (key, fallback = null) => {
                 cat.heroImage = "/images/spaces/office/office_drive_4.webp";
                 modified = true;
               }
-              if (cat.slug === 'pooja-room' && (!cat.galleryImages || cat.galleryImages.length !== 29 || !cat.galleryImages[0]?.includes('.webp'))) {
+              if (cat.slug === 'pooja-room' && (!cat.galleryImages || cat.galleryImages.length !== 29 || !cat.galleryImages[0]?.includes('.webp') || cat.heroImage?.includes('pooja_drive_1.webp'))) {
                 cat.galleryImages = POOJA_DRIVE_IMAGES;
-                cat.heroImage = "/images/spaces/pooja/pooja_drive_1.webp";
+                cat.heroImage = "/images/spaces/pooja/pooja_drive_12.webp";
                 modified = true;
               }
-              if (cat.slug === 'dining-room' && (!cat.galleryImages || cat.galleryImages.length !== 50 || !cat.galleryImages[0]?.includes('.webp'))) {
+              if (cat.slug === 'dining-room' && (!cat.galleryImages || cat.galleryImages.length !== 50 || !cat.galleryImages[0]?.includes('.webp') || cat.heroImage?.includes('dining_drive_1.webp'))) {
                 cat.galleryImages = DINING_DRIVE_IMAGES;
-                cat.heroImage = "/images/spaces/dining/dining_drive_1.webp";
+                cat.heroImage = "/images/spaces/dining/dining_drive_27.webp";
                 modified = true;
               }
               if (cat.slug === 'tv-units' && (!cat.galleryImages || cat.galleryImages.length !== 37 || !cat.galleryImages[0]?.includes('.webp'))) {
@@ -1606,6 +1712,16 @@ export const getCMSData = (key, fallback = null) => {
               if (cat.slug === 'bar' && (!cat.galleryImages || cat.galleryImages.length !== 38 || !cat.galleryImages[0]?.includes('.webp'))) {
                 cat.galleryImages = BAR_DRIVE_IMAGES;
                 cat.heroImage = "/images/spaces/bar/bar_drive_1.webp";
+                modified = true;
+              }
+              if (cat.slug === 'walk-in-wardrobe' && (!cat.galleryImages || cat.galleryImages.length !== 25 || !cat.galleryImages[0]?.includes('.webp'))) {
+                cat.galleryImages = WALK_IN_WARDROBE_DRIVE_IMAGES;
+                cat.heroImage = "/images/spaces/wardrobes/walk_in_wardrobe_drive_1.webp";
+                modified = true;
+              }
+              if (cat.slug === 'reception-areas' && (!cat.galleryImages || cat.galleryImages.length !== 35 || !cat.galleryImages[0]?.includes('.webp'))) {
+                cat.galleryImages = RECEPTION_AREAS_DRIVE_IMAGES;
+                cat.heroImage = "/images/spaces/reception/reception_drive_1.webp";
                 modified = true;
               }
             });
