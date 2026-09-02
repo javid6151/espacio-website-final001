@@ -157,18 +157,6 @@ const Services = () => {
     return defaultTestimonials;
   });
 
-  const [baContent, setBaContent] = useState(() => {
-    const s = getCMSData(STORAGE_KEYS.SETTINGS);
-    return {
-      badge: getNonEmpty(s?.services_ba_badge, 'Turnkey Transformation'),
-      title: getNonEmpty(s?.services_ba_title, 'Before & After Transformation'),
-      subtitle: getNonEmpty(s?.services_ba_subtitle, 'Slide horizontally to witness the structural evolution from raw site condition to our bespoke luxury handover.'),
-      beforeImg: getNonEmpty(s?.services_before_image, '/images/services/services_before.webp'),
-      afterImg: getNonEmpty(s?.services_after_image, '/images/services/services_after.webp'),
-      visible: s?.services_ba_visible !== false
-    };
-  });
-
   useEffect(() => {
     const syncCMS = () => {
       const settings = getCMSData(STORAGE_KEYS.SETTINGS);
@@ -185,14 +173,6 @@ const Services = () => {
         if (Array.isArray(settings.services_list) && settings.services_list.length > 0) {
           setServicesList(settings.services_list);
         }
-        setBaContent({
-          badge: getNonEmpty(settings.services_ba_badge, 'Turnkey Transformation'),
-          title: getNonEmpty(settings.services_ba_title, 'Before & After Transformation'),
-          subtitle: getNonEmpty(settings.services_ba_subtitle, 'Slide horizontally to witness the structural evolution from raw site condition to our bespoke luxury handover.'),
-          beforeImg: getNonEmpty(settings.services_before_image, '/images/services/services_before.webp'),
-          afterImg: getNonEmpty(settings.services_after_image, '/images/services/services_after.webp'),
-          visible: settings.services_ba_visible !== false
-        });
       }
 
       const storedTestimonials = getCMSData(STORAGE_KEYS.TESTIMONIALS);
@@ -225,7 +205,7 @@ const Services = () => {
       <SEO title="Services — ESPACIO Interiors" description="Full home interiors, modular kitchens, commercial spaces, and renovations. Engineering-first luxury design executed by ESPACIO." url="/services" />
 
       {heroContent.visible !== false && (
-        <section ref={heroRef} className="relative h-[90vh] sm:h-[94vh] lg:h-[96vh] min-h-[540px] lg:min-h-0 px-3 sm:px-5 pt-2 sm:pt-2.5 lg:pt-3 pb-2 lg:px-12 z-0">
+        <section ref={heroRef} className="relative h-[64vh] sm:h-[80vh] lg:h-[96vh] min-h-[400px] sm:min-h-[520px] lg:min-h-0 px-3 sm:px-5 pt-2 sm:pt-2.5 lg:pt-3 pb-2 lg:px-12 z-0">
           <div className="relative w-full h-full overflow-hidden rounded-[24px] lg:rounded-[40px] origin-top shadow-2xl">
             <motion.div style={{ scale: bgScale, y: bgY }} className="absolute inset-0 overflow-hidden">
               <HeroSlideshow
@@ -342,11 +322,6 @@ const Services = () => {
           </div>
         </div>
       </section>
-
-      {/* ── BEFORE & AFTER TRANSFORMATION SHOWCASE ────────────────────────── */}
-      {baContent.visible !== false && (
-        <ServicesBeforeAfterSection baContent={baContent} />
-      )}
 
       {/* ── INSTANT ESTIMATION & QUOTATION CALCULATOR ──────────────────────────── */}
       <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10 bg-offwhite">
@@ -567,152 +542,5 @@ const QuotationCalculator = () => {
   );
 };
 
-// ── BEFORE & AFTER TRANSFORMATION SLIDER COMPONENT ────────────────────────
-const ServicesBeforeAfterSection = ({ baContent }) => {
-  const [sliderPos, setSliderPos] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(1200);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    setContainerWidth(containerRef.current.clientWidth);
-    const handleResize = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.clientWidth);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const handleMove = (clientX) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const pos = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setSliderPos(pos);
-  };
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    handleMove(e.clientX);
-  };
-
-  const handleTouchStart = (e) => {
-    setIsDragging(true);
-    if (e.touches && e.touches[0]) {
-      handleMove(e.touches[0].clientX);
-    }
-  };
-
-  useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      if (!isDragging) return;
-      handleMove(e.clientX);
-    };
-
-    const handleGlobalTouchMove = (e) => {
-      if (!isDragging) return;
-      if (e.touches && e.touches[0]) {
-        handleMove(e.touches[0].clientX);
-      }
-    };
-
-    const handleGlobalMouseUp = () => setIsDragging(false);
-
-    if (isDragging) {
-      window.addEventListener('mousemove', handleGlobalMouseMove);
-      window.addEventListener('mouseup', handleGlobalMouseUp);
-      window.addEventListener('touchmove', handleGlobalTouchMove);
-      window.addEventListener('touchend', handleGlobalMouseUp);
-    }
-
-    return () => {
-      window.removeEventListener('mousemove', handleGlobalMouseMove);
-      window.removeEventListener('mouseup', handleGlobalMouseUp);
-      window.removeEventListener('touchmove', handleGlobalTouchMove);
-      window.removeEventListener('touchend', handleGlobalMouseUp);
-    };
-  }, [isDragging]);
-
-  if (!baContent || baContent.visible === false) return null;
-
-  return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-10 bg-bg border-t border-ink-border overflow-hidden">
-      <div className="max-w-[1280px] mx-auto">
-        <Reveal className="text-center max-w-[700px] mx-auto mb-8 sm:mb-12 space-y-2.5 sm:space-y-3">
-          <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-gold block">
-            {baContent.badge || 'Turnkey Transformation'}
-          </span>
-          <h2 className="font-display text-[clamp(26px,3.5vw,46px)] font-bold text-ink tracking-tight">
-            {baContent.title || 'Before & After Transformation'}
-          </h2>
-          <p className="font-sans text-[13px] sm:text-[14.5px] text-ink-soft leading-relaxed">
-            {baContent.subtitle || 'Slide horizontally to witness the structural evolution from raw site condition to our bespoke luxury handover.'}
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div
-            ref={containerRef}
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleTouchStart}
-            className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] max-h-[640px] rounded-[20px] sm:rounded-[32px] overflow-hidden select-none cursor-ew-resize border border-black/10 dark:border-white/10 shadow-2xl bg-charcoal mx-auto"
-          >
-            {/* After Image (Full background) */}
-            <img
-              src={baContent.afterImg || '/images/services/services_after.webp'}
-              alt="After Transformation"
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-            />
-
-            {/* After Badge (Clipped as slider divider moves over it) */}
-            <div 
-              className="absolute inset-0 overflow-hidden pointer-events-none z-10"
-              style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
-            >
-              <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/65 backdrop-blur-md border border-white/15 shadow-lg pointer-events-none whitespace-nowrap">
-                <span className="font-sans text-[10.5px] sm:text-[11.5px] font-medium tracking-widest uppercase text-white/95">
-                  After • Finished Handover
-                </span>
-              </div>
-            </div>
-
-            {/* Before Image (Clipped) */}
-            <div
-              className="absolute inset-0 overflow-hidden pointer-events-none z-10"
-              style={{ width: `${sliderPos}%` }}
-            >
-              <img
-                src={baContent.beforeImg || '/images/services/services_before.webp'}
-                alt="Before Raw Site"
-                className="absolute inset-0 h-full object-cover max-w-none pointer-events-none"
-                style={{ width: `${containerWidth}px` }}
-              />
-
-              {/* Before Badge */}
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/65 backdrop-blur-md border border-white/15 shadow-lg pointer-events-none whitespace-nowrap">
-                <span className="font-sans text-[10.5px] sm:text-[11.5px] font-medium tracking-widest uppercase text-white/95">
-                  Before • Raw Site
-                </span>
-              </div>
-            </div>
-
-            {/* Drag Handle Divider */}
-            <div
-              className="absolute top-0 bottom-0 w-[3px] bg-gold z-20 shadow-[0_0_20px_rgba(201,169,110,0.9)]"
-              style={{ left: `${sliderPos}%` }}
-            >
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gold shadow-2xl flex items-center justify-center text-charcoal font-bold text-sm sm:text-base border-2 border-white cursor-ew-resize">
-                ↔
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
-
 export default Services;
+

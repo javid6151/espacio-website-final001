@@ -238,7 +238,7 @@ const ProjectDetails = () => {
       
       {/* Hero section with curved borders and side margins */}
       <section className="pt-24 md:pt-28 px-4 md:px-8 lg:px-12 max-w-[1440px] mx-auto">
-        <div className="relative h-[70vh] min-h-[500px] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-walnut/15">
+        <div className="relative h-[54vh] sm:h-[65vh] lg:h-[70vh] min-h-[360px] sm:min-h-[480px] lg:min-h-[500px] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-walnut/15">
           <img
             src={p.heroImage}
             alt={p.title}
@@ -371,13 +371,15 @@ const ProjectDetails = () => {
               {/* Before Image & Badge (Clipped to slider width) */}
               <div
                 className="absolute inset-0 overflow-hidden pointer-events-none z-10"
-                style={{ width: `${sliderPos}%` }}
+                style={{
+                  clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
+                  WebkitClipPath: `inset(0 ${100 - sliderPos}% 0 0)`
+                }}
               >
                 <img
                   src={beforeImg}
                   alt="Transformation Before"
-                  className="absolute inset-0 w-full h-full object-cover max-w-none"
-                  style={{ width: sliderContainerRef.current ? sliderContainerRef.current.getBoundingClientRect().width : '100%' }}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 
                 {/* Before Badge */}

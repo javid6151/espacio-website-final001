@@ -923,7 +923,7 @@ const mockCategories = [
     "name": "Villas",
     "slug": "villas",
     "description": "Bespoke multi-floor villa interiors with luxury material palettes, indoor-outdoor integration, and smart home readiness.",
-    "heroImage": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/images/spaces/villas/villa_drive_30.webp",
     "visible": true,
     "details": {
       "tag": "Luxury Living",
@@ -941,14 +941,41 @@ const mockCategories = [
       ]
     },
     "galleryImages": [
-      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+      "/images/spaces/villas/villa_drive_30.webp",
+      "/images/spaces/villas/villa_drive_1.webp",
+      "/images/spaces/villas/villa_drive_2.webp",
+      "/images/spaces/villas/villa_drive_3.webp",
+      "/images/spaces/villas/villa_drive_4.webp",
+      "/images/spaces/villas/villa_drive_5.webp",
+      "/images/spaces/villas/villa_drive_6.webp",
+      "/images/spaces/villas/villa_drive_7.webp",
+      "/images/spaces/villas/villa_drive_8.webp",
+      "/images/spaces/villas/villa_drive_9.webp",
+      "/images/spaces/villas/villa_drive_10.webp",
+      "/images/spaces/villas/villa_drive_11.webp",
+      "/images/spaces/villas/villa_drive_12.webp",
+      "/images/spaces/villas/villa_drive_13.webp",
+      "/images/spaces/villas/villa_drive_14.webp",
+      "/images/spaces/villas/villa_drive_15.webp",
+      "/images/spaces/villas/villa_drive_16.webp",
+      "/images/spaces/villas/villa_drive_17.webp",
+      "/images/spaces/villas/villa_drive_18.webp",
+      "/images/spaces/villas/villa_drive_19.webp",
+      "/images/spaces/villas/villa_drive_20.webp",
+      "/images/spaces/villas/villa_drive_21.webp",
+      "/images/spaces/villas/villa_drive_22.webp",
+      "/images/spaces/villas/villa_drive_23.webp",
+      "/images/spaces/villas/villa_drive_24.webp",
+      "/images/spaces/villas/villa_drive_25.webp",
+      "/images/spaces/villas/villa_drive_26.webp",
+      "/images/spaces/villas/villa_drive_27.webp",
+      "/images/spaces/villas/villa_drive_28.webp",
+      "/images/spaces/villas/villa_drive_29.webp",
+      "/images/spaces/villas/villa_drive_31.webp",
+      "/images/spaces/villas/villa_drive_32.webp",
+      "/images/spaces/villas/villa_drive_33.webp",
+      "/images/spaces/villas/villa_drive_34.webp",
+      "/images/spaces/villas/villa_drive_35.webp"
     ],
     "filters": [
       "Grand Double-Height Foyer",
@@ -1374,9 +1401,9 @@ const mockCategories = [
 const transformationSlides = [
   {
     title: 'Living Rooms',
-    tag: 'Living & Media Lounge',
+    tag: 'Indo-Classical Living Lounge',
     location: 'Financial District, Hyderabad',
-    scope: 'Textured Paneling & Floating TV Unit',
+    scope: 'Arched Window Alcove & Neoclassical Paneling',
     before: '/images/spaces/spaces_hero_before.webp',
     after: '/images/spaces/spaces_hero_after.webp',
   },
@@ -2536,8 +2563,8 @@ const WhatWeDo = () => {
           url={`/spaces/${activeCategory.slug}`} 
         />
 
-        {/* Cinematic Detail Hero (90% Screen Height with Sleek Tight Margin & Curved Corners) */}
-        <section className="relative pt-2 sm:pt-3 pb-2.5 sm:pb-3.5 px-2.5 sm:px-4 md:px-5 lg:px-6 w-full h-[88vh] sm:h-[90vh] min-h-[580px] bg-bg flex flex-col justify-end">
+        {/* Cinematic Detail Hero (Sleek Tight Margin & Curved Corners) */}
+        <section className="relative pt-2 sm:pt-3 pb-2.5 sm:pb-3.5 px-2.5 sm:px-4 md:px-5 lg:px-6 w-full h-[58vh] sm:h-[75vh] lg:h-[90vh] min-h-[380px] sm:min-h-[500px] lg:min-h-[580px] bg-bg flex flex-col justify-end">
           <div className="relative w-full h-full rounded-[18px] sm:rounded-[26px] lg:rounded-[32px] overflow-hidden bg-bg-dark shadow-[0_16px_40px_rgba(0,0,0,0.22)] border border-white/10 flex items-end">
             <img 
               src={getOptimizedImageUrl(
@@ -2846,7 +2873,7 @@ const WhatWeDo = () => {
       {spacesHeroState.visible !== false && (
         <section
           ref={heroRef}
-          className="relative h-[86vh] min-h-[600px] px-3 sm:px-6 pt-2 sm:pt-2.5 lg:pt-3 pb-2 sm:pb-3 lg:px-10 z-0 select-none"
+          className="relative h-[56vh] sm:h-[72vh] lg:h-[86vh] min-h-[360px] sm:min-h-[500px] lg:min-h-[600px] px-3 sm:px-6 pt-2 sm:pt-2.5 lg:pt-3 pb-2 sm:pb-3 lg:px-10 z-0 select-none"
           onMouseDown={onStart}
           onMouseMove={onMouseMove}
           onTouchStart={() => { setIsPaused(true); onStart(); }}
@@ -2889,22 +2916,23 @@ const WhatWeDo = () => {
 
             {/* BEFORE Image Layer (Clipped to slider position) */}
             <div
-              className="absolute inset-y-0 left-0 overflow-hidden pointer-events-none z-10"
-              style={{ width: `${sliderPos}%` }}
+              className="absolute inset-0 overflow-hidden pointer-events-none z-10"
+              style={{
+                clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
+                WebkitClipPath: `inset(0 ${100 - sliderPos}% 0 0)`
+              }}
             >
-              <div className="absolute inset-y-0 left-0 h-full" style={{ width: containerWidth || '100vw' }}>
-                <motion.div
-                  style={{ scale: bgScale, y: bgY }}
-                  className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
-                >
-                  <img
-                    src={getOptimizedImageUrl(currentSlide.before || '/images/spaces/spaces_hero_before.webp', 1920, 90)}
-                    alt="Before Transformation"
-                    style={{ imageRendering: 'high-quality', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
-                    className="absolute inset-0 w-full h-full object-cover transform-gpu"
-                  />
-                </motion.div>
-              </div>
+              <motion.div
+                style={{ scale: bgScale, y: bgY }}
+                className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+              >
+                <img
+                  src={getOptimizedImageUrl(currentSlide.before || '/images/spaces/spaces_hero_before.webp', 1920, 90)}
+                  alt="Before Transformation"
+                  style={{ imageRendering: 'high-quality', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+                  className="absolute inset-0 w-full h-full object-cover transform-gpu"
+                />
+              </motion.div>
 
               {/* BEFORE Label (Bottom Left, inside clipped layer) */}
               <div className="absolute left-6 bottom-6 md:left-8 md:bottom-8 z-20 pointer-events-none">

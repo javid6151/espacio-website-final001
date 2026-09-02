@@ -195,7 +195,9 @@ const Footer = () => {
     ? cmsSettings.footer_brand_right 
     : (cmsSettings.footer_brand_text ? cmsSettings.footer_brand_text.slice(3) : 'ACIO.');
 
-  const brandWeight = cmsSettings.footer_brand_weight !== undefined ? Number(cmsSettings.footer_brand_weight) : 500;
+  const brandWeight = (cmsSettings.footer_brand_weight !== undefined && cmsSettings.footer_brand_weight !== 500)
+    ? Number(cmsSettings.footer_brand_weight)
+    : 700;
   const brandOpacity = cmsSettings.footer_brand_opacity !== undefined ? Number(cmsSettings.footer_brand_opacity) / 100 : 1;
 
   const copyrightText = cmsSettings.footer_copyright || `© ${year} ESPACIO. All rights reserved.`;

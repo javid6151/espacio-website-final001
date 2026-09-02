@@ -339,7 +339,7 @@ const About = () => {
 
       {/* ── 1. SIGNATURE HERO BANNER (Matches Services hero layout with bottom-anchored content) ────────────── */}
       {aboutData.heroVisible !== false && (
-        <section ref={heroRef} className="relative h-[90vh] sm:h-[94vh] lg:h-[96vh] min-h-[540px] lg:min-h-0 px-3 sm:px-5 pt-2 sm:pt-2.5 lg:pt-3 pb-2 lg:px-12 z-0">
+        <section ref={heroRef} className="relative h-[64vh] sm:h-[80vh] lg:h-[96vh] min-h-[400px] sm:min-h-[520px] lg:min-h-0 px-3 sm:px-5 pt-2 sm:pt-2.5 lg:pt-3 pb-2 lg:px-12 z-0">
           <div className="relative w-full h-full overflow-hidden rounded-[24px] lg:rounded-[40px] origin-top shadow-2xl">
             <motion.div style={{ scale: bgScale, y: bgY }} className="absolute inset-0 overflow-hidden">
               <img

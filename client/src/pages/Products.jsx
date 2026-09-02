@@ -192,7 +192,7 @@ const Products = () => {
       <SEO title="Premium Material Library — WPC, Fluted, Acrylic Panels" description="Explore ESPACIO's curated material library. WPC wall panels, fluted panels, polygranite, acrylic sheets, mosaic tiles and more. Request samples and catalogue." url="/materials" />
       
       {/* Hero with Dome Gallery — matches Home & Services rounded framed card */}
-      <section className="relative h-[90vh] sm:h-[94vh] lg:h-[98vh] min-h-[540px] lg:min-h-0 px-3 sm:px-6 pt-2 sm:pt-2.5 lg:pt-3 pb-2 sm:pb-3 lg:px-10 z-0">
+      <section className="relative h-[64vh] sm:h-[80vh] lg:h-[98vh] min-h-[400px] sm:min-h-[520px] lg:min-h-0 px-3 sm:px-6 pt-2 sm:pt-2.5 lg:pt-3 pb-2 sm:pb-3 lg:px-10 z-0">
         {/* Rounded dark card */}
         <div className="relative w-full h-full overflow-hidden rounded-[24px] lg:rounded-[40px] bg-[#120F17] shadow-2xl">
           {/* Dome Gallery Container */}
@@ -245,19 +245,6 @@ const Products = () => {
                     loading="lazy" decoding="async"
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  {/* Feature badges */}
-                  <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
-                    {product.badge && (
-                      <span className="bg-gold text-charcoal font-sans text-[9px] uppercase tracking-wide font-bold px-2 py-1 rounded-full shadow">
-                        {product.badge}
-                      </span>
-                    )}
-                    {(product.features || []).slice(0, 2).map((feat, fi) => (
-                      <span key={fi} className="bg-cream/90 text-charcoal font-sans text-[9px] uppercase tracking-wide font-bold px-2 py-1 rounded-full">
-                        {feat}
-                      </span>
-                    ))}
-                  </div>
                 </div>
                 <div className="p-6 space-y-3">
                   <h3 className="font-display text-lg font-bold text-charcoal group-hover:text-gold transition-colors">{product.title}</h3>

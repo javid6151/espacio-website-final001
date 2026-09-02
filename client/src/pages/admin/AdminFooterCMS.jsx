@@ -68,7 +68,7 @@ const defaultFooterData = {
   // Branding
   footer_brand_left: 'ESP',
   footer_brand_right: 'ACIO.',
-  footer_brand_weight: 500,
+  footer_brand_weight: 700,
   footer_brand_opacity: 100,
 
   // Copyright & Legal Links & Modal Matter
@@ -630,7 +630,7 @@ const AdminFooterCMS = () => {
                     min="100"
                     max="900"
                     step="1"
-                    value={footerState.footer_brand_weight || 500}
+                    value={footerState.footer_brand_weight || 700}
                     onChange={(e) => {
                       const val = Math.min(900, Math.max(100, Number(e.target.value) || 100));
                       updateField('footer_brand_weight', val);
@@ -638,13 +638,13 @@ const AdminFooterCMS = () => {
                     className="w-20 bg-[#141518] border border-gold/40 text-gold text-center font-sans text-xs font-bold py-1.5 rounded-lg focus:outline-none"
                   />
                   <span className="font-sans text-xs text-white/50 font-bold">
-                    {(footerState.footer_brand_weight || 500) <= 200 ? 'Extra Light' :
-                     (footerState.footer_brand_weight || 500) <= 300 ? 'Light' :
-                     (footerState.footer_brand_weight || 500) <= 400 ? 'Regular' :
-                     (footerState.footer_brand_weight || 500) <= 500 ? 'Medium' :
-                     (footerState.footer_brand_weight || 500) <= 600 ? 'Semi-Bold' :
-                     (footerState.footer_brand_weight || 500) <= 700 ? 'Bold' :
-                     (footerState.footer_brand_weight || 500) <= 800 ? 'Extra Bold' : 'Black'}
+                    {(footerState.footer_brand_weight || 700) <= 200 ? 'Extra Light' :
+                     (footerState.footer_brand_weight || 700) <= 300 ? 'Light' :
+                     (footerState.footer_brand_weight || 700) <= 400 ? 'Regular' :
+                     (footerState.footer_brand_weight || 700) <= 500 ? 'Medium' :
+                     (footerState.footer_brand_weight || 700) <= 600 ? 'Semi-Bold' :
+                     (footerState.footer_brand_weight || 700) <= 700 ? 'Bold' :
+                     (footerState.footer_brand_weight || 700) <= 800 ? 'Extra Bold' : 'Black'}
                   </span>
                 </div>
               </div>
@@ -654,13 +654,13 @@ const AdminFooterCMS = () => {
                 min="100"
                 max="900"
                 step="1"
-                value={footerState.footer_brand_weight || 500}
+                value={footerState.footer_brand_weight || 700}
                 onChange={(e) => updateField('footer_brand_weight', Number(e.target.value))}
                 className="w-full h-2 bg-[#141518] rounded-lg appearance-none cursor-pointer accent-gold border border-white/10"
               />
               <div className="flex justify-between font-sans text-[10px] text-white/30">
                 <span>100 (Thin)</span>
-                <span>500 (Medium)</span>
+                <span>700 (Bold)</span>
                 <span>900 (Black)</span>
               </div>
             </div>
@@ -696,7 +696,7 @@ const AdminFooterCMS = () => {
                 className="text-white uppercase tracking-tight flex items-center justify-center gap-3 py-4 select-none overflow-hidden"
                 style={{
                   fontFamily: "'Gotham Medium', 'Gotham Book', 'Gotham', 'Montserrat', sans-serif",
-                  fontWeight: footerState.footer_brand_weight || 500,
+                  fontWeight: footerState.footer_brand_weight || 700,
                   opacity: (footerState.footer_brand_opacity !== undefined ? footerState.footer_brand_opacity : 100) / 100,
                   fontSize: 'clamp(28px, 4.5vw, 54px)',
                   lineHeight: 1
@@ -706,7 +706,7 @@ const AdminFooterCMS = () => {
                 <span>{footerState.footer_brand_right || 'ACIO.'}</span>
               </div>
               <p className="font-sans text-[11px] text-white/50">
-                Font Weight: <span className="text-gold font-bold">{footerState.footer_brand_weight || 500}</span> | Opacity: <span className="text-gold font-bold">{footerState.footer_brand_opacity !== undefined ? footerState.footer_brand_opacity : 100}%</span>
+                Font Weight: <span className="text-gold font-bold">{footerState.footer_brand_weight || 700}</span> | Opacity: <span className="text-gold font-bold">{footerState.footer_brand_opacity !== undefined ? footerState.footer_brand_opacity : 100}%</span>
               </p>
             </div>
           </div>
