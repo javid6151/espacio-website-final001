@@ -2893,14 +2893,9 @@ const WhatWeDo = () => {
               style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, WebkitClipPath: `inset(0 0 0 ${sliderPos}%)` }}
             >
               <div className="absolute right-6 bottom-6 md:right-8 md:bottom-8">
-                <div className="inline-flex items-center gap-2 bg-[#C9A96E]/95 backdrop-blur-md text-[#101014] px-4 py-1.5 sm:px-5 sm:py-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] border border-white/40 whitespace-nowrap">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#101014] shrink-0" />
-                  <span className="font-editorial text-xs sm:text-[13px] font-semibold tracking-wide text-[#101014]">
-                    After
-                  </span>
-                  <span className="text-[#101014]/40 text-xs font-light">•</span>
-                  <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#101014]/90">
-                    Handover
+                <div className="inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/65 backdrop-blur-md border border-white/15 shadow-lg whitespace-nowrap">
+                  <span className="font-sans text-[10.5px] sm:text-[11.5px] font-medium tracking-widest uppercase text-white/95">
+                    After • Finished Handover
                   </span>
                 </div>
               </div>
@@ -2927,14 +2922,9 @@ const WhatWeDo = () => {
 
               {/* BEFORE Label (Bottom Left, inside clipped layer) */}
               <div className="absolute left-6 bottom-6 md:left-8 md:bottom-8 z-20 pointer-events-none">
-                <div className="inline-flex items-center gap-2 bg-black/80 backdrop-blur-md text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/20 whitespace-nowrap">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A96E] shrink-0" />
-                  <span className="font-editorial text-xs sm:text-[13px] font-semibold tracking-wide text-white">
-                    Before
-                  </span>
-                  <span className="text-white/40 text-xs font-light">•</span>
-                  <span className="font-sans text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-white/90">
-                    Raw Site
+                <div className="inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/65 backdrop-blur-md border border-white/15 shadow-lg whitespace-nowrap">
+                  <span className="font-sans text-[10.5px] sm:text-[11.5px] font-medium tracking-widest uppercase text-white/95">
+                    Before • Raw Site
                   </span>
                 </div>
               </div>
