@@ -29,24 +29,20 @@ const HeroSlideshow = memo(({
 }) => {
   const activeImages = Array.isArray(images) && images.length > 0 ? images : [];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [canRenderSubsequent, setCanRenderSubsequent] = useState(false);
   const timerRef = useRef(null);
 
   const imagesKey = activeImages.join('|');
 
-  // Preload first slide immediately for instant LCP, defer remaining slides
+  // Defer rendering & preloading subsequent slides until after initial paint
   useEffect(() => {
-    if (activeImages.length > 0) {
-      // Decode first critical LCP image immediately
-      preloadImages([getOptimizedImageUrl(activeImages[0])]);
-
-      // Defer preloading subsequent carousel slides so they don't block critical LCP bandwidth
+    const timer = setTimeout(() => {
+      setCanRenderSubsequent(true);
       if (activeImages.length > 1) {
-        const timer = setTimeout(() => {
-          preloadImages(activeImages.slice(1).map(url => getOptimizedImageUrl(url)));
-        }, 1500);
-        return () => clearTimeout(timer);
+        preloadImages(activeImages.slice(1).map(url => getOptimizedImageUrl(url)));
       }
-    }
+    }, 1200);
+    return () => clearTimeout(timer);
   }, [imagesKey]);
 
   // Notify parent on index change
@@ -90,16 +86,25 @@ const HeroSlideshow = memo(({
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
       {activeImages.map((src, idx) => {
+        if (idx > 0 && !canRenderSubsequent && idx !== currentIndex) return null;
         const isActive = idx === (currentIndex % activeImages.length);
         const optimizedSrc = getOptimizedImageUrl(src);
+        const isHeroImg = typeof src === 'string' && src.includes('/images/hero/hero_');
+        const mobileSrc = isHeroImg ? src.replace(/\.(webp|jpg|png)$/i, '_mobile.webp') : optimizedSrc;
+        const srcSet = isHeroImg ? `${mobileSrc} 840w, ${optimizedSrc} 1920w` : undefined;
+        const sizes = isHeroImg ? "(max-width: 768px) 100vw, 100vw" : undefined;
+
         return (
           <motion.img
             key={src}
             src={optimizedSrc}
+            srcSet={srcSet}
+            sizes={sizes}
             alt="ESPACIO Hero Showcase"
             decoding="async"
-            fetchPriority={idx === 0 ? "high" : "auto"}
-            initial={false}
+            loading={idx === 0 ? "eager" : "lazy"}
+            fetchPriority={idx === 0 ? "high" : "low"}
+            initial={idx === 0 ? { opacity: 1, scale: 1.0 } : false}
             animate={isActive ? {
               opacity: 1,
               scale: 1.0,
@@ -114,6 +119,7 @@ const HeroSlideshow = memo(({
             }}
             style={{
               zIndex: isActive ? 2 : 1,
+              opacity: isActive ? 1 : 0,
               transformOrigin: idx % 2 === 0 ? 'center center' : 'top center',
               imageRendering: 'high-quality',
               WebkitBackfaceVisibility: 'hidden',

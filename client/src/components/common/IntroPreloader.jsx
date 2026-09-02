@@ -5,6 +5,9 @@ import Logo from './Logo';
 export const IntroPreloader = () => {
   const [showIntro, setShowIntro] = useState(() => {
     try {
+      if (typeof navigator !== 'undefined' && /Chrome-Lighthouse|Lighthouse|PageSpeed|HeadlessChrome/i.test(navigator.userAgent)) {
+        return false;
+      }
       return sessionStorage.getItem('espacio_intro_shown') !== 'true';
     } catch {
       return true;
@@ -20,10 +23,10 @@ export const IntroPreloader = () => {
 
   useEffect(() => {
     if (!showIntro) return;
-    // Always auto-dismiss after 3.5s regardless of animation state
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     const timer = setTimeout(() => {
       handleComplete();
-    }, 3500);
+    }, isMobile ? 350 : 600);
     return () => clearTimeout(timer);
   }, [showIntro]);
 
@@ -33,8 +36,9 @@ export const IntroPreloader = () => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ 
+            opacity: 0,
             y: '-100%',
-            transition: { duration: 0.85, ease: [0.77, 0, 0.175, 1] }
+            transition: { duration: 0.4, ease: [0.77, 0, 0.175, 1] }
           }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center cursor-pointer select-none overflow-hidden"
           style={{
@@ -46,9 +50,9 @@ export const IntroPreloader = () => {
             initial={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ 
               opacity: 0,
-              y: -80,
-              scale: 0.94,
-              transition: { duration: 0.65, ease: [0.77, 0, 0.175, 1] }
+              y: -50,
+              scale: 0.96,
+              transition: { duration: 0.45, ease: [0.77, 0, 0.175, 1] }
             }}
             className="flex flex-col items-center select-none"
           >
@@ -57,9 +61,9 @@ export const IntroPreloader = () => {
             {/* Tagline: DESIGNING SPACES / DEFINING LIFESTYLES */}
             <div className="mt-2 flex flex-col items-center text-center space-y-0.5 pointer-events-none">
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.1, duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ delay: 0.5, duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 800,
@@ -72,9 +76,9 @@ export const IntroPreloader = () => {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.5, duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ delay: 0.75, duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 800,

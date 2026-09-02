@@ -76,6 +76,14 @@ export default defineConfig({
     ],
   },
 
+  preview: {
+    port: 5174,
+    strictPort: false,
+    headers: {
+      'Cache-Control': 'public, max-age=31536000, immutable',
+    }
+  },
+
   build: {
     // PERF: ES2022 target eliminates legacy transforms → smaller output, faster parse
     target: 'es2022',

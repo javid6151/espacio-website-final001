@@ -27,25 +27,16 @@
          TECHNIQUE: media="print" trick defers CSS application until after parse
          FALLBACK: <noscript> for JS-disabled environments
     ═══════════════════════════════════════════════════════════════════════ -->
-    <!-- Step 1: Preload font CSS (initiates download early, without blocking) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" />
-    <!-- Step 2: Load font CSS with media="print" so it doesn't block render -->
-    <!--         onload switches media to 'all' once the font CSS is ready -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" media="print" onload="this.media='all'" />
-    <!-- Step 3: Noscript fallback — synchronous font load for JS-disabled browsers -->
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" />
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" />
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          LCP HERO IMAGE PRELOAD — Critical for PageSpeed / Core Web Vitals
          PERF IMPACT: Moves LCP element download to head of request queue
-                      Typical improvement: LCP 11s → <2.5s (when + WebP format)
-         RULE: This must match the EXACT file the browser will paint first
-               Currently: /images/hero/hero_bedroom.webp (193 KB WebP, 91% smaller)
+                      Mobile (44KB) on phone screens, UHD on desktop
          fetchpriority="high" → browser treats this above all other images
     ═══════════════════════════════════════════════════════════════════════ -->
-    <link rel="preload" as="image" href="/images/hero/hero_bedroom.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero/hero_bedroom_mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero/hero_bedroom.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          OPEN GRAPH META — Social media card rendering (Facebook, LinkedIn, WhatsApp)

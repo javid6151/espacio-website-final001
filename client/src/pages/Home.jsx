@@ -279,9 +279,13 @@ const TeamProjectsShowcase = ({ customSlides }) => {
   };
 
   const current = slides[idx % slides.length] || teamProjectsData[0];
-  const currentImg = (typeof current.projectImg === 'string' && current.projectImg.includes('/images/about/about_') && !current.projectImg.includes('_thumb'))
-    ? current.projectImg.replace('.jpg', '_thumb.jpg')
-    : current.projectImg;
+  const currentImg = getOptimizedImageUrl(
+    (typeof current.projectImg === 'string' && current.projectImg.includes('/images/about/about_') && !current.projectImg.includes('_thumb'))
+      ? current.projectImg.replace('.jpg', '_thumb.jpg')
+      : current.projectImg,
+    800,
+    75
+  );
 
   const slideVariants = {
     enter: (dir) => ({
@@ -1080,7 +1084,7 @@ const Home = () => {
                         {activeHeroBgImages.map((imgUrl, imgIdx) => {
                           const isActive = imgIdx === (currentImageIdx % activeHeroBgImages.length);
                           const thumbSrc = (typeof imgUrl === 'string' && imgUrl.includes('/images/hero/hero_') && !imgUrl.includes('_thumb'))
-                            ? imgUrl.replace('.jpg', '_thumb.jpg')
+                            ? imgUrl.replace(/\.(webp|jpg|png)$/i, '_thumb.webp')
                             : imgUrl;
                           return (
                             <motion.img
