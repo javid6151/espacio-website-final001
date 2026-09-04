@@ -503,10 +503,10 @@ const faqItemVariants = {
 };
 
 const HERO_IMAGES = [
-  '/images/hero/hero_bedroom.webp',
-  '/images/hero/hero_kitchen.webp',
-  '/images/hero/hero_kids_bedroom.webp',
-  '/images/hero/hero_dining.webp'
+  '/images/hero/hero_bedroom_4k.webp',
+  '/images/hero/hero_kitchen_4k.webp',
+  '/images/hero/hero_kids_bedroom_4k.webp',
+  '/images/hero/hero_dining_4k.webp'
 ];
 
 const Home = () => {
@@ -523,7 +523,7 @@ const Home = () => {
     hero_visible: true,
 
     hero_bg_images: HERO_IMAGES,
-    hero_card_image: '/images/hero/hero_bedroom.webp',
+    hero_card_image: '/images/hero/hero_bedroom_4k.webp',
     hero_card_heading: 'We Craft the Future Dwelling',
     hero_card_cta_text: 'Our Projects',
     hero_card_cta_link: '/projects',
