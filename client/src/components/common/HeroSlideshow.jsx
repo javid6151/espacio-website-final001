@@ -21,6 +21,7 @@ const preloadImages = (urls = []) => {
 const HeroSlideshow = memo(({
   images = [],
   intervalMs = 2800,
+  initialIntervalMs = 1000,
   transitionDuration = 1.0,
   className = "absolute inset-0 w-full h-full object-cover",
   onIndexChange,
@@ -34,15 +35,11 @@ const HeroSlideshow = memo(({
 
   const imagesKey = activeImages.join('|');
 
-  // Defer rendering & preloading subsequent slides until after initial paint & LCP observation
+  // Preload and pre-decode all hero slides immediately so transitions are instantaneous
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCanRenderSubsequent(true);
-      if (activeImages.length > 1) {
-        preloadImages(activeImages.slice(1).map(url => getOptimizedImageUrl(url)));
-      }
-    }, 7500);
-    return () => clearTimeout(timer);
+    if (activeImages.length > 0) {
+      preloadImages(activeImages.map(url => getOptimizedImageUrl(url)));
+    }
   }, [imagesKey]);
 
   // Notify parent on index change
@@ -52,29 +49,49 @@ const HeroSlideshow = memo(({
     }
   }, [currentIndex, onIndexChange]);
 
-  // Main slideshow timer with initial delay for LCP stability and tab visibility pause
+  const containerRef = useRef(null);
+  const [isInViewport, setIsInViewport] = useState(true);
+
+  // Pause slideshow animation when hero is offscreen to save 100% GPU/CPU during page scroll
   useEffect(() => {
-    if (activeImages.length <= 1) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { rootMargin: "100px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Main slideshow timer: runs only when in viewport, pauses when offscreen
+  useEffect(() => {
+    if (activeImages.length <= 1 || !isInViewport) return;
 
     let initTimeout;
-    const startTimer = () => {
+    const startRegularTimer = () => {
       clearInterval(timerRef.current);
       timerRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % activeImages.length);
       }, intervalMs);
     };
 
-    // Give 8.0s on initial mount so LCP element is recorded at sub-second speeds
+    const firstDelay = Math.min(initialIntervalMs ?? 1500, intervalMs);
+
+    // Prompt transition for first slide so visitor doesn't wait through a long static pause
     initTimeout = setTimeout(() => {
-      startTimer();
-    }, 8000);
+      setCurrentIndex((prev) => (prev + 1) % activeImages.length);
+      startRegularTimer();
+    }, firstDelay);
 
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        clearInterval(timerRef.current);
         clearTimeout(initTimeout);
+        clearInterval(timerRef.current);
       } else {
-        startTimer();
+        startRegularTimer();
       }
     };
 
@@ -85,39 +102,32 @@ const HeroSlideshow = memo(({
       clearInterval(timerRef.current);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [activeImages.length, intervalMs, onIndexChange]);
+  }, [activeImages.length, intervalMs, isInViewport]);
 
   // Safety check for empty image array
   if (activeImages.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
+    <div ref={containerRef} className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
       {activeImages.map((src, idx) => {
-        if (idx > 0 && !canRenderSubsequent && idx !== currentIndex) return null;
         const isActive = idx === (currentIndex % activeImages.length);
         const optimizedSrc = getOptimizedImageUrl(src);
-        const isHeroImg = typeof src === 'string' && src.includes('/images/hero/hero_');
-        const mobileSrc = isHeroImg ? src.replace(/\.(webp|jpg|png)$/i, '_mobile.webp') : optimizedSrc;
-        const srcSet = isHeroImg ? `${mobileSrc} 840w, ${optimizedSrc} 1920w` : undefined;
-        const sizes = isHeroImg ? "(max-width: 768px) 100vw, 100vw" : undefined;
 
         return (
           <motion.img
             key={src}
             src={optimizedSrc}
-            srcSet={srcSet}
-            sizes={sizes}
             alt="ESPACIO Hero Showcase"
             decoding="async"
-            loading={idx === 0 ? "eager" : "lazy"}
-            fetchPriority={idx === 0 ? "high" : "low"}
-            initial={idx === 0 ? { opacity: 1, scale: 1.0 } : false}
+            loading="eager"
+            fetchPriority={idx === 0 ? "high" : "auto"}
+            initial={idx === 0 ? { opacity: 1, scale: 1.0 } : { opacity: 0, scale: 1.02 }}
             animate={isActive ? {
               opacity: 1,
               scale: 1.0,
             } : {
               opacity: 0,
-              scale: 1.08,
+              scale: 1.02,
             }}
             transition={{
               duration: transitionDuration,
@@ -126,12 +136,10 @@ const HeroSlideshow = memo(({
             }}
             style={{
               zIndex: isActive ? 2 : 1,
-              opacity: isActive ? 1 : 0,
               transformOrigin: idx % 2 === 0 ? 'center center' : 'top center',
               imageRendering: 'high-quality',
               WebkitBackfaceVisibility: 'hidden',
               backfaceVisibility: 'hidden',
-              transform: 'translateZ(0)'
             }}
             className={`${className} object-cover transform-gpu`}
           />

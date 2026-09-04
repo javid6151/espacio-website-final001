@@ -255,7 +255,6 @@ const TeamProjectsShowcase = ({ customSlides }) => {
 
   const resetTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
-    if (!isInView) return;
     startProgress();
     timerRef.current = setInterval(() => {
       setDirection(1);
@@ -292,13 +291,7 @@ const TeamProjectsShowcase = ({ customSlides }) => {
   };
 
   const current = slides[idx % slides.length] || teamProjectsData[0];
-  const currentImg = getOptimizedImageUrl(
-    (typeof current.projectImg === 'string' && current.projectImg.includes('/images/about/about_') && !current.projectImg.includes('_thumb'))
-      ? current.projectImg.replace('.jpg', '_thumb.jpg')
-      : current.projectImg,
-    800,
-    75
-  );
+  const currentImg = getOptimizedImageUrl(current.projectImg, 1400, 88);
 
   const slideVariants = {
     enter: (dir) => ({
@@ -319,7 +312,7 @@ const TeamProjectsShowcase = ({ customSlides }) => {
   };
 
   return (
-    <div className="relative w-full max-w-[580px] lg:max-w-none mx-auto aspect-[4/3.3] sm:aspect-[4/3] min-h-[290px] sm:min-h-[380px] group">
+    <div ref={containerRef} className="relative w-full max-w-[580px] lg:max-w-none mx-auto aspect-[4/3.3] sm:aspect-[4/3] min-h-[290px] sm:min-h-[380px] group">
 
       {/* ── Main Card ── */}
       <div className="w-full h-full rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-2xl border border-ink-border/15 relative z-10 bg-stone-950">
@@ -587,6 +580,16 @@ const Home = () => {
     };
   }, []);
 
+  // Preload craft card thumbnails for instant transition syncing
+  useEffect(() => {
+    HERO_IMAGES.forEach((imgUrl) => {
+      const thumbSrc = imgUrl.replace(/\.(webp|jpg|png)$/i, '_thumb.webp');
+      const img = new Image();
+      img.src = thumbSrc;
+      if (img.decode) img.decode().catch(() => {});
+    });
+  }, []);
+
   const defaultHomeFaqItems = [
     {
       q: "How long does a project usually take?",
@@ -731,11 +734,6 @@ const Home = () => {
   ].filter(s => s.visible).sort((a, b) => a.order - b.order);
 
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
-
-  // Page-level scroll for subtle parallax on the background image
-  const { scrollYProgress } = useScroll();
-  const bgScale = useTransform(scrollYProgress, [0, 0.2], [1.05, 0.97]);
-  const bgY     = useTransform(scrollYProgress, [0, 0.2], ['0%', '6%']);
 
   // Hero exit scroll animation (scales down and fades as user scrolls past it)
   const { scrollYProgress: heroScroll } = useScroll({
@@ -1036,14 +1034,15 @@ const Home = () => {
         {/* Rounded card — fills the section with smooth exit transition */}
         <motion.div
           style={{ scale: heroExitScale, opacity: heroExitOpacity, y: heroExitY }}
-          className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[40px] origin-top"
+          className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[40px] origin-top transform-gpu will-change-transform"
         >
           {/* Background Image Layer */}
           <div className="absolute inset-0 overflow-hidden">
             <HeroSlideshow 
               images={activeHeroBgImages}
-              intervalMs={2200}
-              transitionDuration={0.85}
+              intervalMs={3200}
+              initialIntervalMs={2400}
+              transitionDuration={0.9}
               onIndexChange={setCurrentImageIdx}
             />
           </div>
@@ -1076,8 +1075,8 @@ const Home = () => {
                     className="relative rounded-[20px] md:rounded-[26px] overflow-hidden border border-white/15 shadow-2xl"
                     style={{ 
                       background: 'rgba(255, 255, 255, 0.08)',
-                      backdropFilter: 'blur(24px)',
-                      WebkitBackdropFilter: 'blur(24px)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
                     }}
                     variants={{
                       hidden: { opacity: 0, y: 35 },
@@ -1096,7 +1095,6 @@ const Home = () => {
                       <div className="w-full aspect-[16/10] sm:aspect-[16/9] rounded-[14px] overflow-hidden mb-5 relative bg-black/20">
                         {activeHeroBgImages.map((imgUrl, imgIdx) => {
                           const isActive = imgIdx === (currentImageIdx % activeHeroBgImages.length);
-                          if (!isActive) return null;
                           const thumbSrc = (typeof imgUrl === 'string' && imgUrl.includes('/images/hero/hero_') && !imgUrl.includes('_thumb'))
                             ? imgUrl.replace(/\.(webp|jpg|png)$/i, '_thumb.webp')
                             : imgUrl;
@@ -1106,14 +1104,14 @@ const Home = () => {
                               src={thumbSrc}
                               alt="Luxury interior showcase"
                               decoding="async"
-                              initial={false}
-                              animate={{ opacity: 1, scale: 1.0 }}
+                              initial={imgIdx === 0 ? { opacity: 1, scale: 1.05 } : { opacity: 0, scale: 1.04 }}
+                              animate={isActive ? { opacity: 1, scale: 1.0 } : { opacity: 0, scale: 1.04 }}
                               transition={{
                                 duration: 0.65,
                                 ease: [0.22, 1, 0.36, 1],
                               }}
                               style={{
-                                zIndex: 2,
+                                zIndex: isActive ? 2 : 1,
                                 imageRendering: 'high-quality',
                                 WebkitBackfaceVisibility: 'hidden',
                                 backfaceVisibility: 'hidden',
@@ -1204,23 +1202,25 @@ const Home = () => {
                           }}
                           whileHover={{
                             scale: 1.02,
-                            borderColor: 'rgba(255, 255, 255, 0.45)',
-                            backgroundColor: 'rgba(0, 0, 0, 0.45)',
-                            boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.5)'
+                            boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.35)'
                           }}
-                          className={`flex items-center rounded-[14px] md:rounded-[20px] border shadow-xl cursor-pointer overflow-hidden isolate select-none ${
+                          className={`flex items-center rounded-[14px] md:rounded-[20px] border shadow-xl cursor-pointer transition-all duration-300 overflow-hidden isolate select-none relative ${
                             isHovered 
-                              ? "flex-row justify-between w-[215px] sm:w-[255px] md:w-[300px] h-14 sm:h-18 md:h-20 px-4 md:px-5.5 border-white/35 bg-black/40" 
-                              : "flex-col justify-center items-center w-[80px] sm:w-[90px] md:w-[100px] h-[70px] sm:h-[80px] md:h-[88px] border-white/20 bg-black/30 text-center px-2"
+                              ? "flex-row justify-between w-[215px] sm:w-[255px] md:w-[300px] h-14 sm:h-18 md:h-20 px-4 md:px-5.5 border-white/35" 
+                              : "flex-col justify-center items-center w-[80px] sm:w-[90px] md:w-[100px] h-[70px] sm:h-[80px] md:h-[88px] border-white/15 text-center px-2"
                           }`}
                           style={{
-                            backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)',
+                            background: isHovered ? 'rgba(255, 255, 255, 0.14)' : 'rgba(255, 255, 255, 0.08)',
+                            backdropFilter: 'blur(16px)',
+                            WebkitBackdropFilter: 'blur(16px)',
                             transform: 'translate3d(0,0,0)',
                             WebkitBackfaceVisibility: 'hidden',
                             backfaceVisibility: 'hidden',
                           }}
                         >
+                          {/* Top glass highlight to match craft card */}
+                          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+
                           <AnimatePresence mode="wait">
                             {!isHovered ? (
                               <motion.div
@@ -1330,7 +1330,7 @@ const Home = () => {
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="border border-ink-border/20 bg-bg rounded-[20px] p-6 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[130px] w-full max-w-[550px] mx-auto lg:max-w-none lg:mx-0 group hover:border-gold hover:shadow-md transition-all duration-300"
             >

@@ -392,21 +392,7 @@ const MarqueeRow = ({ items, speed = 1.09, reverse = false }) => {
       el.scrollLeft = halfWidthRef.current || 1000;
     }
 
-    let isVisible = true;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          measure();
-          if (!animationFrameId.current) {
-            animationFrameId.current = requestAnimationFrame(autoScroll);
-          }
-        }
-      },
-      { threshold: 0.05 }
-    );
+    let isVisible = false;
 
     const autoScroll = () => {
       if (!isVisible) {
@@ -432,11 +418,30 @@ const MarqueeRow = ({ items, speed = 1.09, reverse = false }) => {
       animationFrameId.current = requestAnimationFrame(autoScroll);
     };
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          measure();
+          if (!animationFrameId.current) {
+            animationFrameId.current = requestAnimationFrame(autoScroll);
+          }
+        } else {
+          if (animationFrameId.current) {
+            cancelAnimationFrame(animationFrameId.current);
+            animationFrameId.current = null;
+          }
+        }
+      },
+      { rootMargin: "150px" }
+    );
+
     observer.observe(el);
-    animationFrameId.current = requestAnimationFrame(autoScroll);
 
     return () => {
       observer.disconnect();
+      window.removeEventListener('resize', measure);
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
     };
   }, [speed, reverse]);

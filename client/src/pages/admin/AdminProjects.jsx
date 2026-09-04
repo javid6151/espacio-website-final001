@@ -5,7 +5,7 @@ import {
   Save, Trash2, Upload, X, Plus, Loader2, ArrowLeft,
   Image as ImageIcon, CheckCircle, HelpCircle
 } from 'lucide-react';
-import { getCMSData, setCMSData, STORAGE_KEYS } from '../../utils/cmsStore';
+import { getCMSData, setCMSData, STORAGE_KEYS, DEFAULT_PROJECTS } from '../../utils/cmsStore';
 import CTASectionEditor from '../../components/admin/CTASectionEditor';
 import MediaPickerModal from '../../components/admin/MediaPickerModal';
 import MediaInput from '../../components/admin/MediaInput';
@@ -213,7 +213,7 @@ const AdminProjects = () => {
     }
   });
 
-  const mockProjects = generatedMockProjects;
+  const mockProjects = DEFAULT_PROJECTS;
 
   useEffect(() => {
     const initProjects = async () => {

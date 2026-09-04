@@ -5,7 +5,7 @@ import {
   Eye, Sliders, ArrowUp, ArrowDown, Filter, Layers,
   CheckCircle2, Search, SlidersHorizontal, Image as ImageIcon
 } from 'lucide-react';
-import { getCMSData, setCMSData, STORAGE_KEYS } from '../../utils/cmsStore';
+import { getCMSData, setCMSData, STORAGE_KEYS, DEFAULT_FAQS } from '../../utils/cmsStore';
 import CTASectionEditor from '../../components/admin/CTASectionEditor';
 
 const defaultFaqCategories = [
@@ -21,177 +21,36 @@ const defaultFaqCategories = [
   { id: 'cat-10', name: 'SUPPORT', slug: 'support', visible: true, order: 10 }
 ];
 
-const defaultSharedFaqs = [
-  {
-    id: 'faq-1',
-    question: 'How long does a project usually take?',
-    answer: 'Typically 2–3 months, depending on the level of detailing and customization involved in your project.',
-    category: 'TIMELINE',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'TIMELINE',
-    imageCaption: 'How long does a project usually take?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 1,
-    homeOrder: 1,
-    status: 'Published'
-  },
-  {
-    id: 'faq-2',
-    question: 'Do you provide turnkey interior solutions?',
-    answer: 'Yes. Every project we take on, residential or commercial, is delivered turnkey, with design, materials, execution, and finishing handled entirely by our team.',
-    category: 'SERVICES',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'SERVICES',
-    imageCaption: 'Do you provide turnkey interior solutions?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 2,
-    homeOrder: 2,
-    status: 'Published'
-  },
-  {
-    id: 'faq-3',
-    question: 'What is your consultation process?',
-    answer: 'We begin with a free consultation to understand your space, requirements, and vision, before moving into detailed design and planning.',
-    category: 'PROCESS',
-    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'PROCESS',
-    imageCaption: 'What is your consultation process?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 3,
-    homeOrder: 3,
-    status: 'Published'
-  },
-  {
-    id: 'faq-4',
-    question: 'Which locations do you currently serve?',
-    answer: "We're proudly based in Hyderabad and have delivered residential and commercial projects across the city.",
-    category: 'LOCATION',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'LOCATION',
-    imageCaption: 'Which locations do you currently serve?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 4,
-    homeOrder: 4,
-    status: 'Published'
-  },
-  {
-    id: 'faq-5',
-    question: 'How can customers request a quotation?',
-    answer: 'Simply fill out our contact form on the website, and our team will get back to you to discuss your project.',
-    category: 'PRICING',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'PRICING',
-    imageCaption: 'How can customers request a quotation?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 5,
-    homeOrder: 5,
-    status: 'Published'
-  },
-  {
-    id: 'faq-6',
-    question: 'Do you sell materials separately from design services?',
-    answer: 'Yes. Our materials including WPC panels, polygranite sheets, acrylic sheets, and more are available for standalone purchase, without needing to book a full design or execution project with us.',
-    category: 'MATERIALS',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'MATERIALS',
-    imageCaption: 'Do you sell materials separately from design services?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 6,
-    homeOrder: 6,
-    status: 'Published'
-  },
-  {
-    id: 'faq-7',
-    question: 'Do I need to be involved throughout the project, or can it be handled remotely?',
-    answer: "We keep you informed at every key stage with regular updates and site visits, so you're never left in the dark, but you don't need to manage day-to-day execution yourself. That's what turnkey means.",
-    category: 'INVOLVEMENT',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'INVOLVEMENT',
-    imageCaption: 'Do I need to be involved throughout the project?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 7,
-    homeOrder: 7,
-    status: 'Published'
-  },
-  {
-    id: 'faq-8',
-    question: 'What if I already have a design in mind, can you just execute it?',
-    answer: 'Absolutely. Whether you come with a finalized design or need us to design from scratch, we can adapt to execution-only or full design-and-build depending on what you need.',
-    category: 'CUSTOM',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'CUSTOM',
-    imageCaption: 'What if I already have a design in mind?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 8,
-    homeOrder: 8,
-    status: 'Published'
-  },
-  {
-    id: 'faq-9',
-    question: 'Can I customize designs, or do you offer fixed packages?',
-    answer: "Every project is fully customized around your space and preferences — we don't work off fixed templates or set packages.",
-    category: 'DESIGN',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'DESIGN',
-    imageCaption: 'Can I customize designs, or do you offer fixed packages?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 9,
-    homeOrder: 9,
-    status: 'Published'
-  },
-  {
-    id: 'faq-10',
-    question: 'What happens if something needs repair after project completion?',
-    answer: "Any issues within our warranty period are addressed directly by our team. Reach out through the contact form and we'll take care of it.",
-    category: 'SUPPORT',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
-    imageLabel: 'SUPPORT',
-    imageCaption: 'What happens if something needs repair after project completion?',
-    showOnFaqPage: true,
-    showOnHome: true,
-    faqPageOrder: 10,
-    homeOrder: 10,
-    status: 'Published'
-  }
-];
+const defaultSharedFaqs = DEFAULT_FAQS;
 
 const defaultShowcaseSlides = [
   {
     id: 'slide-1',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/faq/faq_1_timeline.jpg',
     tag: 'TIMELINE',
     caption: 'How long does a project usually take?'
   },
   {
     id: 'slide-2',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+    image: '/images/faq/faq_2_services.jpg',
     tag: 'SERVICES',
     caption: 'Do you provide turnkey interior solutions?'
   },
   {
     id: 'slide-3',
-    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
+    image: '/images/faq/faq_3_process.jpg',
     tag: 'PROCESS',
     caption: 'What is your consultation process?'
   },
   {
     id: 'slide-4',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+    image: '/images/faq/faq_4_location.jpg',
     tag: 'LOCATION',
     caption: 'Which locations do you currently serve?'
   },
   {
     id: 'slide-5',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+    image: '/images/faq/faq_5_pricing.jpg',
     tag: 'PRICING',
     caption: 'How can customers request a quotation?'
   }

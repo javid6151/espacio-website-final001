@@ -5,6 +5,15 @@ import { logAuditEvent } from '../../utils/auditStore';
 
 const seedAdminUsers = [
   {
+    id: 'usr_00',
+    name: 'ESPACIO Admin',
+    email: 'admin@espacio.com',
+    password: 'admin123456',
+    role: 'Super Admin',
+    active: true,
+    createdAt: '2026-08-01T10:00:00.000Z'
+  },
+  {
     id: 'usr_01',
     name: 'Tarun (Super Admin)',
     email: 'tarunuttupulusu@gmail.com',
@@ -14,6 +23,11 @@ const seedAdminUsers = [
     createdAt: '2026-08-01T10:00:00.000Z'
   }
 ];
+
+const isProtectedAdmin = (email) => {
+  const e = (email || '').toLowerCase();
+  return e === 'tarunuttupulusu@gmail.com' || e === 'admin@espacio.com';
+};
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -33,6 +47,22 @@ const AdminUsers = () => {
       if (!Array.isArray(stored) || stored.length === 0) {
         stored = seedAdminUsers;
         setCMSData(STORAGE_KEYS.ADMIN_USERS, seedAdminUsers);
+      } else {
+        // Ensure standard root admin users are always present and active
+        let updated = false;
+        seedAdminUsers.forEach(seedUser => {
+          const idx = stored.findIndex(u => u.email.toLowerCase() === seedUser.email.toLowerCase());
+          if (idx === -1) {
+            stored.unshift(seedUser);
+            updated = true;
+          } else if (stored[idx].password !== seedUser.password || stored[idx].active !== true) {
+            stored[idx] = { ...stored[idx], password: seedUser.password, active: true };
+            updated = true;
+          }
+        });
+        if (updated) {
+          setCMSData(STORAGE_KEYS.ADMIN_USERS, stored);
+        }
       }
       setUsers(stored);
     } catch (err) {
@@ -103,7 +133,7 @@ const AdminUsers = () => {
   };
 
   const handleToggleUserStatus = async (user) => {
-    if (user.email === 'tarunuttupulusu@gmail.com') return; // Protect primary super admin
+    if (isProtectedAdmin(user.email)) return; // Protect primary super admin
     const updated = users.map(u => u.id === user.id ? { ...u, active: !u.active } : u);
     setUsers(updated);
     setCMSData(STORAGE_KEYS.ADMIN_USERS, updated);
@@ -112,7 +142,7 @@ const AdminUsers = () => {
   };
 
   const handleDeleteUser = async (user) => {
-    if (user.email === 'tarunuttupulusu@gmail.com') return; // Protect primary super admin
+    if (isProtectedAdmin(user.email)) return; // Protect primary super admin
     if (!window.confirm(`Are you sure you want to delete admin account ${user.email}?`)) return;
     const updated = users.filter(u => u.id !== user.id);
     setUsers(updated);
@@ -186,17 +216,17 @@ const AdminUsers = () => {
 
                 <button
                   onClick={() => handleToggleUserStatus(user)}
-                  disabled={user.email === 'tarunuttupulusu@gmail.com'}
+                  disabled={isProtectedAdmin(user.email)}
                   className={`px-3 py-1.5 rounded-lg text-[10px] font-sans font-bold uppercase border transition-all ${
                     user.active 
                       ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' 
                       : 'bg-stone-500/15 text-stone-400 border-stone-500/30'
-                  } ${user.email === 'tarunuttupulusu@gmail.com' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  } ${isProtectedAdmin(user.email) ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {user.active ? 'Active' : 'Inactive'}
                 </button>
 
-                {user.email !== 'tarunuttupulusu@gmail.com' && (
+                {!isProtectedAdmin(user.email) && (
                   <button
                     onClick={() => handleDeleteUser(user)}
                     className="p-2 text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all"

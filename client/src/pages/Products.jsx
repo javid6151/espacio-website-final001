@@ -7,7 +7,7 @@ import SEO from '../components/common/SEO';
 import DomeGallery from '../components/ui/DomeGallery';
 import GooeyInput from '../components/ui/gooey-input';
 import ScrollDownIndicator from '../components/common/ScrollDownIndicator';
-import { getCMSData, STORAGE_KEYS } from '../utils/cmsStore';
+import { getCMSData, STORAGE_KEYS, DEFAULT_PRODUCTS } from '../utils/cmsStore';
 import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 const Reveal = ({ children, delay = 0, className = '' }) => {
@@ -24,94 +24,11 @@ const Reveal = ({ children, delay = 0, className = '' }) => {
 };
 
 const Products = () => {
-
-  const mockProducts = [
-    {
-      title: 'Acrylic Luxe Collection',
-      slug: 'acrylic-luxe-collection',
-      category: 'acrylic_luxe',
-      badge: 'Premium Finish',
-      description: 'Ultra-gloss anti-scratch cabinet overlays creating glass-like modern kitchen cabinet fronts.',
-      heroImage: '/images/materials/luminous_grid_8313.jpg',
-      features: ['High-Gloss', 'Anti-Scratch']
-    },
-    {
-      title: 'Digital Korean Poly Granite',
-      slug: 'digital-korean-poly-granite',
-      category: 'poly_granite',
-      badge: 'Marble Textures',
-      description: 'High-gloss stone surface overlays offering scratch-proof marble elevations.',
-      heroImage: '/images/materials/florida.png',
-      features: ['Scratch-Proof', 'Marble Finish']
-    },
-    {
-      title: 'Charcoal Panels Luxe Collection',
-      slug: 'charcoal-panels-luxe',
-      category: 'charcoal_panels',
-      badge: 'Textured Accents',
-      description: 'Richly textured wall panels infused with active charcoal for unique luxury accent walls.',
-      heroImage: '/images/materials/charcoal_luxe_4015.jpg',
-      features: ['Air Purifying', 'Premium Texture']
-    },
-    {
-      title: 'Fluted PVC Luxe Collection',
-      slug: 'fluted-pvc-luxe',
-      category: 'fluted_pvc',
-      badge: 'Architectural Panels',
-      description: 'Premium fluted PVC wall panels with rich relief lines and contemporary finishes.',
-      heroImage: '/images/materials/irish.png',
-      features: ['Waterproof', 'Easy Install']
-    },
-    {
-      title: 'LVT Luxe Flooring',
-      slug: 'lvt-luxe-flooring',
-      category: 'lvt_flooring',
-      badge: 'Luxury Vinyl',
-      description: 'Premium luxury vinyl flooring offering durability with authentic wood and stone textures.',
-      heroImage: '/images/materials/giallo_dining.png',
-      features: ['Durable', 'Water-Resistant']
-    },
-    {
-      title: 'Fluted Acrylic Luxe Collection',
-      slug: 'fluted-acrylic-luxe',
-      category: 'fluted_acrylic',
-      badge: '3D Relief',
-      description: 'Dynamic fluted acrylic panels creating sophisticated shadow play for luxury interiors.',
-      heroImage: '/images/materials/fluted_acrylic_florida.jpg',
-      features: ['3D Relief', 'High-Gloss']
-    },
-    {
-      title: 'PVC Luxe Collection',
-      slug: 'pvc-luxe-collection',
-      category: 'pvc_luxe',
-      badge: 'Versatile Panels',
-      description: 'Lightweight, versatile PVC panels for ceiling and wall applications with rich wood and textured finishes.',
-      heroImage: '/images/materials/pvc_luxe_5003_5004.jpg',
-      features: ['Lightweight', 'Fire Retardant']
-    },
-    {
-      title: 'WPC Luxe Collection',
-      slug: 'wpc-luxe-collection',
-      category: 'wpc_luxe',
-      badge: 'Wood Composite',
-      description: 'Co-extruded composite panels offering absolute water resistance and rich wood grain textures.',
-      heroImage: '/images/materials/wpc_luxe_1701_1606.jpg',
-      features: ['100% Waterproof', 'Termite Proof']
-    },
-    {
-      title: 'Espacio Charcoal Panels Luxe Collection (1)',
-      slug: 'charcoal-panels-luxe-1',
-      category: 'charcoal_panels_1',
-      badge: 'Textured Accents',
-      description: 'Additional selection of richly textured wall panels infused with active charcoal.',
-      heroImage: '/images/materials/charcoal_luxe_1_6015.jpg',
-      features: ['Premium Texture', 'Acoustic Relief']
-    },
-  ];
+  const mockProducts = DEFAULT_PRODUCTS;
 
   const [products, setProducts] = useState(() => {
     const stored = getCMSData(STORAGE_KEYS.PRODUCTS);
-    return (Array.isArray(stored) && stored.length > 0) ? stored : mockProducts;
+    return (Array.isArray(stored) && stored.length > 0) ? stored : DEFAULT_PRODUCTS;
   });
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);

@@ -5,122 +5,31 @@ import {
   Eye, Sliders, ArrowRight, ArrowUp, ArrowDown,
   CheckCircle2, Search, SlidersHorizontal, Image as ImageIcon, Lock, Unlock, HelpCircle
 } from 'lucide-react';
-import { getCMSData, setCMSData, STORAGE_KEYS } from '../../utils/cmsStore';
+import { getCMSData, setCMSData, STORAGE_KEYS, DEFAULT_PRODUCTS } from '../../utils/cmsStore';
 import CTASectionEditor from '../../components/admin/CTASectionEditor';
 
 const defaultMaterialsHeroSlides = [
   {
-    title: 'Italian Marble & Exotic Stones',
-    before: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=90',
-    after: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=90',
+    title: 'Digital Korean Poly Granite & Sintered Stone',
+    before: '/images/company/2bhk_lux/hall1_1.png',
+    after: '/images/materials/florida.png',
     visible: true
   },
   {
-    title: 'Acrylic Luxe & Poly Granite',
-    before: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1920&q=90',
-    after: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1920&q=90',
+    title: 'Acrylic Luxe Modular Cabinetry',
+    before: '/images/company/3bhk_lux/kitchen_1.png',
+    after: '/images/materials/luminous_grid_8313.jpg',
     visible: true
   },
   {
-    title: 'Acoustic Charcoal & Fluted Panels',
-    before: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=90',
-    after: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1920&q=90',
+    title: 'Acoustic Charcoal & Fluted Wall Panels',
+    before: '/images/company/2bhk_mordern_retro/dining_2.jpg',
+    after: '/images/materials/charcoal_luxe_4015.jpg',
     visible: true
   }
 ];
 
-const defaultMaterialsList = [
-  {
-    title: 'Acrylic Luxe Collection',
-    slug: 'acrylic-luxe-collection',
-    category: 'Acrylic & Finishes',
-    materialCode: 'MAT-ACR-01',
-    badge: 'Premium Finish',
-    description: 'Ultra-gloss anti-scratch cabinet overlays creating glass-like modern kitchen cabinet fronts.',
-    heroImage: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80',
-    features: ['High-Gloss', 'Anti-Scratch', 'Concealed Track'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: true,
-    showInCard: true,
-    status: 'Published'
-  },
-  {
-    title: 'Digital Korean Poly Granite',
-    slug: 'digital-korean-poly-granite',
-    category: 'Natural Stone',
-    materialCode: 'MAT-GNT-02',
-    badge: 'Marble Textures',
-    description: 'High-gloss stone surface overlays offering scratch-proof marble elevations.',
-    heroImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80',
-    features: ['Scratch-Proof', 'Marble Finish', 'Heat Resistant'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: true,
-    showInCard: true,
-    status: 'Published'
-  },
-  {
-    title: 'Charcoal Panels Luxe Collection',
-    slug: 'charcoal-panels-luxe',
-    category: 'Panelling & Acoustic',
-    materialCode: 'MAT-CHR-03',
-    badge: 'Textured Accents',
-    description: 'Richly textured wall panels infused with active charcoal for unique luxury accent walls.',
-    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80',
-    features: ['Air Purifying', 'Premium Texture', 'Acoustic Dampening'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: true,
-    showInCard: true,
-    status: 'Published'
-  },
-  {
-    title: 'Fluted PVC Luxe Collection',
-    slug: 'fluted-pvc-luxe',
-    category: 'Panelling & Acoustic',
-    materialCode: 'MAT-PVC-04',
-    badge: 'Architectural Panels',
-    description: 'Premium fluted PVC wall panels with rich relief lines and contemporary finishes.',
-    heroImage: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80',
-    features: ['Waterproof', 'Easy Install', 'UV Resistant'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: true,
-    showInCard: true,
-    status: 'Published'
-  },
-  {
-    title: 'LVT Luxe Flooring',
-    slug: 'lvt-luxe-flooring',
-    category: 'Wood & Flooring',
-    materialCode: 'MAT-FLR-05',
-    badge: 'Luxury Vinyl',
-    description: 'Premium luxury vinyl flooring offering durability with authentic wood and stone textures.',
-    heroImage: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=80',
-    features: ['Durable', 'Water-Resistant', 'Soft Tread'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: false,
-    showInCard: true,
-    status: 'Published'
-  },
-  {
-    title: 'Fluted Acrylic Luxe Collection',
-    slug: 'fluted-acrylic-luxe',
-    category: 'Acrylic & Finishes',
-    materialCode: 'MAT-ACR-06',
-    badge: '3D Relief',
-    description: 'Dynamic fluted acrylic panels creating sophisticated shadow play for luxury interiors.',
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
-    features: ['3D Relief', 'High-Gloss', 'Backlit Ready'],
-    ctaText: 'Enquire About Material',
-    ctaLink: '/contact',
-    showInHero: false,
-    showInCard: true,
-    status: 'Published'
-  }
-];
+const defaultMaterialsList = DEFAULT_PRODUCTS;
 
 const getNonEmpty = (val, fallback) => (val && typeof val === 'string' && val.trim().length > 0 ? val : fallback);
 

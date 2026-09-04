@@ -171,19 +171,148 @@
 /* ── Form Inputs — Admin ─────────────────────────────────────────────────────── */
 .admin-input {
   width: 100%;
-  background: #0E0F11;
-  border: 1.5px solid rgba(255,255,255,0.08);
+  background: #FFFFFF;
+  border: 1.5px solid #D1D5DB;
   border-radius: 8px;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   padding: 12px 16px;
-  color: #fff;
+  color: #111827;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
 }
-.admin-input::placeholder { color: rgba(255,255,255,0.25); }
-.admin-input:hover { border-color: rgba(255,255,255,0.15); }
-.admin-input:focus { border-color: #C9A96E; }
+.admin-input::placeholder { color: #9CA3AF; }
+.admin-input:hover { border-color: #9CA3AF; }
+.admin-input:focus { 
+  border-color: #C9A96E; 
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+}
+
+/* ── Admin Portal White Theme ─────────────────────────────────────────────── */
+.admin-portal-white {
+  background-color: #F8F9FA !important;
+  color: #1F2937 !important;
+}
+
+.admin-portal-white aside {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+.admin-portal-white header {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+.admin-portal-white .bg-\[\#0E0F11\],
+.admin-portal-white .bg-\[\#101114\],
+.admin-portal-white .bg-charcoal {
+  background-color: #F8F9FA !important;
+}
+
+.admin-portal-white .bg-\[\#141518\],
+.admin-portal-white .bg-\[\#18191C\],
+.admin-portal-white .bg-\[\#1A1B1E\],
+.admin-portal-white .bg-\[\#1A1C20\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+}
+
+.admin-portal-white .border-white\/5,
+.admin-portal-white .border-white\/10,
+.admin-portal-white .border-white\/15,
+.admin-portal-white .border-white\/20,
+.admin-portal-white .border-white\/25,
+.admin-portal-white .border-white\/30 {
+  border-color: #E5E7EB !important;
+}
+
+.admin-portal-white .divide-white\/5 > * + *,
+.admin-portal-white .divide-white\/10 > * + * {
+  border-color: #F3F4F6 !important;
+}
+
+.admin-portal-white .text-white {
+  color: #111827 !important;
+}
+
+.admin-portal-white .text-white\/70,
+.admin-portal-white .text-white\/80 {
+  color: #374151 !important;
+}
+
+.admin-portal-white .text-white\/40,
+.admin-portal-white .text-white\/50,
+.admin-portal-white .text-white\/60 {
+  color: #6B7280 !important;
+}
+
+.admin-portal-white .text-white\/30,
+.admin-portal-white .text-white\/20 {
+  color: #9CA3AF !important;
+}
+
+.admin-portal-white .text-cream {
+  color: #1F2937 !important;
+}
+
+.admin-portal-white .text-cream\/80,
+.admin-portal-white .text-cream\/70,
+.admin-portal-white .text-cream\/60,
+.admin-portal-white .text-cream\/50 {
+  color: #4B5563 !important;
+}
+
+.admin-portal-white .bg-white\/2,
+.admin-portal-white .bg-white\/3,
+.admin-portal-white .bg-white\/5,
+.admin-portal-white .bg-white\/10 {
+  background-color: #F9FAFB !important;
+}
+
+.admin-portal-white .hover\:bg-white\/2:hover,
+.admin-portal-white .hover\:bg-white\/3:hover,
+.admin-portal-white .hover\:bg-white\/5:hover,
+.admin-portal-white .hover\:bg-white\/10:hover {
+  background-color: #F3F4F6 !important;
+}
+
+.admin-portal-white input:not([type="checkbox"]):not([type="radio"]),
+.admin-portal-white select,
+.admin-portal-white textarea {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+  border-color: #D1D5DB !important;
+}
+
+.admin-portal-white input:focus,
+.admin-portal-white select:focus,
+.admin-portal-white textarea:focus {
+  background-color: #FFFFFF !important;
+  border-color: #C9A96E !important;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15) !important;
+}
+
+.admin-portal-white input::placeholder,
+.admin-portal-white textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+.admin-portal-white table {
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+}
+
+.admin-portal-white th {
+  background-color: #F9FAFB !important;
+  color: #4B5563 !important;
+  border-color: #E5E7EB !important;
+}
+
+.admin-portal-white td {
+  border-color: #E5E7EB !important;
+}
 
 /* ── Fade Up Animation ───────────────────────────────────────────────────────── */
 @keyframes fadeUp {

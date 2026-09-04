@@ -5,83 +5,17 @@ import {
   Eye, Sliders, ArrowUpRight, Check, ImageIcon, ArrowUp, ArrowDown,
   Layers, CheckCircle2, Edit3, X, HelpCircle
 } from 'lucide-react';
-import { getCMSData, setCMSData, STORAGE_KEYS, uploadImageFile } from '../../utils/cmsStore';
+import { getCMSData, setCMSData, STORAGE_KEYS, uploadImageFile, DEFAULT_SERVICES } from '../../utils/cmsStore';
 import CTASectionEditor from '../../components/admin/CTASectionEditor';
 
 const defaultHeroImages = [
-  'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1920&q=90',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=90',
-  'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1920&q=90',
-  'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1920&q=90'
+  '/images/company/2bhk_mordern_retro/hall.jpg',
+  '/images/company/2bhk_mordern_retro/office_3.jpg',
+  '/images/company/indo_classical_elegance_3bhk/3BHK-Guest_restaurant_4-20260810-164320.jpg',
+  '/images/services/services_after.webp'
 ];
 
-const defaultServices = [
-  { 
-    num: '01', 
-    title: 'Full Home Interior Design & Execution', 
-    tag: 'Turnkey Design & Build', 
-    desc: "From concept to handover, we design and build your home end-to-end — delivered turnkey, so you're never juggling multiple vendors or contractors.", 
-    includes: ['Living & Dining Design', 'Bedroom & Wardrobe Systems', 'Modular Kitchen Layouts', 'Ceilings & Ambient Lighting', 'Material & Texture Curation', 'Turnkey Project Execution'], 
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
-    ctaText: 'Enquire About This',
-    ctaLink: '/contact',
-    ctaVisible: true,
-    visible: true,
-    order: 1
-  },
-  { 
-    num: '02', 
-    title: 'Commercial Interiors', 
-    tag: 'Workspaces & Retail', 
-    desc: 'Interior design and fit-out for offices, retail, and commercial spaces, delivered turnkey with a single team managing design, materials, and execution from start to finish.', 
-    includes: ['Office Layout Optimization', 'Retail Flow Planning', 'Conference & Meeting Rooms', 'Ergonomic Workstations', 'AV & Tech Integration', 'Turnkey Construction'], 
-    img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=90',
-    ctaText: 'Enquire About This',
-    ctaLink: '/contact',
-    ctaVisible: true,
-    visible: true,
-    order: 2
-  },
-  { 
-    num: '03', 
-    title: 'Styling & Decor', 
-    tag: 'Curated Styling', 
-    desc: 'Curated styling, accessories, and finishing touches that bring a space to life — offered as a standalone service or as the final turnkey step on any Espacio project.', 
-    includes: ['Art & Wall Decor Curation', 'Custom Soft Furnishings', 'Lighting & Accessory Styling', 'Plants & Greenery Selection', 'Color Palette Harmony', 'Bespoke Styling Audits'], 
-    img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80',
-    ctaText: 'Enquire About This',
-    ctaLink: '/contact',
-    ctaVisible: true,
-    visible: true,
-    order: 3
-  },
-  { 
-    num: '04', 
-    title: 'Renovation', 
-    tag: 'Upgrade Existing Spaces', 
-    desc: 'Redesigning and upgrading existing spaces, residential or commercial, without starting from scratch — delivered turnkey, with design, materials, and execution handled entirely by us.', 
-    includes: ['Kitchen & Bath Upgrades', 'Living Space Redesign', 'Structural Alterations', 'Flooring Replacement', 'Electrical & Plumbing Re-lay', 'Turnkey Execution'], 
-    img: '/images/services/services_after.webp',
-    ctaText: 'Enquire About This',
-    ctaLink: '/contact',
-    ctaVisible: true,
-    visible: true,
-    order: 4
-  },
-  { 
-    num: '05', 
-    title: 'Materials Supply (Sold Separately)', 
-    tag: 'Premium Sourced Supply', 
-    desc: 'We source globally to bring you WPC wall & ceiling panels, polygranite sheets, and more warehoused in our own godowns for faster availability. Note: Materials are also sold separately from our design and execution services, you can purchase materials on their own, without booking a full project with us.', 
-    includes: ['WPC Wall & Ceiling Panels', 'Polygranite & Acrylic Sheets', 'Fluted & Charcoal Louvers', 'Bespoke Wall Finishes', 'Stand-alone Purchasing', 'Fast Delivery from Godowns'], 
-    img: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=900&q=80',
-    ctaText: 'Enquire About This',
-    ctaLink: '/contact',
-    ctaVisible: true,
-    visible: true,
-    order: 5
-  }
-];
+const defaultServices = DEFAULT_SERVICES;
 
 const getNonEmpty = (val, fallback) => (val && typeof val === 'string' && val.trim().length > 0 ? val : fallback);
 

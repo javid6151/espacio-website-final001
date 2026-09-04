@@ -24,11 +24,11 @@ export const StickyScroll = ({ content, className }) => {
     }
   });
 
-  const springConfig = { stiffness: 180, damping: 25, bounce: 0 };
-
-  const textTranslateY = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -(cardLength - 1) * 300]),
-    springConfig
+  // Direct 1:1 scroll transform for instant responsiveness without spring lag
+  const textTranslateY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -(cardLength - 1) * 360]
   );
 
   return (
@@ -42,29 +42,29 @@ export const StickyScroll = ({ content, className }) => {
         <div className="sticky top-[95px] w-full h-[82vh] flex justify-between gap-10 rounded-[32px] p-6 lg:p-10 bg-bg border border-ink-border/30 items-center shadow-2xl">
           
           {/* Left: interactive scrolling text column */}
-          <div className="relative w-[36%] shrink-0 h-full overflow-hidden pt-[120px] px-2 lg:px-6">
+          <div className="relative w-[38%] shrink-0 h-full overflow-hidden pt-[90px] px-2 lg:px-6">
             {/* Top/Bottom gradient mask overlays for text fade */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-bg via-bg/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-bg via-bg/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-bg via-bg/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-bg via-bg/80 to-transparent z-10 pointer-events-none" />
 
             <motion.div 
-              style={{ y: textTranslateY }}
+              style={{ y: textTranslateY, willChange: 'transform' }}
               className="w-full relative"
             >
               {content.map((item, index) => (
                 <motion.div
                   key={item.title + index}
-                  className="h-[300px] flex flex-col justify-center text-left"
+                  className="h-[360px] flex flex-col justify-center text-left py-2"
                   animate={{
-                    opacity: activeCard === index ? 1 : 0.15,
-                    scale: activeCard === index ? 1 : 0.94,
+                    opacity: activeCard === index ? 1 : 0.12,
+                    scale: activeCard === index ? 1 : 0.95,
                   }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                 >
-                  <h3 className="font-display text-[28px] sm:text-[32px] lg:text-[42px] font-bold text-ink leading-[1.1]">
+                  <h3 className="font-display text-[26px] sm:text-[30px] lg:text-[38px] font-bold text-ink leading-[1.12]">
                     {item.title}
                   </h3>
-                  <div className="mt-4 font-sans text-base lg:text-lg text-ink-soft leading-relaxed">
+                  <div className="mt-3.5 font-sans text-base lg:text-lg text-ink-soft leading-relaxed">
                     {item.description}
                   </div>
                 </motion.div>
@@ -72,20 +72,26 @@ export const StickyScroll = ({ content, className }) => {
             </motion.div>
           </div>
 
-          {/* Right: full screen height animated image panel */}
-          <div className="w-[60%] shrink-0 h-full rounded-[24px] bg-bg overflow-hidden border border-ink-border/40 shadow-2xl relative">
-            <AnimatePresence mode="sync">
+          {/* Right: full screen height animated image panel - pre-mounted for 120fps GPU transitions */}
+          <div className="w-[58%] shrink-0 h-full rounded-[24px] bg-bg overflow-hidden border border-ink-border/40 shadow-2xl relative">
+            {content.map((item, index) => (
               <motion.div
-                key={activeCard}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 h-full w-full"
+                key={index}
+                initial={false}
+                animate={{
+                  opacity: activeCard === index ? 1 : 0,
+                  scale: activeCard === index ? 1 : 1.03,
+                }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  zIndex: activeCard === index ? 2 : 1,
+                  willChange: 'opacity, transform',
+                }}
+                className="absolute inset-0 h-full w-full pointer-events-none"
               >
-                {content[activeCard]?.content ?? null}
+                {item.content}
               </motion.div>
-            </AnimatePresence>
+            ))}
           </div>
 
         </div>

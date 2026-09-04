@@ -4,21 +4,45 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import axios from 'axios';
-import { Loader2, Eye, EyeOff, Shield } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Shield, KeyRound } from 'lucide-react';
 import { getCMSData, STORAGE_KEYS } from '../../utils/cmsStore';
 import { logAuditEvent } from '../../utils/auditStore';
 
 const loginSchema = z.object({
   email: z.string().email('Valid email required'),
-  password: z.string().min(8, 'Password must be at least 8 characters'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
 });
+
+const DEFAULT_ADMIN_USERS = [
+  {
+    name: 'ESPACIO Admin',
+    email: 'admin@espacio.com',
+    password: 'admin123456',
+    role: 'Super Admin',
+    active: true
+  },
+  {
+    name: 'Tarun (Super Admin)',
+    email: 'tarunuttupulusu@gmail.com',
+    password: 'tarun2314638',
+    role: 'Super Admin',
+    active: true
+  },
+  {
+    name: 'Akshay Kumar (Super Admin)',
+    email: 'akshaykumarpullagura@gmail.com',
+    password: 'akshay123456',
+    role: 'Super Admin',
+    active: true
+  }
+];
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [serverError, setServerError] = useState(null);
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
@@ -32,19 +56,10 @@ const AdminLogin = () => {
     const password = data.password;
 
     try {
-      // 1. Check custom admin users stored in cmsStore
+      // 1. Check default admin accounts first, then custom admin users stored in cmsStore
       const customUsers = getCMSData(STORAGE_KEYS.ADMIN_USERS) || [];
+      const allUsers = [...DEFAULT_ADMIN_USERS, ...customUsers];
 
-      // Include default admin account
-      const defaultUser = {
-        name: 'Tarun (Super Admin)',
-        email: 'tarunuttupulusu@gmail.com',
-        password: 'tarun2314638',
-        role: 'Super Admin',
-        active: true
-      };
-
-      const allUsers = [defaultUser, ...customUsers];
       const matchedUser = allUsers.find(
         u => u.email.toLowerCase() === sanitizedEmail && u.password === password && u.active !== false
       );
@@ -88,86 +103,141 @@ const AdminLogin = () => {
     }
   };
 
+  const handleQuickFill = (email, password) => {
+    setValue('email', email, { shouldValidate: true });
+    setValue('password', password, { shouldValidate: true });
+    setServerError(null);
+  };
+
   return (
-    <div className="min-h-screen bg-charcoal flex">
-      {/* Left – Brand Panel */}
-      <div className="hidden lg:flex flex-col justify-between w-[45%] relative overflow-hidden">
-        <img src="/images/company/3bhk_lux/open_hall.png"
+    <div className="min-h-screen bg-[#F8F9FA] flex">
+      {/* Left – Brand Panel with Light Editorial Aesthetics */}
+      <div className="hidden lg:flex flex-col justify-between w-[46%] relative overflow-hidden bg-stone-100 border-r border-stone-200">
+        <img 
+          src="/images/company/3bhk_lux/open_hall.png"
           alt="ESPACIO Interiors"
-          className="w-full h-full object-cover opacity-60"
-        /><div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal/80 to-transparent" />
+          className="w-full h-full object-cover brightness-[1.02] contrast-[0.95] opacity-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/50 to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-white/90" />
+        
         <div className="relative z-10 px-12 pt-14">
-          <span className="font-editorial text-xl font-bold text-gold tracking-widest">ESPACIO</span>
+          <span className="font-editorial text-2xl font-bold text-[#967332] tracking-widest drop-shadow-sm">ESPACIO</span>
         </div>
+        
         <div className="relative z-10 px-12 pb-14 space-y-4">
-          <div className="w-12 h-[2px] bg-gold" />
-          <h2 className="font-editorial text-3xl font-bold text-white leading-snug">
+          <div className="w-12 h-[3px] bg-gold rounded-full" />
+          <h2 className="font-editorial text-3xl font-bold text-stone-900 leading-snug">
             The control room <br />for ESPACIO's <br />digital presence.
           </h2>
-          <p className="font-sans text-cream/60 text-xs leading-relaxed max-w-[300px]">
-            Manage projects, leads, materials, and content from one powerful admin panel.
+          <p className="font-sans text-stone-600 text-xs leading-relaxed max-w-[320px] font-medium">
+            Manage projects, leads, materials, and content from one powerful, modern admin panel.
           </p>
         </div>
       </div>
 
-      {/* Right – Login Form */}
-      <div className="flex-1 flex items-center justify-center px-6 py-20">
-        <div className="w-full max-w-[420px] space-y-8">
+      {/* Right – Clean White Login Form */}
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-white">
+        <div className="w-full max-w-[440px] space-y-6">
           <div className="space-y-2">
-            <div className="flex items-center space-x-2 mb-6 lg:hidden">
-              <span className="font-editorial text-xl font-bold text-gold">ESPACIO</span>
+            <div className="flex items-center space-x-2 mb-4 lg:hidden">
+              <span className="font-editorial text-2xl font-bold text-gold">ESPACIO</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Shield size={20} className="text-gold" />
-              <span className="font-sans text-xs uppercase tracking-widest text-gold font-bold">Admin Portal</span>
+            
+            <div className="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/25 px-3 py-1 rounded-full">
+              <Shield size={16} className="text-[#A37B30]" />
+              <span className="font-sans text-[11px] uppercase tracking-widest text-[#A37B30] font-bold">Admin Portal</span>
             </div>
-            <h1 className="font-editorial text-3xl font-bold text-white">Sign In</h1>
-            <p className="font-sans text-cream/50 text-xs">Access restricted to authorised ESPACIO personnel only.</p>
+            
+            <h1 className="font-editorial text-3xl font-bold text-stone-900">Sign In</h1>
+            <p className="font-sans text-stone-500 text-xs">Access restricted to authorised ESPACIO personnel only.</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" autoComplete="off">
+          {/* Quick-Fill Credentials Card */}
+          <div className="bg-[#F9FAFB] border border-stone-200 rounded-xl p-4 space-y-3 shadow-xs">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-1.5 text-[#8C6D32]">
+                <KeyRound size={14} />
+                <span className="font-sans text-[11px] font-bold uppercase tracking-wider">Refreshed Credentials</span>
+              </div>
+              <span className="font-sans text-[10px] text-stone-400 font-medium">Click to auto-fill</span>
+            </div>
+
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={() => handleQuickFill('admin@espacio.com', 'admin123456')}
+                className="w-full flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-amber-50/60 border border-stone-200 hover:border-gold/60 transition-all text-left group shadow-xs"
+              >
+                <div>
+                  <div className="font-sans text-xs font-bold text-stone-900 group-hover:text-[#8C6D32] transition-colors">admin@espacio.com</div>
+                  <div className="font-mono text-[11px] text-stone-500">Password: <span className="text-stone-800 font-bold">admin123456</span></div>
+                </div>
+                <span className="font-sans text-[10px] uppercase font-bold text-[#8C6D32] bg-amber-100/80 group-hover:bg-gold group-hover:text-charcoal px-2.5 py-1 rounded transition-colors">
+                  Fill
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleQuickFill('tarunuttupulusu@gmail.com', 'tarun2314638')}
+                className="w-full flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-stone-50 border border-stone-200 transition-all text-left group shadow-xs"
+              >
+                <div>
+                  <div className="font-sans text-xs font-bold text-stone-900 group-hover:text-stone-700 transition-colors">tarunuttupulusu@gmail.com</div>
+                  <div className="font-mono text-[11px] text-stone-500">Password: <span className="text-stone-800 font-bold">tarun2314638</span></div>
+                </div>
+                <span className="font-sans text-[10px] uppercase font-bold text-stone-600 group-hover:bg-stone-800 group-hover:text-white bg-stone-100 px-2.5 py-1 rounded transition-colors">
+                  Fill
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" autoComplete="off">
             <div className="space-y-1.5">
-              <label className="font-sans text-[10px] uppercase tracking-widest text-cream/60 font-bold">Email Address</label>
+              <label className="font-sans text-[11px] uppercase tracking-widest text-stone-700 font-bold">Email Address</label>
               <input 
                 {...register('email')} 
                 type="email" 
                 placeholder="Enter your email address"
                 autoComplete="off"
-                className="admin-input" 
+                className="w-full bg-white border border-stone-300 rounded-lg px-4 py-3 font-sans text-xs text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all shadow-xs" 
               />
-              {errors.email && <p className="font-sans text-xs text-red-400">{errors.email.message}</p>}
+              {errors.email && <p className="font-sans text-xs text-red-500">{errors.email.message}</p>}
             </div>
+
             <div className="space-y-1.5">
-              <label className="font-sans text-[10px] uppercase tracking-widest text-cream/60 font-bold">Password</label>
+              <label className="font-sans text-[11px] uppercase tracking-widest text-stone-700 font-bold">Password</label>
               <div className="relative">
                 <input 
                   {...register('password')} 
                   type={showPass ? 'text' : 'password'} 
                   placeholder="Enter your password"
                   autoComplete="new-password"
-                  className="admin-input pr-12" 
+                  className="w-full bg-white border border-stone-300 rounded-lg px-4 py-3 pr-12 font-sans text-xs text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all shadow-xs" 
                 />
                 <button type="button" onClick={() => setShowPass(!showPass)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-cream/40 hover:text-cream transition-colors">
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
                   {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
-              {errors.password && <p className="font-sans text-xs text-red-400">{errors.password.message}</p>}
+              {errors.password && <p className="font-sans text-xs text-red-500">{errors.password.message}</p>}
             </div>
 
             {serverError && (
-              <div className="bg-red-500/10 border border-red-500/20 rounded-input px-4 py-3">
-                <p className="font-sans text-xs text-red-400">{serverError}</p>
+              <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                <p className="font-sans text-xs text-red-600">{serverError}</p>
               </div>
             )}
 
             <button type="submit" disabled={isSubmitting}
-              className="w-full flex items-center justify-center space-x-2 bg-gold hover:bg-gold-hover text-charcoal font-sans text-xs uppercase tracking-widest font-bold py-4 px-8 rounded-button transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed mt-2">
+              className="w-full flex items-center justify-center space-x-2 bg-gold hover:bg-gold-hover text-charcoal font-sans text-xs uppercase tracking-widest font-bold py-3.5 px-8 rounded-lg transition-all duration-300 hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed mt-2 shadow-md">
               {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : <span>Sign In to Dashboard</span>}
             </button>
           </form>
 
-          <p className="font-sans text-[10px] text-cream/30 text-center leading-relaxed">
+          <p className="font-sans text-[11px] text-stone-400 text-center leading-relaxed">
             This portal is monitored and all access is logged. <br />Unauthorised access will be reported.
           </p>
         </div>

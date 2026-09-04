@@ -521,6 +521,541 @@ export const DEFAULT_PROJECTS = [
   }
 ];
 
+// ─── DEFAULT PRODUCTS / MATERIALS LIBRARY ────────────────────────────────────
+export const DEFAULT_PRODUCTS = [
+  {
+    title: 'Acrylic Luxe Collection',
+    slug: 'acrylic-luxe-collection',
+    category: 'Acrylic & Finishes',
+    materialCode: 'MAT-ACR-01',
+    badge: 'Premium Finish',
+    description: 'Ultra-gloss anti-scratch cabinet overlays creating glass-like modern kitchen cabinet fronts.',
+    heroImage: '/images/materials/luminous_grid_8313.jpg',
+    features: ['High-Gloss', 'Anti-Scratch', 'Concealed Track'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: true,
+    showInCard: true
+  },
+  {
+    title: 'Digital Korean Poly Granite',
+    slug: 'digital-korean-poly-granite',
+    category: 'Natural Stone',
+    materialCode: 'MAT-GNT-02',
+    badge: 'Marble Textures',
+    description: 'High-gloss stone surface overlays offering scratch-proof marble elevations.',
+    heroImage: '/images/materials/florida.png',
+    features: ['Scratch-Proof', 'Marble Finish', 'Heat Resistant'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: true,
+    showInCard: true
+  },
+  {
+    title: 'Charcoal Panels Luxe Collection',
+    slug: 'charcoal-panels-luxe',
+    category: 'Acoustic Panels',
+    materialCode: 'MAT-CHR-03',
+    badge: 'Textured Accents',
+    description: 'Richly textured wall panels infused with active charcoal for unique luxury accent walls.',
+    heroImage: '/images/materials/charcoal_luxe_4015.jpg',
+    features: ['Air Purifying', 'Premium Texture', 'Acoustic Dampening'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: true,
+    showInCard: true
+  },
+  {
+    title: 'Fluted PVC Luxe Collection',
+    slug: 'fluted-pvc-luxe',
+    category: 'Architectural Panels',
+    materialCode: 'MAT-PVC-04',
+    badge: 'Architectural Panels',
+    description: 'Premium fluted PVC wall panels with rich relief lines and contemporary finishes.',
+    heroImage: '/images/materials/irish.png',
+    features: ['Waterproof', 'Easy Install', 'Flame Retardant'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  },
+  {
+    title: 'LVT Luxe Flooring',
+    slug: 'lvt-luxe-flooring',
+    category: 'Wood & Flooring',
+    materialCode: 'MAT-FLR-05',
+    badge: 'Luxury Vinyl',
+    description: 'Premium luxury vinyl flooring offering durability with authentic wood and stone textures.',
+    heroImage: '/images/materials/giallo_dining.png',
+    features: ['Durable', 'Water-Resistant', 'Soft Acoustic Tread'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  },
+  {
+    title: 'Fluted Acrylic Luxe Collection',
+    slug: 'fluted-acrylic-luxe',
+    category: 'Acrylic & Finishes',
+    materialCode: 'MAT-ACR-06',
+    badge: '3D Relief',
+    description: 'Dynamic fluted acrylic panels creating sophisticated shadow play for luxury interiors.',
+    heroImage: '/images/materials/fluted_acrylic_florida.jpg',
+    features: ['3D Relief', 'High-Gloss', 'Backlit Ready'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  },
+  {
+    title: 'PVC Luxe Collection',
+    slug: 'pvc-luxe-collection',
+    category: 'Architectural Panels',
+    materialCode: 'MAT-PVC-07',
+    badge: 'Versatile Panels',
+    description: 'Lightweight, versatile PVC panels for ceiling and wall applications with rich wood and textured finishes.',
+    heroImage: '/images/materials/pvc_luxe_5003_5004.jpg',
+    features: ['Lightweight', 'Fire Retardant', 'Moisture Proof'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  },
+  {
+    title: 'WPC Luxe Collection',
+    slug: 'wpc-luxe-collection',
+    category: 'Composite Panels',
+    materialCode: 'MAT-WPC-08',
+    badge: 'Wood Composite',
+    description: 'Co-extruded composite panels offering absolute water resistance and rich wood grain textures.',
+    heroImage: '/images/materials/wpc_luxe_1701_1606.jpg',
+    features: ['100% Waterproof', 'Termite Proof', 'Zero Swelling'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  },
+  {
+    title: 'Espacio Charcoal Panels Luxe Collection (1)',
+    slug: 'charcoal-panels-luxe-1',
+    category: 'Acoustic Panels',
+    materialCode: 'MAT-CHR-09',
+    badge: 'Textured Accents',
+    description: 'Additional selection of richly textured wall panels infused with active charcoal.',
+    heroImage: '/images/materials/charcoal_luxe_1_6015.jpg',
+    features: ['Premium Texture', 'Acoustic Relief', 'Modern Aesthetic'],
+    status: 'published',
+    ctaText: 'Enquire About Material',
+    ctaLink: '/contact',
+    showInHero: false,
+    showInCard: true
+  }
+];
+
+// ─── DEFAULT FAQS ─────────────────────────────────────────────────────────────
+export const DEFAULT_FAQS = [
+  {
+    id: 'faq-1',
+    q: 'How long does a project usually take?',
+    question: 'How long does a project usually take?',
+    a: 'Typically 2–3 months, depending on the level of detailing and customization involved in your project.',
+    answer: 'Typically 2–3 months, depending on the level of detailing and customization involved in your project.',
+    img: '/images/faq/faq_1_timeline.jpg',
+    image: '/images/faq/faq_1_timeline.jpg',
+    imageLabel: 'TIMELINE',
+    imageCaption: 'How long does a project usually take?',
+    tag: 'Timeline',
+    category: 'TIMELINE',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 1,
+    homeOrder: 1,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-2',
+    q: 'Do you provide turnkey interior solutions?',
+    question: 'Do you provide turnkey interior solutions?',
+    a: 'Yes. Every project we take on, residential or commercial, is delivered turnkey, with design, materials, execution, and finishing handled entirely by our team.',
+    answer: 'Yes. Every project we take on, residential or commercial, is delivered turnkey, with design, materials, execution, and finishing handled entirely by our team.',
+    img: '/images/faq/faq_2_services.jpg',
+    image: '/images/faq/faq_2_services.jpg',
+    imageLabel: 'SERVICES',
+    imageCaption: 'Do you provide turnkey interior solutions?',
+    tag: 'Services',
+    category: 'SERVICES',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 2,
+    homeOrder: 2,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-3',
+    q: 'What is your consultation process?',
+    question: 'What is your consultation process?',
+    a: 'We begin with a free consultation to understand your space, requirements, and vision, before moving into detailed design and planning.',
+    answer: 'We begin with a free consultation to understand your space, requirements, and vision, before moving into detailed design and planning.',
+    img: '/images/faq/faq_3_process.jpg',
+    image: '/images/faq/faq_3_process.jpg',
+    imageLabel: 'PROCESS',
+    imageCaption: 'What is your consultation process?',
+    tag: 'Process',
+    category: 'PROCESS',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 3,
+    homeOrder: 3,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-4',
+    q: 'Which locations do you currently serve?',
+    question: 'Which locations do you currently serve?',
+    a: "We're proudly based in Hyderabad and have delivered residential and commercial projects across the city.",
+    answer: "We're proudly based in Hyderabad and have delivered residential and commercial projects across the city.",
+    img: '/images/faq/faq_4_location.jpg',
+    image: '/images/faq/faq_4_location.jpg',
+    imageLabel: 'LOCATION',
+    imageCaption: 'Which locations do you currently serve?',
+    tag: 'Location',
+    category: 'LOCATION',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 4,
+    homeOrder: 4,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-5',
+    q: 'How can customers request a quotation?',
+    question: 'How can customers request a quotation?',
+    a: 'Simply fill out our contact form on the website, and our team will get back to you to discuss your project.',
+    answer: 'Simply fill out our contact form on the website, and our team will get back to you to discuss your project.',
+    img: '/images/faq/faq_5_pricing.jpg',
+    image: '/images/faq/faq_5_pricing.jpg',
+    imageLabel: 'PRICING',
+    imageCaption: 'How can customers request a quotation?',
+    tag: 'Pricing',
+    category: 'PRICING',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 5,
+    homeOrder: 5,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-6',
+    q: 'Do you sell materials separately from design services?',
+    question: 'Do you sell materials separately from design services?',
+    a: 'Yes. Our materials including WPC panels, polygranite sheets, acrylic sheets, and more are available for standalone purchase, without needing to book a full design or execution project with us.',
+    answer: 'Yes. Our materials including WPC panels, polygranite sheets, acrylic sheets, and more are available for standalone purchase, without needing to book a full design or execution project with us.',
+    img: '/images/faq/faq_6_materials.jpg',
+    image: '/images/faq/faq_6_materials.jpg',
+    imageLabel: 'MATERIALS',
+    imageCaption: 'Do you sell materials separately from design services?',
+    tag: 'Materials',
+    category: 'MATERIALS',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 6,
+    homeOrder: 6,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-7',
+    q: 'Do I need to be involved throughout the project, or can it be handled remotely?',
+    question: 'Do I need to be involved throughout the project, or can it be handled remotely?',
+    a: "We keep you informed at every key stage with regular updates and site visits, so you're never left in the dark, but you don't need to manage day-to-day execution yourself. That's what turnkey means.",
+    answer: "We keep you informed at every key stage with regular updates and site visits, so you're never left in the dark, but you don't need to manage day-to-day execution yourself. That's what turnkey means.",
+    img: '/images/faq/faq_7_involvement.jpg',
+    image: '/images/faq/faq_7_involvement.jpg',
+    imageLabel: 'INVOLVEMENT',
+    imageCaption: 'Do I need to be involved throughout the project?',
+    tag: 'Involvement',
+    category: 'INVOLVEMENT',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 7,
+    homeOrder: 7,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-8',
+    q: 'What if I already have a design in mind, can you just execute it?',
+    question: 'What if I already have a design in mind, can you just execute it?',
+    a: 'Absolutely. Whether you come with a finalized design or need us to design from scratch, we can adapt to execution-only or full design-and-build depending on what you need.',
+    answer: 'Absolutely. Whether you come with a finalized design or need us to design from scratch, we can adapt to execution-only or full design-and-build depending on what you need.',
+    img: '/images/faq/faq_8_custom.jpg',
+    image: '/images/faq/faq_8_custom.jpg',
+    imageLabel: 'CUSTOM',
+    imageCaption: 'What if I already have a design in mind, can you just execute it?',
+    tag: 'Custom',
+    category: 'CUSTOM',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 8,
+    homeOrder: 8,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-9',
+    q: 'Can I customize designs, or do you offer fixed packages?',
+    question: 'Can I customize designs, or do you offer fixed packages?',
+    a: "Every project is fully customized around your space and preferences — we don't work off fixed templates or set packages.",
+    answer: "Every project is fully customized around your space and preferences — we don't work off fixed templates or set packages.",
+    img: '/images/faq/faq_9_design.jpg',
+    image: '/images/faq/faq_9_design.jpg',
+    imageLabel: 'DESIGN',
+    imageCaption: 'Can I customize designs, or do you offer fixed packages?',
+    tag: 'Design',
+    category: 'DESIGN',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 9,
+    homeOrder: 9,
+    status: 'Published',
+    visible: true
+  },
+  {
+    id: 'faq-10',
+    q: 'Do you provide warranties on completed projects?',
+    question: 'Do you provide warranties on completed projects?',
+    a: 'Yes. We offer up to 10-year comprehensive warranties on hardware and core modular components, backed directly by our factory certifications.',
+    answer: 'Yes. We offer up to 10-year comprehensive warranties on hardware and core modular components, backed directly by our factory certifications.',
+    img: '/images/faq/faq_10_support.jpg',
+    image: '/images/faq/faq_10_support.jpg',
+    imageLabel: 'SUPPORT',
+    imageCaption: 'Do you provide warranties on completed projects?',
+    tag: 'Support',
+    category: 'SUPPORT',
+    showOnFaqPage: true,
+    showOnHome: true,
+    faqPageOrder: 10,
+    homeOrder: 10,
+    status: 'Published',
+    visible: true
+  }
+];
+
+// ─── DEFAULT SERVICES ─────────────────────────────────────────────────────────
+export const DEFAULT_SERVICES = [
+  { 
+    num: '01', 
+    title: 'Full Home Interior Design & Execution', 
+    tag: 'Turnkey Design & Build', 
+    desc: 'Bespoke residential interior architecture engineered from concept to final handover. We integrate custom modular joinery, lighting layouts, and premium wall finishes into a seamless turnkey execution.', 
+    includes: ['Living & Dining Spatial Architecture', 'Custom Modular Wardrobe Systems', 'Ergonomic Modular Kitchen Layouts', 'Ambient Cove & Architectural Lighting', 'Curated Wall & Surface Textures', 'Turnkey Execution & Project Oversight'], 
+    img: '/images/company/2bhk_mordern_retro/hall.jpg',
+    ctaText: 'Enquire About Interior Design',
+    ctaLink: '/contact',
+    ctaVisible: true,
+    visible: true,
+    order: 1
+  },
+  { 
+    num: '02', 
+    title: 'Commercial & Office Interiors', 
+    tag: 'Workspaces & Retail', 
+    desc: 'High-tolerance commercial fit-outs for corporate offices, experience centers, and retail environments. Engineered for acoustic optimization, brand elevation, and maximum workspace efficiency.', 
+    includes: ['Corporate Office Spatial Planning', 'Retail & Studio Flow Optimization', 'Acoustic WPC Conference Suites', 'Ergonomic Workstation Clusters', 'Tech & AV Concealed Channels', 'Turnkey Commercial Buildout'], 
+    img: '/images/company/2bhk_mordern_retro/office_3.jpg',
+    ctaText: 'Enquire About Commercial Fit-Outs',
+    ctaLink: '/contact',
+    ctaVisible: true,
+    visible: true,
+    order: 2
+  },
+  { 
+    num: '03', 
+    title: 'Styling & Decor', 
+    tag: 'Curated Styling', 
+    desc: 'Curated styling, accessories, and finishing touches that bring a space to life — offered as a standalone service or as the final turnkey step on any Espacio project.', 
+    includes: ['Art & Wall Decor Curation', 'Custom Soft Furnishings', 'Lighting & Accessory Styling', 'Plants & Greenery Selection', 'Color Palette Harmony', 'Bespoke Styling Audits'], 
+    img: '/images/company/indo_classical_elegance_3bhk/Indo-Classical_Elegance__A_Soothing_Blend_of_Mode-Guest_restaurant_20-20260810-120432.jpg',
+    ctaText: 'Enquire About Styling Services',
+    ctaLink: '/contact',
+    ctaVisible: true,
+    visible: true,
+    order: 3
+  },
+  { 
+    num: '04', 
+    title: 'Renovation', 
+    tag: 'Upgrade Existing Spaces', 
+    desc: 'Redesigning and upgrading existing spaces, residential or commercial, without starting from scratch — delivered turnkey, with design, materials, and execution handled entirely by us.', 
+    includes: ['Kitchen & Bath Upgrades', 'Living Space Redesign', 'Structural Alterations', 'Flooring Replacement', 'Electrical & Plumbing Re-lay', 'Turnkey Execution'], 
+    img: '/images/services/services_after.webp',
+    ctaText: 'Enquire About Renovation',
+    ctaLink: '/contact',
+    ctaVisible: true,
+    visible: true,
+    order: 4
+  },
+  { 
+    num: '05', 
+    title: 'Materials Supply (Standalone Purchase)', 
+    tag: 'Direct Warehouse Sourcing', 
+    desc: 'Direct access to our extensive inventory of WPC wall & ceiling panels, polygranite sheets, acrylic fluted louvers, and hardware. Available for standalone purchase directly from our Aziznagar warehouse.', 
+    includes: ['WPC Wall & Exterior Cladding Panels', 'Polygranite & High-Gloss Acrylic Sheets', 'Charcoal & Wood Grain Fluted Louvers', 'Architectural Trim & Edge Hardware', 'Standalone Wholesale & Retail Purchase', 'Rapid Delivery from Hyderabad Godowns'], 
+    img: '/images/services/service_materials.jpg',
+    ctaText: 'Enquire About Materials',
+    ctaLink: '/materials',
+    ctaVisible: true,
+    visible: true,
+    order: 5
+  }
+];
+
+// ─── DEFAULT TESTIMONIALS (Authentic Google Reviews) ──────────────────────────
+export const DEFAULT_TESTIMONIALS = [
+  { id: 'g_rev_01', googleReviewId: 'g_rev_01', source: 'GOOGLE', name: 'Dharma Teja', designation: 'Local Guide • 97 Reviews • 383 Photos', title: 'Best Interior Designer Decision', body: 'I was researching the best interior designer near me, and while doing that, I came across ESPACIO. Eventually, we hired them, and it turned out to be a good decision. The interior designer was nice, the quality of the materials and finishing was great.', rating: 5, avatar: '/reviews/dharma_teja.png', date: '2 months ago', visible: true, featured: true, order: 1, response: 'Thank you sir, for your support and valuable feedback' },
+  { id: 'g_rev_02', googleReviewId: 'g_rev_02', source: 'GOOGLE', name: 'Ganesh Nayak143', designation: 'Homeowner • Family Home Interiors', title: 'Practical Finishes & Organised Living', body: 'For our family home, we wanted interiors that looked good but were easy to maintain. Espacio suggested practical finishes and storage options based on our daily use. The bedrooms feel comfortable and the kitchen is much more organised now. We are happy with the overall outcome.', rating: 5, avatar: '/reviews/ganesh_nayak.png', date: '23 minutes ago', visible: true, featured: true, order: 2 },
+  { id: 'g_rev_03', googleReviewId: 'g_rev_03', source: 'GOOGLE', name: 'Khaleel Shaik', designation: 'Interior Designer • 1 Review • 4 Photos', title: 'Largest Variety of Laminates, Veneers & Plywood', body: 'As an interior designer, I have found the largest variety of laminates, vineers, and plywood with all ranges of economy, premium and super premium as required by different customer segments at the best competitive rates. My suggestion for all to visit this place once before you buy.', rating: 5, avatar: '/reviews/khaleel_shaik.png', date: '5 months ago', visible: true, featured: true, order: 3, response: 'Thank you so much for your valuable feedback, look forward to assisting you again in your future projects!' },
+  { id: 'g_rev_04', googleReviewId: 'g_rev_04', source: 'GOOGLE', name: 'Juttiga Vaishnavi', designation: 'Homeowner • 3BHK Minimalist Interior', title: 'Clean Minimal Look & Great Material Guidance', body: 'We wanted a modern, minimal look for our 3BHK and specifically wanted to avoid too many decorative elements. Espacio understood that direction well. The colour combination and storage solutions came together nicely. We also liked that the team was willing to explain why certain materials were better for particular areas.', rating: 5, avatar: '/reviews/juttiga_vaishnavi.png', date: 'an hour ago', visible: true, featured: true, order: 4 },
+  { id: 'g_rev_05', googleReviewId: 'g_rev_05', source: 'GOOGLE', name: 'Sunkari santosh', designation: 'Google Reviewer • 2 Reviews', title: 'Professional & Great Interior and Exterior Elevation', body: 'Very professional and passionate towards their work. Taken good time to complete our project we are very happy and satisfied with quality material given by them very good Outlook for my interior and exterior building elevation.', rating: 5, avatar: '/reviews/sunkari_santosh.png', date: '3 days ago', visible: true, featured: true, order: 5 },
+  { id: 'g_rev_06', googleReviewId: 'g_rev_06', source: 'GOOGLE', name: 'Nani Varma', designation: 'Google Reviewer • 1 Review', title: 'Professional Reception & Functional Workspaces', body: 'Our requirement was a professional reception area along with functional workspaces. Espacio suggested a layout that made better use of the available area. The reception now gives a much better first impression, while the work area remains comfortable for the staff. Good experience overall.', rating: 5, avatar: '/reviews/nani_varma.png', date: '2 hours ago', visible: true, featured: true, order: 6 },
+  { id: 'g_rev_07', googleReviewId: 'g_rev_07', source: 'GOOGLE', name: 'ABDUL SATTAR', designation: 'Homeowner • 2BHK Renovation', title: 'Transparent Budget Prioritisation for 2BHK', body: 'We had a clear budget for our 2BHK and told the team from the beginning. Instead of pushing everything as premium, they helped us prioritise what mattered most. That was something we appreciated. The house now looks fresh, and we were able to stay close to the plan we discussed.', rating: 5, avatar: '/reviews/abdul_sattar.png', date: 'a day ago', visible: true, featured: true, order: 7 },
+  { id: 'g_rev_08', googleReviewId: 'g_rev_08', source: 'GOOGLE', name: 'Rafi Shaik', designation: 'Homeowner • 2BHK Turnkey', title: 'Clean Finish & Responsive Site Team', body: 'We got our 2BHK interiors done with Espacio Interiors & Modular. The team understood what we wanted and suggested practical options instead of simply adding more things. The modular kitchen storage came out really well and the overall finish looks clean. The site team was also responsive whenever we had a question.', rating: 5, avatar: '/reviews/rafi_shaik.png', date: '2 days ago', visible: true, featured: true, order: 8 },
+  { id: 'g_rev_09', googleReviewId: 'g_rev_09', source: 'GOOGLE', name: 'Lovely boy Laxman', designation: 'Homeowner • 1 Review • 3 Photos', title: 'Luxurious House at Reasonable Prices', body: 'Good equipment and well staff my house is now completely become luxurious with reasonable prices and thanks to espacio', rating: 5, avatar: '/reviews/lovely_boy_laxman.png', date: '5 months ago', visible: true, featured: true, order: 9, response: 'Thank you for your feedback! We’re glad you had a good experience with Espacio Interiors & Modular.' },
+  { id: 'g_rev_10', googleReviewId: 'g_rev_10', source: 'GOOGLE', name: 'Shaik BOB', designation: 'Google Reviewer • 3 Reviews • 3 Photos', title: 'Wide Range of Collections & Patient Service', body: 'Recently visited the store they have wide range of varieties and the customer service was very good they were very patient and understanding', rating: 5, avatar: '/reviews/shaik_bob.png', date: 'a year ago', visible: true, featured: true, order: 10, response: 'Thank you so much for visiting Espacio Interiors & Modular!' },
+  { id: 'g_rev_11', googleReviewId: 'g_rev_11', source: 'GOOGLE', name: 'Shaik Hussian', designation: 'Google Reviewer • 1 Review', title: 'Excellent Materials for Home & Office', body: 'Excellent materials for interior at home or office so pls visit this Espacio interiors and modular. Thank you...! ❤️', rating: 5, avatar: '/reviews/shaik_hussain.png', date: '5 months ago', visible: true, featured: true, order: 11 },
+  { id: 'g_rev_12', googleReviewId: 'g_rev_12', source: 'GOOGLE', name: 'KoteswaraRao Alaparthi', designation: 'Local Guide • 4 Reviews • 62 Photos', title: 'Good Quality Materials & Affordable Prices', body: 'Good quality of materials and affordable prices. Great experience working with ESPACIO Interiors & Modular.', rating: 5, avatar: '/reviews/koteswararao_alaparthi.png', date: '5 months ago', visible: true, featured: true, order: 12 },
+  { id: 'g_rev_13', googleReviewId: 'g_rev_13', source: 'GOOGLE', name: 'Jani Basha', designation: 'Google Reviewer • 4 Reviews', title: 'Good Service & Excellent Work 👍👏', body: 'Good service excellent work 👍👏 Very happy with Espacio Interiors & Modular service quality.', rating: 5, avatar: '/reviews/jani_basha.png', date: '5 months ago', visible: true, featured: true, order: 13 },
+  { id: 'g_rev_14', googleReviewId: 'g_rev_14', source: 'GOOGLE', name: 'Amresh kumar', designation: 'Google Reviewer • 1 Review', title: 'Good Experience and Excellent Service', body: 'Good experience and excellent service provided by Espacio Interiors & Modular.', rating: 5, avatar: '/reviews/amresh_kumar.png', date: '4 months ago', visible: true, featured: true, order: 14, response: 'Thank you sir' },
+  { id: 'g_rev_15', googleReviewId: 'g_rev_15', source: 'GOOGLE', name: 'G Rakesh', designation: 'Google Reviewer • 3 Reviews', title: 'Exceptional Modular Craftsmanship & Quality', body: 'Exceptional craftsmanship and smooth execution on modular wardrobes. The team at Espacio delivered top quality finishes.', rating: 5, avatar: '/reviews/g_rakesh.png', date: '3 months ago', visible: true, featured: true, order: 15 },
+  { id: 'g_rev_16', googleReviewId: 'g_rev_16', source: 'GOOGLE', name: 'RAJU PALADUGU', designation: 'Google Reviewer • 1 Review', title: 'Good Work & Good Communication 👍', body: 'Good work and good communication 👍 The team at Espacio delivered our project smoothly and transparently.', rating: 5, avatar: '/reviews/paladugu_raju.png', date: '5 months ago', visible: true, featured: true, order: 16 },
+  { id: 'g_rev_17', googleReviewId: 'g_rev_17', source: 'GOOGLE', name: 'Yadidya', designation: 'Google Reviewer • 3 Reviews', title: 'Good Work', body: 'Good work done on time.', rating: 5, avatar: '/reviews/yadidya.png', date: '5 months ago', visible: true, featured: true, order: 17, response: 'Thank you' },
+  { id: 'g_rev_18', googleReviewId: 'g_rev_18', source: 'GOOGLE', name: 'karagani pavankumar', designation: 'Google Reviewer • 2 Reviews', title: 'Super 👍😊', body: 'Super 👍😊 Great modular work and helpful team.', rating: 5, avatar: '/reviews/karagani_pavankumar.png', date: '5 months ago', visible: true, featured: true, order: 18 },
+  { id: 'g_rev_19', googleReviewId: 'g_rev_19', source: 'GOOGLE', name: 'Rajini Kumar', designation: 'Google Reviewer • 2 Reviews', title: 'Greate Experience', body: 'Greate experience working with Espacio Interiors & Modular.', rating: 5, avatar: '/reviews/rajini_kumar.png', date: '5 months ago', visible: true, featured: true, order: 19 },
+  { id: 'g_rev_20', googleReviewId: 'g_rev_20', source: 'GOOGLE', name: 'Ramesh Paladugu', designation: 'Google Reviewer • 3 Reviews', title: 'Good Service', body: 'Good service and reliable interior materials at ESPACIO.', rating: 5, avatar: '/reviews/ramesh_paladugu.png', date: '5 months ago', visible: true, featured: true, order: 20, response: 'Thank you' },
+  { id: 'g_rev_21', googleReviewId: 'g_rev_21', source: 'GOOGLE', name: 'naidu poola', designation: 'Google Reviewer • 2 Reviews', title: 'Good Service', body: 'Good service and friendly support.', rating: 5, avatar: '/reviews/naidu_poola.png', date: '5 months ago', visible: true, featured: true, order: 21 },
+  { id: 'g_rev_22', googleReviewId: 'g_rev_22', source: 'GOOGLE', name: 'Venkatesh mudhiraj', designation: 'Google Reviewer • 1 Review', title: 'Great Experience ❣️', body: 'great experience ❣️ Looking forward to working with Espacio Interiors & Modular again.', rating: 5, avatar: '/reviews/venkatesh_mudhiraj.png', date: '11 months ago', visible: true, featured: true, order: 22, response: 'Thank you!' },
+  { id: 'g_rev_23', googleReviewId: 'g_rev_23', source: 'GOOGLE', name: 'Haneef Abdul', designation: 'Google Reviewer • 4 Reviews • 4 Photos', title: 'Good Quality', body: 'Good experience with Espacio Interiors & Modular. Recommended.', rating: 5, avatar: '/reviews/haneef_abdul.png', date: '11 months ago', visible: true, featured: true, order: 23, response: 'Thank you for your feedback!' },
+  { id: 'g_rev_24', googleReviewId: 'g_rev_24', source: 'GOOGLE', name: 'K. SUBBARAO', designation: 'Google Reviewer • 5 Reviews', title: 'Super All Are Experts', body: 'Super... All’ are experts... Tq SPACIO Interiors', rating: 5, avatar: '/reviews/k_subbarao.png', date: '5 months ago', visible: true, featured: true, order: 24 },
+  { id: 'g_rev_25', googleReviewId: 'g_rev_25', source: 'GOOGLE', name: 'Paladugu Raju', designation: 'Local Guide • 1 Review', title: 'Reliable Quality & Execution', body: 'Reliable interior solutions and genuine quality materials. Thank you Espacio.', rating: 5, avatar: '/reviews/paladugu_raju.png', date: '5 months ago', visible: true, featured: true, order: 25, response: 'Thank you' },
+  { id: 'g_rev_26', googleReviewId: 'g_rev_26', source: 'GOOGLE', name: 'Kishor Kumar', designation: 'Google Reviewer • 6 Reviews • 5 Photos', title: 'Good Experience & Good Working Skills', body: 'Good experience & good working skills. The team at Espacio Interiors & Modular is dedicated and skilled.', rating: 5, avatar: '/reviews/kishor_kumar.png', date: '5 months ago', visible: true, featured: true, order: 26 },
+  { id: 'g_rev_27', googleReviewId: 'g_rev_27', source: 'GOOGLE', name: 'Ajayreddy Gowreddy123', designation: 'Google Reviewer • 2 Reviews', title: 'Good Service & Quality Materials', body: 'Good service and excellent quality materials offered at competitive pricing by Espacio.', rating: 5, avatar: '/reviews/ajayreddy_gowreddy.png', date: '5 months ago', visible: true, featured: true, order: 27 },
+  { id: 'g_rev_28', googleReviewId: 'g_rev_28', source: 'GOOGLE', name: 'imtiyaz shaik', designation: 'Google Reviewer • 9 Photos', title: 'Superb Design & Flawless Execution', body: 'Superb design variety and flawless material quality provided by Espacio Interiors & Modular.', rating: 5, avatar: '/reviews/imtiyaz_shaik.png', date: '5 months ago', visible: true, featured: true, order: 28 },
+  { id: 'g_rev_29', googleReviewId: 'g_rev_29', source: 'GOOGLE', name: 'Nakul Kirsani', designation: 'Google Reviewer • 1 Review • 1 Photo', title: 'Great Quality & Supportive Team', body: 'Good experience and quality materials with cooperative design staff.', rating: 5, avatar: '/reviews/nakul_kirsani.png', date: '11 months ago', visible: true, featured: true, order: 29 },
+  { id: 'g_rev_30', googleReviewId: 'g_rev_30', source: 'GOOGLE', name: 'Aditya Manda', designation: 'Local Guide • 4 Reviews', title: 'Professional Planning & Timely Delivery', body: 'Great experience with ESPACIO for home interiors. Professional planning and timely delivery.', rating: 5, avatar: '/reviews/aditya_manda.png', date: '4 months ago', visible: true, featured: true, order: 30 },
+  { id: 'g_rev_31', googleReviewId: 'g_rev_31', source: 'GOOGLE', name: 'Thumuganti Rithwik', designation: 'Google Reviewer • 2 Reviews', title: 'Delighted with Material Selection & Execution', body: 'Very satisfied with the interior design quality and material selection. Highly recommended!', rating: 5, avatar: '/reviews/thumuganti_rithwik.png', date: '3 months ago', visible: true, featured: true, order: 31 }
+];
+
+// ─── DEFAULT ADMIN USERS ──────────────────────────────────────────────────────
+export const DEFAULT_ADMIN_USERS = [
+  {
+    id: 'user_admin_espacio_001',
+    _id: 'user_admin_espacio_001',
+    name: 'Super Administrator',
+    email: 'admin@espacio.com',
+    role: 'superadmin',
+    status: 'active',
+    lastLogin: 'Just now',
+    createdAt: '2025-01-01T00:00:00.000Z'
+  },
+  {
+    id: 'user_tarun_002',
+    _id: 'user_tarun_002',
+    name: 'Tarun (Super Admin)',
+    email: 'tarunuttupulusu@gmail.com',
+    role: 'superadmin',
+    status: 'active',
+    lastLogin: 'Today',
+    createdAt: '2025-01-01T00:00:00.000Z'
+  }
+];
+
+// ─── DEFAULT SETTINGS ─────────────────────────────────────────────────────────
+export const DEFAULT_SETTINGS = {
+  hero_bg_images: [
+    '/images/hero/hero_bedroom.jpg',
+    '/images/hero/hero_kitchen.jpg',
+    '/images/hero/hero_kids_bedroom.jpg',
+    '/images/hero/hero_dining.jpg'
+  ],
+  hero_card_image: '',
+  hero_card_heading: 'We Craft the Future Dwelling',
+  hero_card_cta_text: 'Our Projects',
+  hero_card_cta_link: '/projects',
+  hero_card_cta_visible: true,
+  hero_stat1_value: '25+',
+  hero_stat1_label: 'Projects Completed',
+  hero_stat2_value: '1 Year',
+  hero_stat2_label: 'Since 2025',
+  hero_stat3_value: '40+',
+  hero_stat3_label: 'Years of Family Legacy',
+  intro_heading: 'From Concept to Handover — ESPACIO Delivers Complete Interiors.',
+  intro_description: 'We bring 40+ years of family construction heritage to luxury interior design. Every space we create is backed by structural thinking, premium materials sourced directly from our own warehouses, and meticulous execution.',
+  intro_cta_text1: 'Our Story ↗',
+  intro_cta_text2: 'Read More ↗',
+  intro_cta_link: '/about',
+  grid_stat1_val: '25+',
+  grid_stat1_label: 'Projects Completed',
+  grid_stat2_val: '100+',
+  grid_stat2_label: 'Happy Clients',
+  grid_stat3_val: '40+',
+  grid_stat3_label: 'Years Combined Legacy',
+  services_list: DEFAULT_SERVICES,
+  exp_eyebrow: 'VISIT US',
+  exp_heading: 'Experience Centers & Studio',
+  exp_description: 'Walk into our flagship material experience studio. Touch, feel, and compare over 200+ live panel and finish samples in person.',
+  exp_card1_title: 'Our Studio',
+  exp_card1_address: '1st floor, H.No. 6-63/14B,\nMoinabad Road, Aziznagar,\nHyderabad, Telangana 500075',
+  exp_card1_bottomLabel: 'EXPERIENCE CENTER',
+  exp_card1_visible: true,
+  exp_card2_title: 'Direct Line',
+  exp_card2_phone: '+91 95051 51116',
+  exp_card2_whatsapp: '+91 95051 51116',
+  exp_card2_email: 'Espacio.hyd@gmail.com',
+  exp_card2_bottomLabel: 'IMMEDIATE ASSISTANCE',
+  exp_card2_visible: true,
+  exp_card3_title: 'Studio Hours',
+  exp_card3_monSatHours: '10:00 AM – 7:30 PM',
+  exp_card3_sunHours: 'By Appointment',
+  exp_card3_supportingText: 'Private evening consultations available upon request.',
+  exp_card3_bottomLabel: 'CONSULTATION HOURS',
+  exp_card3_visible: true,
+  footer_location_title: 'LOCATION',
+  footer_address: '1st floor, H.No. 6-63/14B, Moinabad Road, Aziznagar, Hyderabad, Telangana 500075',
+  footer_map_url: 'https://maps.app.goo.gl/q3zbxWmEt5wvRKbZ6',
+  footer_contact_title: 'CONTACT',
+  footer_phone: '+91 95051 51116',
+  footer_whatsapp: '+91 95051 51116',
+  footer_email: 'Espacio.hyd@gmail.com',
+  footer_explore_title: 'EXPLORE',
+  footer_nav_items: [
+    { label: 'Home', path: '/' },
+    { label: 'Services', path: '/services' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Spaces', path: '/spaces' },
+    { label: 'Materials', path: '/materials' },
+    { label: 'About', path: '/about' }
+  ],
+  footer_social_items: [
+    { name: 'Instagram', label: 'Instagram', href: 'https://www.instagram.com/theespacio.in', icon: 'instagram', color: '#E4405F', beamColor: 'rgba(228, 64, 95, 0.4)' },
+    { name: 'Facebook', label: 'Facebook', href: 'https://facebook.com', icon: 'facebook', color: '#1877F2', beamColor: 'rgba(24, 119, 242, 0.4)' },
+    { name: 'YouTube', label: 'YouTube', href: 'https://youtube.com', icon: 'youtube', color: '#FF0000', beamColor: 'rgba(255, 0, 0, 0.4)' },
+    { name: 'WhatsApp', label: 'WhatsApp', href: 'https://wa.me/919505151116', icon: 'whatsapp', color: '#25D366', beamColor: 'rgba(37, 211, 102, 0.4)' }
+  ]
+};
+
 // Get stored data with fallback
 export const getCMSData = (key, fallback = null) => {
   try {
@@ -1802,14 +2337,49 @@ export const getCMSData = (key, fallback = null) => {
             }
           }
         }
+        if (key === STORAGE_KEYS.PRODUCTS) {
+          if (!Array.isArray(data) || data.length === 0 || data.some(p => typeof p.heroImage === 'string' && p.heroImage.includes('unsplash.com'))) {
+            data = DEFAULT_PRODUCTS;
+            try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+          }
+        }
+        if (key === STORAGE_KEYS.TESTIMONIALS) {
+          if (!Array.isArray(data) || data.length === 0) {
+            data = DEFAULT_TESTIMONIALS;
+            try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+          }
+        }
+        if (key === STORAGE_KEYS.ADMIN_USERS) {
+          if (!Array.isArray(data) || data.length === 0 || !data.some(u => u.email === 'admin@espacio.com')) {
+            data = DEFAULT_ADMIN_USERS;
+            try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+          }
+        }
+        if (key === STORAGE_KEYS.SETTINGS && data) {
+          let modified = false;
+          if (!Array.isArray(data.services_list) || data.services_list.length === 0 || data.services_list.some(s => typeof s.img === 'string' && s.img.includes('unsplash.com'))) {
+            data.services_list = DEFAULT_SERVICES;
+            modified = true;
+          }
+          if (!Array.isArray(data.hero_bg_images) || data.hero_bg_images.length === 0) {
+            data.hero_bg_images = DEFAULT_SETTINGS.hero_bg_images;
+            modified = true;
+          }
+          if (modified) {
+            try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+          }
+        }
       return data;
     }
   } catch (err) {
     console.warn(`Error reading ${key} from localStorage:`, err);
   }
-  if (key === STORAGE_KEYS.PROJECTS) {
-    return DEFAULT_PROJECTS;
-  }
+  if (key === STORAGE_KEYS.PROJECTS) return DEFAULT_PROJECTS;
+  if (key === STORAGE_KEYS.PRODUCTS) return DEFAULT_PRODUCTS;
+  if (key === STORAGE_KEYS.FAQS) return DEFAULT_FAQS;
+  if (key === STORAGE_KEYS.TESTIMONIALS) return DEFAULT_TESTIMONIALS;
+  if (key === STORAGE_KEYS.SETTINGS) return DEFAULT_SETTINGS;
+  if (key === STORAGE_KEYS.ADMIN_USERS) return DEFAULT_ADMIN_USERS;
   return fallback;
 };
 

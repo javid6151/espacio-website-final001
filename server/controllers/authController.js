@@ -26,10 +26,14 @@ export const login = async (req, res, next) => {
 
   try {
     // Fallback for offline MongoDB or fresh local setups
-    const isFallbackEmail = sanitizedEmail === 'tarunuttupulusu@gmail.com' || sanitizedEmail === 'akshaykumarpullagura@gmail.com';
+    const isFallbackEmail = 
+      sanitizedEmail === 'admin@espacio.com' ||
+      sanitizedEmail === 'tarunuttupulusu@gmail.com' || 
+      sanitizedEmail === 'akshaykumarpullagura@gmail.com';
     if (isFallbackEmail) {
       const isAkshay = sanitizedEmail === 'akshaykumarpullagura@gmail.com';
-      const fallbackId = isAkshay ? 'fallback-akshay-id-56789' : 'fallback-super-admin-id-12345';
+      const isAdmin = sanitizedEmail === 'admin@espacio.com';
+      const fallbackId = isAdmin ? 'fallback-admin-id-99999' : (isAkshay ? 'fallback-akshay-id-56789' : 'fallback-super-admin-id-12345');
       const token = generateToken(fallbackId);
       return res.status(200).json({
         success: true,
@@ -38,7 +42,7 @@ export const login = async (req, res, next) => {
           token,
           user: {
             _id: fallbackId,
-            name: isAkshay ? 'Akshay Kumar Pullagura' : 'Tarun Uttupulusu',
+            name: isAdmin ? 'ESPACIO Admin' : (isAkshay ? 'Akshay Kumar Pullagura' : 'Tarun Uttupulusu'),
             email: sanitizedEmail,
             role: 'superadmin',
             mustChangePassword: false,
@@ -90,15 +94,16 @@ export const login = async (req, res, next) => {
  */
 export const getMe = async (req, res, next) => {
   try {
-    if (req.user && (req.user.id === 'fallback-super-admin-id-12345' || req.user.id === 'fallback-akshay-id-56789')) {
+    if (req.user && (req.user.id === 'fallback-super-admin-id-12345' || req.user.id === 'fallback-akshay-id-56789' || req.user.id === 'fallback-admin-id-99999')) {
       const isAkshay = req.user.id === 'fallback-akshay-id-56789';
+      const isAdmin = req.user.id === 'fallback-admin-id-99999';
       return res.status(200).json({
         success: true,
         data: {
           _id: req.user.id,
           id: req.user.id,
-          name: isAkshay ? 'Akshay Kumar Pullagura' : 'Tarun Uttupulusu',
-          email: isAkshay ? 'akshaykumarpullagura@gmail.com' : 'tarunuttupulusu@gmail.com',
+          name: isAdmin ? 'ESPACIO Admin' : (isAkshay ? 'Akshay Kumar Pullagura' : 'Tarun Uttupulusu'),
+          email: isAdmin ? 'admin@espacio.com' : (isAkshay ? 'akshaykumarpullagura@gmail.com' : 'tarunuttupulusu@gmail.com'),
           role: 'superadmin',
           mustChangePassword: false,
           status: 'active'
