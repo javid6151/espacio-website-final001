@@ -21,12 +21,12 @@ const AdminHomeHeroCMS = () => {
   // Home Hero CMS State
   const [heroState, setHeroState] = useState({
     hero_bg_images: [
-      '/images/hero/hero_bedroom.jpg',
-      '/images/hero/hero_kitchen.jpg',
-      '/images/hero/hero_kids_bedroom.jpg',
-      '/images/hero/hero_dining.jpg'
+      '/images/hero/hero_bedroom_4k.webp',
+      '/images/hero/hero_kitchen_4k.webp',
+      '/images/hero/hero_kids_bedroom_4k.webp',
+      '/images/hero/hero_dining_4k.webp'
     ],
-    hero_card_image: '',
+    hero_card_image: '/images/hero/hero_bedroom_4k.webp',
     hero_card_heading: 'We Craft the Future Dwelling',
     hero_card_cta_text: 'Our Projects',
     hero_card_cta_link: '/projects',

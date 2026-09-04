@@ -121,27 +121,19 @@ const HeroSlideshow = memo(({
             decoding="async"
             loading="eager"
             fetchPriority={idx === 0 ? "high" : "auto"}
-            initial={idx === 0 ? { opacity: 1, scale: 1.0 } : { opacity: 0, scale: 1.02 }}
-            animate={isActive ? {
-              opacity: 1,
-              scale: 1.0,
-            } : {
-              opacity: 0,
-              scale: 1.02,
+            initial={idx === 0 ? { opacity: 1 } : { opacity: 0 }}
+            animate={{
+              opacity: isActive ? 1 : 0,
             }}
             transition={{
               duration: transitionDuration,
-              ease: [0.22, 1, 0.36, 1],
-              opacity: { duration: transitionDuration * 0.85, ease: [0.4, 0, 0.2, 1] }
+              ease: [0.25, 0.1, 0.25, 1],
             }}
             style={{
               zIndex: isActive ? 2 : 1,
-              transformOrigin: idx % 2 === 0 ? 'center center' : 'top center',
-              imageRendering: 'high-quality',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden',
+              pointerEvents: 'none',
             }}
-            className={`${className} object-cover transform-gpu`}
+            className={`${className} object-cover`}
           />
         );
       })}

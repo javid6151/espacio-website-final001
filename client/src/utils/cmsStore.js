@@ -985,12 +985,12 @@ export const DEFAULT_ADMIN_USERS = [
 // ─── DEFAULT SETTINGS ─────────────────────────────────────────────────────────
 export const DEFAULT_SETTINGS = {
   hero_bg_images: [
-    '/images/hero/hero_bedroom.jpg',
-    '/images/hero/hero_kitchen.jpg',
-    '/images/hero/hero_kids_bedroom.jpg',
-    '/images/hero/hero_dining.jpg'
+    '/images/hero/hero_bedroom_4k.webp',
+    '/images/hero/hero_kitchen_4k.webp',
+    '/images/hero/hero_kids_bedroom_4k.webp',
+    '/images/hero/hero_dining_4k.webp'
   ],
-  hero_card_image: '',
+  hero_card_image: '/images/hero/hero_bedroom_4k.webp',
   hero_card_heading: 'We Craft the Future Dwelling',
   hero_card_cta_text: 'Our Projects',
   hero_card_cta_link: '/projects',
@@ -1128,13 +1128,14 @@ export const getCMSData = (key, fallback = null) => {
             try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
           }
         }
-        if (Array.isArray(data.hero_bg_images) && (data.hero_bg_images.some(img => typeof img === 'string' && (img.includes('unsplash.com') || img.includes('user_uploaded') || img.includes('company/duplex') || data.hero_bg_images.length !== 4)))) {
+        if (Array.isArray(data.hero_bg_images) && (data.hero_bg_images.some(img => typeof img === 'string' && (img.includes('unsplash.com') || img.includes('user_uploaded') || img.includes('company/duplex') || !img.includes('_4k.webp') || data.hero_bg_images.length !== 4)))) {
           data.hero_bg_images = [
-            '/images/hero/hero_bedroom.jpg',
-            '/images/hero/hero_kitchen.jpg',
-            '/images/hero/hero_kids_bedroom.jpg',
-            '/images/hero/hero_dining.jpg'
+            '/images/hero/hero_bedroom_4k.webp',
+            '/images/hero/hero_kitchen_4k.webp',
+            '/images/hero/hero_kids_bedroom_4k.webp',
+            '/images/hero/hero_dining_4k.webp'
           ];
+          data.hero_card_image = '/images/hero/hero_bedroom_4k.webp';
           try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
         }
         if (!Array.isArray(data.showcase_slides) || data.showcase_slides.length !== 4 || data.showcase_slides.some(s => s.projectImg?.includes('company/'))) {

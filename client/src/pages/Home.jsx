@@ -1034,7 +1034,7 @@ const Home = () => {
         {/* Rounded card — fills the section with smooth exit transition */}
         <motion.div
           style={{ scale: heroExitScale, opacity: heroExitOpacity, y: heroExitY }}
-          className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[40px] origin-top transform-gpu will-change-transform"
+          className="relative w-full h-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[40px] origin-top"
         >
           {/* Background Image Layer */}
           <div className="absolute inset-0 overflow-hidden">
@@ -1112,12 +1112,10 @@ const Home = () => {
                               }}
                               style={{
                                 zIndex: isActive ? 2 : 1,
-                                imageRendering: 'high-quality',
                                 WebkitBackfaceVisibility: 'hidden',
                                 backfaceVisibility: 'hidden',
-                                transform: 'translateZ(0)'
                               }}
-                              className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transform-gpu"
+                              className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
                             />
                           );
                         })}
